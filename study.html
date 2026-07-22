@@ -173,7 +173,71 @@ const chapters = [
       ]}
     ]
   },
-  {num:2, title:"Professional Policing", status:"pending"},
+  {num:2, title:"Professional Policing", status:"live",
+    unit:"Unit Goal: The evolution of police service models and styles; the organization's role in society and police organizational issues.",
+    topics:[
+      {id:"roots", label:"2.1 Historical Roots", cards:[
+        {lo:"2.1", title:"European Roots of American Policing",
+         body:"American policing traces back to English methods: the county and sheriff system, common law, and the English 'bobby' foot-patrol model. Northeastern U.S. cities (New York, Boston, Philadelphia) developed the 'watch and ward' system — 'watch' covered nighttime policing, 'ward' covered daytime. As this system grew, it also developed widespread corruption problems."}
+      ]},
+      {id:"eras", label:"2.2 Historical Eras of Policing", cards:[
+        {lo:"2.2", title:"1900s–1940s: The Reform Era",
+         body:"The automobile and radio dispatch sped up response times but pulled officers off walking beats, reducing direct citizen contact even as raw performance numbers improved. Reformers like August Vollmer pushed to professionalize policing; this era also saw the rise of the modern FBI under J. Edgar Hoover. The 1931 Wickersham Commission concluded the future of policing lay in college and university education."},
+        {lo:"2.2", title:"1950s–1970s: The Professional Model Era",
+         body:"Technology and cars further distanced officers from constant citizen contact, and the 'professional' model emphasized accountability via response time, crime stats, and complaint numbers. The 1967 President's Commission on Law Enforcement recommended college education for officers; the 1973 National Advisory Commission (NAC) set escalating minimum-education targets (1 year of college immediately, up to a bachelor's degree by 1982) — a 1986 survey found those goals were largely unmet (only 0.6% of agencies required a 4-year degree). Policing became incident-driven and radio-controlled, with specialized units pulling patrol officers out of follow-up work, further eroding community relationships."},
+        {lo:"2.2", title:"1980s–Present: Community & Problem-Oriented Policing",
+         body:"Continued technology growth, renewed interest in evaluation research, and the rise of community- and problem-oriented policing as alternatives (not full replacements) to the traditional model — with a renewed emphasis, ironically, on walking beats and direct citizen interaction."}
+      ]},
+      {id:"texas-history", label:"2.3 Policing in Texas", cards:[
+        {lo:"2.3", title:"From Spanish Military Rule to the Texas Rangers",
+         body:"For roughly 100 years as a Mexican province, policing in Texas territory was handled by the Spanish military. That ended when Texas became an independent republic after the Battle of San Jacinto (1836). Stephen F. Austin organized a militia to protect settlers from raids — this group became the Texas Rangers. Texas never developed the watch/ward system common in the Northeast because of its large territory and lack of dense urban centers early on."},
+        {lo:"2.3", title:"Elected County & Municipal Law Enforcement", cite:"Tex. Const. Art. 5 §18 (Constables) · §23 (Sheriffs) · Local Gov't Code §341.001 – .003",
+         body:"Constables and sheriffs are elected county law enforcement, established directly in the Texas Constitution. Municipal law enforcement structure depends on the type of municipality: a Type A general-law municipality's police force (§341.001), a Type C general-law municipality's police force (§341.002), and a home-rule municipality's police force (§341.003) are each authorized separately under the Local Government Code."}
+      ]},
+      {id:"tcole-licensing", label:"2.4 TCOLE Licensing Requirements", cards:[
+        {lo:"2.4", title:"Key Licensing Rule Cross-References", cite:"37 TAC (rules) ↔ Occupations Code Ch. 1701",
+         body:"<ul><li>Reporting Responsibilities of Individuals — Rule 211.27 / Occ. Code §1701.502</li><li>Minimum Standards for Initial Licensure — Rule 217.1 / §1701.301, .307</li><li>Eligibility to Take State Examinations — Rule 219.1 / §1701.304</li><li>Examinee Requirements — Rule 219.5 / §1701.304</li><li>Legislatively Required Continuing Education — Rule 218.3 / §1701.351–.354</li><li>Firearms Proficiency Requirements — Rule 218.9 / §1701.355</li><li>Reactivation of a License — Rule 217.19 / §1701.316</li></ul>Every officer is personally responsible for knowing and complying with current Commission Rules (found at tcole.texas.gov)."}
+      ]},
+      {id:"traditional-model", label:"2.5 Traditional Police Service Model", cards:[
+        {lo:"2.5", title:"Core Features of the Traditional Model",
+         body:"<ul><li><b>Reactive</b> — most workload is responding to crimes/disturbances already happening, not prevention</li><li><b>Incident-driven</b> — resolves one incident (based on limited victim/witness/suspect info) before moving to the next</li><li><b>Relies on the criminal justice system</b> as the primary resolution path</li><li><b>Measured by aggregate statistics</b> — crime rate, arrest rate — which can be skewed by many outside factors</li><li><b>Low community/employee input</b> — decisions made at management level</li><li><b>Specialized units</b> (directed patrol, traffic, investigations) used with real effectiveness</li></ul>"}
+      ]},
+      {id:"community-policing", label:"2.6 Community Policing", cards:[
+        {lo:"2.6", title:"What Is Community Policing",
+         body:"A philosophy built on police and citizens working together creatively to address crime, fear of crime, and neighborhood disorder — shifting from handling random calls to solving underlying community problems. It requires a new relationship where community members get real voice in setting local police priorities."},
+        {lo:"2.6", title:"The Community Policing Officer (CPO)",
+         body:"A CPO is freed from constant radio/patrol-car isolation to maintain direct, face-to-face contact in a defined beat area — acting as a generalist who enforces the law but also organizes and supports community-based problem-solving, and links residents to other helping agencies. The goal is for the CPO to develop real ownership of and rapport with their beat."},
+        {lo:"2.6", title:"Community Policing vs. Police-Community Relations (PCR)",
+         body:"These are often confused but structurally different:<ul><li><b>Goal</b> — Community policing aims to solve problems (better relations are a byproduct); PCR aims to change attitudes and project a positive image (relations are the main focus)</li><li><b>Structure</b> — Community policing is a full department-wide philosophy with regular officer-citizen contact; PCR is often an isolated specialty unit with irregular contact</li><li><b>Direction of influence</b> — Community policing runs bottom-up (citizens help set priorities); PCR runs top-down</li><li><b>Accountability</b> — Community policing is reinforced by the citizens receiving service directly; PCR relies on civilian review boards and formal supervision</li></ul>"},
+        {lo:"2.6", title:"Networking with Other Professionals",
+         body:"Officers should never personally refer someone to a specific private attorney or bail bondsman — this creates liability and conflict-of-interest risk. Appropriate referral points instead include: local lawyer referral services (via bar associations), the county/district attorney, small claims court (Gov't Code §28.003, for money disputes ≤$10,000, no attorney required), state mental health/mental retardation services, Texas HHS (child/elder protection, emergency financial assistance), and local crisis centers.",
+         note:"Multidisciplinary teams officers regularly partner with: Sexual Assault Response Teams (SART, county-mandated since the 87th Legislature), Multidisciplinary Teams (MDTs, child abuse), Domestic Violence High Risk Teams (DVHRTs), Care Coordination Teams for commercially sexually exploited youth (CSEY), and Child Fatality Review Teams."}
+      ]},
+      {id:"org-role", label:"2.7 Organizational Role & Procedural Justice", cards:[
+        {lo:"2.7", title:"Purpose of a Police Organization & Quality Customer Service",
+         body:"Core purposes: fight crime, serve and protect, promote public safety. Officers work for and are responsible to the citizens of their community, through the chain of command. 'Quality police customer service' means delivering expected protection in an effective, efficient, friendly manner — putting the citizen's needs ahead of the officer's or agency's personal convenience."},
+        {lo:"2.7", title:"Procedural Justice & Police Legitimacy — Definitions",
+         body:"<b>Procedural justice</b>: police legitimacy is linked to public judgments about whether police use fair processes when making decisions and exercising authority — not just whether outcomes were favorable. <b>Legitimacy</b> technically means lawful/legal, but <b>police legitimacy</b> specifically means the community's perception that police act legally and fairly — a perception, not just a legal fact."},
+        {lo:"2.7", title:"The Four Principles of Procedural Justice",
+         body:"<ul><li><b>Voice</b> — listen to people</li><li><b>Neutrality</b> — be fair</li><li><b>Respectful treatment</b> — be respectful</li><li><b>Trustworthiness</b> — comes from a fair, transparent process; explain the reasoning behind decisions/actions</li></ul>Benefits of applying these: greater officer safety, lower resistance, more acceptance of police decisions, and less reliance on threats of force for control — though building legitimacy can be harder in communities with long-standing poverty, violence, or trauma."}
+      ]},
+      {id:"customer-service", label:"2.8 Quality Customer Service", cards:[
+        {lo:"2.8", title:"Values & Rewards of Quality Police Service",
+         body:"Treating policing like a service business — placing real value on how citizens are treated, not just outcomes — builds community pride, agency reputation, and day-to-day public support that pays off especially in critical moments."}
+      ]},
+      {id:"subculture", label:"2.9 Organizational Structure & Subculture", cards:[
+        {lo:"2.9", title:"Paramilitary vs. Participative Models",
+         body:"<b>Paramilitary</b> — authoritarian, strict chain of command, prone to micromanagement. <b>Participative (alternative model)</b> — community-police partnerships are established, prioritized, and empowered rather than commanded top-down."},
+        {lo:"2.9", title:"Characteristics of Police Subculture",
+         body:"Curiosity/suspiciousness, solidarity (looking out for one another), secrecy (protection from a perceived hostile environment), political/social conservatism, cynicism, social isolation, an authoritarian approach to control and conformity, and strong mutual support during stressful times.",
+         note:"Downsides: cyclical stress, community commitment becoming secondary, and cynicism/alienation (Niederhoffer). Officers ultimately have to choose how much they let subculture pressures versus professionalism drive their conduct."}
+      ]},
+      {id:"crime-stoppers", label:"2.10 Crime Stoppers", cards:[
+        {lo:"2.10", title:"Crime Stoppers Program",
+         body:"A standardized statewide course (TCOLE Course #22911) delivered separately, ideally with a local Crime Stoppers law enforcement coordinator as co-presenter. Crime Stoppers programs let the public anonymously report tips on unsolved crimes, often with cash rewards, functioning as a community partnership tool that complements formal investigations."}
+      ]}
+    ]
+  },
   {num:3, title:"Fitness, Wellness, and Stress Management", status:"pending"},
   {num:4, title:"TCOLE Rules", status:"pending"},
   {num:5, title:"Multiculturalism and Human Relations", status:"pending"},
