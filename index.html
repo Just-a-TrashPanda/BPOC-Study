@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOC Study Hub — Fort Worth PD Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EFE4;
+    --paper-dim:#EAE4D3;
+    --ink:#221F19;
+    --ink-soft:#5B564A;
+    --navy:#132339;
+    --navy-2:#1C3552;
+    --brass:#B08B3C;
+    --brass-light:#D7B667;
+    --rule:#C9BF9F;
+    --green:#4B6A50;
+    --amber:#9B7E32;
+    --gray:#8B8674;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .cite{font-family:'IBM Plex Mono', monospace; letter-spacing:0.01em;}
+
+  header.hero{
+    background:linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+    color:#EDE7D6;
+    padding:36px 20px 28px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background-image:repeating-linear-gradient(135deg, rgba(215,182,103,0.05) 0 2px, transparent 2px 26px);
+    pointer-events:none;
+  }
+  .hero-eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin:0 0 10px;
+  }
+  .hero h1{
+    font-family:'IBM Plex Serif', serif;
+    font-weight:700;
+    font-size:28px;
+    line-height:1.15;
+    margin:0 0 8px;
+  }
+  .hero p.sub{
+    margin:0;
+    font-size:14px;
+    color:#C8C0AA;
+    max-width:60ch;
+    line-height:1.55;
+  }
+  .progress-wrap{
+    margin-top:22px;
+    max-width:420px;
+  }
+  .progress-label{
+    display:flex;
+    justify-content:space-between;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--brass-light);
+    margin-bottom:6px;
+  }
+  .progress-track{
+    height:8px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.12);
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    background:var(--brass);
+    width:24.4%;
+  }
+
+  main{max-width:840px; margin:0 auto; padding:22px 16px 60px;}
+
+  .section-block{
+    margin:30px 0 12px;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--navy);
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .section-block h2{
+    font-family:'IBM Plex Serif', serif;
+    font-size:18px;
+    margin:0;
+    font-weight:600;
+  }
+  .section-block .count{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--ink-soft);
+  }
+
+  .note{
+    font-size:12.5px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    background:var(--paper-dim);
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:12px 14px;
+    margin:14px 0 6px;
+  }
+  .note b{color:var(--ink);}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));
+    gap:10px;
+  }
+
+  .tile{
+    display:block;
+    text-decoration:none;
+    color:var(--ink);
+    background:#fff;
+    border:1px solid var(--rule);
+    border-left-width:5px;
+    border-radius:6px;
+    padding:11px 12px 12px;
+    transition:transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  a.tile:hover{
+    transform:translateY(-1px);
+    box-shadow:0 3px 10px rgba(19,35,57,0.10);
+  }
+  .tile.status-live{border-left-color:var(--green);}
+  .tile.status-progress{border-left-color:var(--amber);}
+  .tile.status-locked{border-left-color:var(--gray); opacity:0.62; cursor:default;}
+  .status-live .tile-status{background:var(--green);}
+
+  .tile-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    color:var(--ink-soft);
+    margin-bottom:3px;
+  }
+  .tile-title{
+    font-family:'IBM Plex Serif', serif;
+    font-weight:600;
+    font-size:13.5px;
+    line-height:1.3;
+    margin-bottom:7px;
+  }
+  .tile-status{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    font-weight:600;
+    padding:2px 7px;
+    border-radius:4px;
+    color:#fff;
+  }
+  .status-live .tile-status{background:var(--green);}
+  .status-progress .tile-status{background:var(--amber);}
+  .status-locked .tile-status{background:var(--gray);}
+
+  .supp-card{
+    display:block;
+    text-decoration:none;
+    color:var(--ink);
+    background:#fff;
+    border:1px solid var(--rule);
+    border-left-width:5px;
+    border-radius:6px;
+    padding:14px 16px;
+    margin-bottom:10px;
+  }
+  a.supp-card:hover{box-shadow:0 3px 10px rgba(19,35,57,0.10);}
+  .supp-card.status-live{border-left-color:var(--green);}
+  .supp-card.status-locked{border-left-color:var(--gray); opacity:0.62; cursor:default;}
+  .supp-name{
+    font-family:'IBM Plex Serif', serif;
+    font-weight:600;
+    font-size:15px;
+    margin-bottom:3px;
+  }
+  .supp-desc{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+
+  .legend{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    font-size:11.5px;
+    color:var(--ink-soft);
+    margin-top:14px;
+  }
+  .legend span{display:inline-flex; align-items:center; gap:5px;}
+  .legend i{width:9px; height:9px; border-radius:2px; display:inline-block;}
+
+  footer{
+    text-align:center;
+    padding:26px 14px 12px;
+    font-size:11.5px;
+    color:var(--ink-soft);
+  }
+
+  @media (min-width:600px){
+    .hero h1{font-size:32px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="hero-eyebrow">Fort Worth PD Academy · Class Study Resource</p>
+  <h1>BPOC Study Hub</h1>
+  <p class="sub">Shared chapter references and supplemental code materials for the Basic Peace Officer Course and TCOLE exam prep. Built by the class, for the class — not an official TCOLE or academy publication.</p>
+
+  <div class="progress-wrap">
+    <div class="progress-label"><span>CHAPTERS COVERED</span><span>10 / 43</span></div>
+    <div class="progress-track"><div class="progress-fill"></div></div>
+  </div>
+
+  <a href="study.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:var(--brass);color:#221F19;font-weight:600;font-size:13.5px;padding:10px 16px;border-radius:8px;text-decoration:none;font-family:'IBM Plex Sans',sans-serif;">Open Study Reference &rarr;</a>
+</header>
+
+<main>
+
+<div class="section-block">
+  <h2>BPOC Chapters</h2>
+  <span class="count">41 total</span>
+</div>
+
+<div class="note">
+  <b>Status key:</b> chapters we've covered in class are marked <b>in progress</b> until the chapter content is built out here — send over the chapter PDFs and they'll get converted into a reference page like the Penal Code one below. Chapters we haven't reached yet are <b>locked</b> and will open up as we go.
+</div>
+
+<div class="grid" id="chapter-grid"></div>
+
+<div class="legend">
+  <span><i style="background:#4B6A50"></i>Live reference</span>
+  <span><i style="background:#9B7E32"></i>Covered — content pending</span>
+  <span><i style="background:#8B8674"></i>Not yet covered</span>
+</div>
+
+<div class="section-block">
+  <h2>Supplemental Materials</h2>
+  <span class="count">Codes &amp; statutes</span>
+</div>
+
+<a class="supp-card status-live" href="supplemental/penal-code.html">
+  <div class="supp-name">Texas Penal Code — Offense Reference</div>
+  <div class="supp-desc">Statute, plain-language definition, punishment range, and enhancements by title. Includes the felony/misdemeanor grade ladder and theft value ladder.</div>
+</a>
+
+<a class="supp-card status-locked">
+  <div class="supp-name">Texas Transportation Code</div>
+  <div class="supp-desc">Coming soon — traffic stops, licensing, vehicle equipment, and crash-related provisions relevant to patrol.</div>
+</a>
+
+<a class="supp-card status-locked">
+  <div class="supp-name">Code of Criminal Procedure</div>
+  <div class="supp-desc">Coming soon — arrest, search &amp; seizure, warrants, and procedural requirements.</div>
+</a>
+
+<div class="note">
+  <b>Have a supplemental resource to add?</b> Send the source material (PDF, statute excerpt, agency policy, etc.) and it'll get built out in this same format.
+</div>
+
+</main>
+
+<footer>Built for study purposes by and for the FWPD Academy class · Not an official TCOLE or academy publication · Always verify against current statute and academy materials</footer>
+
+<script>
+  const total = 43;
+  const built = [9,10]; // chapters with a live reference page in study.html
+  const inProgress = 10; // chapters covered in class so far
+  const grid = document.getElementById('chapter-grid');
+  for(let i=1;i<=total;i++){
+    let status, label;
+    if(built.includes(i)){ status='live'; label='Live'; }
+    else if(i<=inProgress){ status='progress'; label='In progress'; }
+    else{ status='locked'; label='Locked'; }
+    const el = document.createElement(status==='locked' ? 'div' : 'a');
+    el.className = `tile status-${status}`;
+    if(status!=='locked') el.href = `study.html?ch=${i}`;
+    el.innerHTML = `<div class="tile-num">CH ${String(i).padStart(2,'0')}</div><div class="tile-title">Chapter ${i}</div><span class="tile-status">${label}</span>`;
+    grid.appendChild(el);
+  }
+</script>
+
+</body>
+</html>

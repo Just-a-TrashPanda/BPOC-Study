@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Penal Code — TCOLE Study Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EFE4;
+    --paper-dim:#EAE4D3;
+    --ink:#221F19;
+    --ink-soft:#5B564A;
+    --navy:#132339;
+    --navy-2:#1C3552;
+    --brass:#B08B3C;
+    --brass-light:#D7B667;
+    --rule:#C9BF9F;
+
+    /* grade ladder, low -> high severity */
+    --c-c:#4B6A50;
+    --c-b:#6F7A3E;
+    --c-a:#9B7E32;
+    --c-sj:#B4712E;
+    --c-3:#A6472E;
+    --c-2:#8C2F2E;
+    --c-1:#6B1F2E;
+    --c-cap:#3E1621;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .cite{font-family:'IBM Plex Mono', monospace; letter-spacing:0.01em;}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    background:
+      linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+    color:#EDE7D6;
+    padding:34px 20px 26px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(135deg, rgba(215,182,103,0.05) 0 2px, transparent 2px 26px);
+    pointer-events:none;
+  }
+  .hero-eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin:0 0 10px;
+  }
+  .hero h1{
+    font-family:'IBM Plex Serif', serif;
+    font-weight:700;
+    font-size:26px;
+    line-height:1.15;
+    margin:0 0 8px;
+  }
+  .hero p.sub{
+    margin:0;
+    font-size:14px;
+    color:#C8C0AA;
+    max-width:56ch;
+    line-height:1.5;
+  }
+
+  /* ladder legend */
+  .ladder{
+    display:flex;
+    margin-top:22px;
+    border-radius:8px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.12);
+  }
+  .ladder-cell{
+    flex:1;
+    padding:8px 4px 8px;
+    text-align:center;
+    font-size:9.5px;
+    line-height:1.3;
+    color:#F3EFE4;
+    border-right:1px solid rgba(0,0,0,0.18);
+  }
+  .ladder-cell:last-child{border-right:none;}
+  .ladder-cell .rng{display:block; font-family:'IBM Plex Mono',monospace; font-size:8.5px; opacity:0.85; margin-top:3px; line-height:1.5;}
+  .ladder-cell.cap{background:var(--c-cap);}
+  .ladder-cell.f1{background:var(--c-1);}
+  .ladder-cell.f2{background:var(--c-2);}
+  .ladder-cell.f3{background:var(--c-3);}
+  .ladder-cell.sj{background:var(--c-sj);}
+  .ladder-cell.ma{background:var(--c-a);}
+  .ladder-cell.mb{background:var(--c-b);}
+  .ladder-cell.mc{background:var(--c-c);}
+
+  /* ---------- FILTER CHIPS ---------- */
+  nav.chips{
+    position:sticky; top:0; z-index:20;
+    background:var(--paper);
+    border-bottom:1px solid var(--rule);
+    padding:10px 14px;
+    display:flex; gap:7px; overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  nav.chips::-webkit-scrollbar{display:none;}
+  .chip{
+    flex:none;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    padding:7px 13px;
+    border-radius:999px;
+    border:1px solid var(--rule);
+    background:#fff;
+    color:var(--ink-soft);
+    cursor:pointer;
+    white-space:nowrap;
+    transition:all 0.15s ease;
+  }
+  .chip.active{
+    background:var(--navy);
+    border-color:var(--navy);
+    color:#F3EFE4;
+  }
+
+  /* ---------- MAIN ---------- */
+  main{max-width:760px; margin:0 auto; padding:18px 14px 60px;}
+
+  .title-block{
+    margin:26px 0 12px;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--navy);
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .title-block .num{
+    font-family:'IBM Plex Serif', serif;
+    font-weight:700;
+    font-size:13px;
+    color:var(--brass);
+    background:var(--navy);
+    padding:3px 9px;
+    border-radius:4px;
+  }
+  .title-block h2{
+    font-family:'IBM Plex Serif', serif;
+    font-size:17px;
+    margin:0;
+    font-weight:600;
+  }
+
+  .offense{
+    background:#fff;
+    border:1px solid var(--rule);
+    border-left-width:5px;
+    border-radius:6px;
+    padding:12px 14px 13px;
+    margin-bottom:10px;
+  }
+  .offense.g-cap{border-left-color:var(--c-cap);}
+  .offense.g-f1{border-left-color:var(--c-1);}
+  .offense.g-f2{border-left-color:var(--c-2);}
+  .offense.g-f3{border-left-color:var(--c-3);}
+  .offense.g-sj{border-left-color:var(--c-sj);}
+  .offense.g-ma{border-left-color:var(--c-a);}
+  .offense.g-mb{border-left-color:var(--c-b);}
+  .offense.g-mc{border-left-color:var(--c-c);}
+  .offense.g-var{border-left-color:var(--rule);}
+
+  .offense-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:4px;
+  }
+  .offense-name{
+    font-family:'IBM Plex Serif', serif;
+    font-weight:600;
+    font-size:15px;
+    line-height:1.3;
+  }
+  .offense-cite{
+    font-size:11px;
+    color:var(--ink-soft);
+    margin-top:1px;
+  }
+  .grade-badge{
+    flex:none;
+    font-size:10px;
+    font-weight:600;
+    padding:3px 8px;
+    border-radius:4px;
+    color:#fff;
+    white-space:nowrap;
+    text-align:center;
+  }
+  .grade-badge.g-cap{background:var(--c-cap);}
+  .grade-badge.g-f1{background:var(--c-1);}
+  .grade-badge.g-f2{background:var(--c-2);}
+  .grade-badge.g-f3{background:var(--c-3);}
+  .grade-badge.g-sj{background:var(--c-sj);}
+  .grade-badge.g-ma{background:var(--c-a);}
+  .grade-badge.g-mb{background:var(--c-b);}
+  .grade-badge.g-mc{background:var(--c-c);}
+  .grade-badge.g-var{background:var(--ink-soft);}
+
+  .offense-def{
+    font-size:13.5px;
+    line-height:1.5;
+    margin:6px 0 8px;
+    color:var(--ink);
+  }
+  .offense-penalty{
+    font-size:12.5px;
+    line-height:1.5;
+    margin:0 0 6px;
+  }
+  .offense-penalty b{font-weight:600;}
+  .enh{
+    font-size:12.5px;
+    line-height:1.5;
+    background:var(--paper-dim);
+    border-radius:5px;
+    padding:7px 10px;
+    margin-top:4px;
+  }
+  .enh .lbl{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--brass);
+    display:block;
+    margin-bottom:3px;
+    font-weight:600;
+  }
+
+  .note{
+    font-size:12px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    background:var(--paper-dim);
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:12px 14px;
+    margin:16px 0 6px;
+  }
+  .note b{color:var(--ink);}
+
+  footer{
+    text-align:center;
+    padding:24px 14px 10px;
+    font-size:11.5px;
+    color:var(--ink-soft);
+  }
+
+  @media (min-width:600px){
+    .hero h1{font-size:30px;}
+    .ladder-cell{font-size:10.5px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="hero-eyebrow">TCOLE Exam Prep · Study Reference Only</p>
+  <h1>Texas Penal Code<br>Offense Reference</h1>
+  <p class="sub">Statute, plain-language definition, base punishment range, and common enhancements — organized by Penal Code Title. Not legal advice; the legislature amends these sections almost every session, so verify against the current code before relying on this for anything but study.</p>
+  <a href="../index.html" style="display:inline-block;margin-top:16px;font-size:12.5px;color:#D7B667;text-decoration:none;font-family:'IBM Plex Mono',monospace;">&larr; Back to hub</a>
+
+  <div class="ladder">
+    <div class="ladder-cell mc">Class C<span class="rng">Fine ≤$500</span></div>
+    <div class="ladder-cell mb">Class B<span class="rng">≤180 days<br>Fine ≤$2,000</span></div>
+    <div class="ladder-cell ma">Class A<span class="rng">≤1 yr<br>Fine ≤$4,000</span></div>
+    <div class="ladder-cell sj">State Jail<span class="rng">180d–2yr<br>Fine ≤$10,000</span></div>
+    <div class="ladder-cell f3">Felony 3<span class="rng">2–10 yr<br>Fine ≤$10,000</span></div>
+    <div class="ladder-cell f2">Felony 2<span class="rng">2–20 yr<br>Fine ≤$10,000</span></div>
+    <div class="ladder-cell f1">Felony 1<span class="rng">5–99/life<br>Fine ≤$10,000</span></div>
+    <div class="ladder-cell cap">Capital<span class="rng">Life/Death<br>No fine</span></div>
+  </div>
+
+  <p class="hero-eyebrow" style="margin-top:20px;">Theft &amp; Criminal Mischief Value Ladder</p>
+  <div class="ladder">
+    <div class="ladder-cell mc">Class C<span class="rng">&lt;$100</span></div>
+    <div class="ladder-cell mb">Class B<span class="rng">$100–$750</span></div>
+    <div class="ladder-cell ma">Class A<span class="rng">$750–$2,500</span></div>
+    <div class="ladder-cell sj">State Jail<span class="rng">$2,500–$30k</span></div>
+    <div class="ladder-cell f3">Felony 3<span class="rng">$30k–$150k</span></div>
+    <div class="ladder-cell f2">Felony 2<span class="rng">$150k–$300k</span></div>
+    <div class="ladder-cell f1">Felony 1<span class="rng">$300k+</span></div>
+  </div>
+</header>
+
+<nav class="chips" id="chips">
+  <button class="chip active" data-t="all">All</button>
+  <button class="chip" data-t="t1">Title 1 · Intro</button>
+  <button class="chip" data-t="t2">Title 2 · Responsibility</button>
+  <button class="chip" data-t="t3">Title 3 · Punishments</button>
+  <button class="chip" data-t="t4">Title 4 · Inchoate</button>
+  <button class="chip" data-t="t5">Title 5 · Person</button>
+  <button class="chip" data-t="t6">Title 6 · Family</button>
+  <button class="chip" data-t="t7">Title 7 · Property</button>
+  <button class="chip" data-t="t8">Title 8 · Pub. Admin</button>
+  <button class="chip" data-t="t9">Title 9 · Pub. Order</button>
+  <button class="chip" data-t="t10">Title 10 · Health/Safety</button>
+  <button class="chip" data-t="t11">Title 11 · Org. Crime</button>
+  <button class="chip" data-t="t12">Title 12 · Terrorism</button>
+  <button class="chip" data-t="gen">General Enhancements</button>
+</nav>
+
+<main>
+
+<!-- ============ TITLE 1 ============ -->
+<div class="tsec" data-t="t1">
+<div class="title-block"><span class="num">TITLE 1</span><h2>Introductory Provisions</h2></div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Purposes &amp; Objectives of the Code</div><div class="offense-cite cite">Ch. 1</div></div>
+  </div>
+  <p class="offense-def">Chapter 1 states why the Penal Code exists: to establish clear boundaries between criminal and noncriminal conduct, define culpable mental states, prescribe fair warning of what's prohibited, and give courts consistent, proportionate punishment ranges. It also sets territorial jurisdiction — Texas has jurisdiction if any element of the offense (the conduct or the result) occurs inside the state.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Key Statutory Definitions</div><div class="offense-cite cite">§1.07</div></div>
+  </div>
+  <p class="offense-def">The Code's master definitions section. Distinguishes <b>felony</b> (an offense so designated by law, or punishable by death or imprisonment) from <b>misdemeanor</b> (an offense punishable only by fine, jail, or both). Also defines terms used throughout the code: "bodily injury," "serious bodily injury," "deadly weapon," "deception," "effective consent," "possession," "public place," and "individual" vs. "person" (a "person" can include a corporation or association; an "individual" means a human being).</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Burden of Proof</div><div class="offense-cite cite">Ch. 2</div></div>
+  </div>
+  <p class="offense-def">Establishes the presumption of innocence and requires the State to prove every element of an offense beyond a reasonable doubt. Distinguishes elements of the offense (State's burden) from <b>affirmative defenses</b>, which the defendant must prove by a preponderance of the evidence (a lower standard than beyond a reasonable doubt).</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Multiple Prosecutions</div><div class="offense-cite cite">Ch. 3</div></div>
+  </div>
+  <p class="offense-def">Governs when offenses arising from the same criminal episode can be consolidated into a single trial, and interacts with double-jeopardy protections (which actually derive from the U.S. and Texas Constitutions, not this chapter) to limit multiple punishments for the same conduct.</p>
+</div>
+</div>
+
+<!-- ============ TITLE 2 ============ -->
+<div class="tsec" data-t="t2">
+<div class="title-block"><span class="num">TITLE 2</span><h2>General Principles of Criminal Responsibility</h2></div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Culpable Mental States (Mens Rea)</div><div class="offense-cite cite">§6.02–6.03</div></div>
+  </div>
+  <p class="offense-def">Almost every offense requires proof of one of four mental states, ranked from most to least culpable:</p>
+  <p class="offense-penalty"><b>Intentional</b> — conscious objective or desire to engage in the conduct or cause the result.<br><b>Knowing</b> — aware of the nature of the conduct/circumstances, or aware the conduct is reasonably certain to cause the result.<br><b>Reckless</b> — aware of but consciously disregards a substantial and unjustifiable risk; a gross deviation from how an ordinary person would act.<br><b>Criminal Negligence</b> — should have been aware of a substantial and unjustifiable risk but wasn't; failing to perceive it is a gross deviation from ordinary care.</p>
+  <p class="offense-penalty">If a statute defining an offense doesn't specify a mental state, one is still required — intent, knowledge, or recklessness suffices unless the statute plainly dispenses with a mental state.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Parties to Offenses</div><div class="offense-cite cite">Ch. 7</div></div>
+  </div>
+  <p class="offense-def">A person is criminally responsible for an offense committed by another's conduct if they act with intent to promote or assist the commission of the offense and solicit, encourage, direct, aid, or attempt to aid the other person. This is the "law of parties" — it lets someone be convicted for a crime they didn't personally commit if they helped bring it about. Under §7.02(b), a party can even be responsible for a second, unintended felony if it was committed in furtherance of the conspiracy and should have been anticipated.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">General Defenses to Criminal Responsibility</div><div class="offense-cite cite">Ch. 8</div></div>
+  </div>
+  <p class="offense-def">Circumstances that can excuse or negate criminal responsibility even though the conduct occurred:</p>
+  <p class="offense-penalty"><b>Mistake of fact</b> — a reasonable belief about a fact that negates the required mental state.<br><b>Mistake of law</b> — a narrow defense limited to reasonable reliance on an official statement of the law later found wrong.<br><b>Intoxication</b> — voluntary intoxication is not a defense to the commission of an offense, though it can be relevant at punishment.<br><b>Duress</b> — compulsion by threat of imminent death or serious bodily injury to oneself or another.<br><b>Entrapment</b> — law enforcement induced the offense through persuasion likely to cause an otherwise law-abiding person to commit it (merely providing an opportunity is not entrapment).<br><b>Age</b> — no criminal responsibility for conduct committed by a child younger than 10 (10–16 generally proceed through the juvenile system).<br><b>Insanity</b> — as a result of severe mental disease/defect, the actor did not know their conduct was wrong.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Justification Excluding Criminal Responsibility</div><div class="offense-cite cite">Ch. 9</div></div>
+  </div>
+  <p class="offense-def">Unlike Chapter 8 defenses, a justification says the conduct itself was legally right under the circumstances — the core self-defense and use-of-force chapter for TCOLE purposes:</p>
+  <p class="offense-penalty"><b>Necessity</b> (§9.22) — conduct is justified when it's immediately necessary to avoid a greater harm, and a reasonable person would agree.<br><b>Self-Defense</b> (§9.31–9.32) — force is justified when and to the degree the actor reasonably believes it's immediately necessary to protect against another's use or attempted use of unlawful force; deadly force adds further conditions (reasonable belief deadly force is immediately necessary to protect against death, serious bodily injury, or certain violent felonies).<br><b>Defense of Third Person</b> (§9.33) — stands in the shoes of the person being defended.<br><b>Defense of Property</b> (§9.41–9.43) — force (and, in limited circumstances, deadly force) to protect one's own or another's property from trespass or theft.<br><b>Law Enforcement's Use of Force</b> (§9.51) — an officer making an arrest or search is justified in using force (and, in narrower circumstances, deadly force) to the degree reasonably believed necessary, subject to specific conditions the academy will cover in depth.</p>
+</div>
+</div>
+
+<!-- ============ TITLE 3 ============ -->
+<div class="tsec" data-t="t3">
+<div class="title-block"><span class="num">TITLE 3</span><h2>Punishments</h2></div>
+
+<div class="note" style="margin:0 0 10px;">
+  <b>Base punishment ranges (Ch. 12):</b> Class C — fine up to $500 only. Class B — up to 180 days jail and/or up to $2,000. Class A — up to 1 year jail and/or up to $4,000. State Jail Felony — 180 days to 2 years state jail, plus up to $10,000 fine. 3rd Degree Felony — 2–10 years, plus up to $10,000 fine. 2nd Degree Felony — 2–20 years, plus up to $10,000 fine. 1st Degree Felony — 5–99 years or life, plus up to $10,000 fine. Capital Felony — life without parole, or death.
+</div>
+
+<div class="note" style="margin:0;">
+  Chapter 12 also sets out the general enhancement provisions that can raise punishment above these base ranges — repeat/habitual offender rules, deadly weapon findings, bias motivation, and more. See the <b>General Enhancements</b> tab for the full list.
+</div>
+</div>
+
+<!-- ============ GENERAL ENHANCEMENTS ============ -->
+<div class="tsec" data-t="gen">
+<div class="title-block"><span class="num">CH. 12</span><h2>General Punishment Enhancements</h2></div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Repeat &amp; Habitual Felony Offender</div><div class="offense-cite cite">§12.42</div></div>
+  </div>
+  <p class="offense-def">Applies when a defendant on trial for a felony has one or more prior, sequential felony convictions (state jail priors generally excluded from triggering these bumps).</p>
+  <p class="offense-penalty">One prior felony: 3rd degree → punished as <b>2nd degree</b>; 2nd degree → punished as <b>1st degree</b>; 1st degree → <b>15–99 yrs/life</b>. Two sequential prior felonies (any degree except state jail, on trial for any felony except state jail): <b>25–99 yrs/life</b>.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Repeat Misdemeanor Offender</div><div class="offense-cite cite">§12.43</div></div>
+  </div>
+  <p class="offense-def">A prior Class A/B conviction (or any felony) raises the minimum on a new Class A or B charge.</p>
+  <p class="offense-penalty">Class A with a qualifying prior: 90-day minimum confinement. Class B with a qualifying prior: 30-day minimum confinement.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Deadly Weapon Finding</div><div class="offense-cite cite">§1.07(a)(17); Art. 42A.054 CCP</div></div>
+  </div>
+  <p class="offense-def">A firearm, or anything manifestly designed for or capable of causing death/serious bodily injury in the manner used, that the actor used or exhibited (or knew a party would use) during the offense or immediate flight.</p>
+  <p class="offense-penalty">Doesn't change the offense grade directly, but is entered as an affirmative finding that restricts parole eligibility and community supervision, and can bump a state jail felony under §12.35(c) to a <b>3rd degree felony</b>.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Bias or Prejudice Motivation</div><div class="offense-cite cite">§12.47</div></div>
+  </div>
+  <p class="offense-def">An affirmative finding that the offense was committed because of bias or prejudice against a group.</p>
+  <p class="offense-penalty">Raises punishment to the next higher offense category (does not apply to 1st degree felonies or Class A misdemeanors, which are already the top of their class).</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Drug-Facilitated Offense</div><div class="offense-cite cite">§12.49</div></div>
+  </div>
+  <p class="offense-def">An affirmative finding that a controlled substance was administered to the victim of a robbery, theft, or offense against the person.</p>
+  <p class="offense-penalty">Raises punishment to the next higher offense category.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Disaster / Evacuation Area</div><div class="offense-cite cite">§12.50</div></div>
+  </div>
+  <p class="offense-def">Assault, robbery, burglary, or theft committed within an area under a declared disaster or emergency evacuation order.</p>
+  <p class="offense-penalty">Raises punishment to the next higher category; for a Class A misdemeanor, raises the minimum confinement to 180 days instead of changing the grade.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Weapon-Free School Zone</div><div class="offense-cite cite">§46.11</div></div>
+  </div>
+  <p class="offense-def">A Chapter 46 weapons offense committed in a place the actor knew was within 300 feet of a school, at a school function, or at a UIL event.</p>
+  <p class="offense-penalty">Raises punishment to the next higher offense category.</p>
+</div>
+</div>
+
+<!-- ============ TITLE 4 ============ -->
+<div class="tsec" data-t="t4">
+<div class="title-block"><span class="num">TITLE 4</span><h2>Inchoate Offenses</h2></div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Criminal Attempt</div><div class="offense-cite cite">§15.01</div></div>
+    <span class="grade-badge g-var">−1 category</span>
+  </div>
+  <p class="offense-def">With specific intent to commit an offense, doing an act amounting to more than mere preparation that tends but fails to bring about the offense. It's no defense that the completed offense was actually committed.</p>
+  <p class="offense-penalty">Punished <b>one category lower</b> than the offense attempted (a state-jail-felony attempt is a Class A misdemeanor). Exception effective Sept. 1, 2025: attempted capital murder of a peace officer is <b>not</b> reduced — it's a 1st degree felony with a 25-year minimum and no parole eligibility under the standard rules.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Criminal Conspiracy</div><div class="offense-cite cite">§15.02</div></div>
+    <span class="grade-badge g-var">−1 category</span>
+  </div>
+  <p class="offense-def">With intent that a felony be committed, agreeing with one or more persons that they (or one of them) will engage in conduct constituting the offense, plus an overt act by any conspirator in pursuance of the agreement. The overt act itself can be nothing more than preparation.</p>
+  <p class="offense-penalty">Punished one category lower than the most serious felony object of the conspiracy.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Criminal Solicitation</div><div class="offense-cite cite">§15.03</div></div>
+    <span class="grade-badge g-var">F1 / F2</span>
+  </div>
+  <p class="offense-def">With intent that a capital felony or 1st degree felony be committed, requesting, commanding, or attempting to induce another to engage in conduct that would constitute that felony. A conviction requires corroboration — it can't rest on the uncorroborated word of the person solicited.</p>
+  <p class="offense-penalty">Solicitation of a capital felony: <b>1st degree felony</b>. Solicitation of a 1st degree felony: <b>2nd degree felony</b>.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Criminal Solicitation of a Minor</div><div class="offense-cite cite">§15.031</div></div>
+    <span class="grade-badge g-var">−1 category</span>
+  </div>
+  <p class="offense-def">With intent that certain listed offenses be committed, requesting, commanding, or attempting to induce a minor (under 17) to engage in conduct that would constitute the offense or make the minor a party to it. Unlike §15.03, this reaches felonies below the 1st-degree/capital threshold.</p>
+  <p class="offense-penalty">Generally one category lower than the felony solicited (e.g., soliciting a 2nd degree felony is a 3rd degree felony), except that soliciting certain serious offenses (capital murder, trafficking, specified sexual offenses) is itself a 1st degree felony regardless of the underlying grade.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Renunciation Defense</div><div class="offense-cite cite">§15.04</div></div>
+  </div>
+  <p class="offense-def">An affirmative defense to attempt, conspiracy, or solicitation if the actor voluntarily and completely renounced the criminal objective — by abandoning the conduct, or by taking further affirmative action that prevented the offense — and the renunciation wasn't just motivated by a fear of getting caught or a decision to postpone or redirect the crime.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Criminal Instruments &amp; Unlawful Interception</div><div class="offense-cite cite">Ch. 16</div></div>
+    <span class="grade-badge g-var">SJ / F2</span>
+  </div>
+  <p class="offense-def">Covers possession of criminal instruments (something specially made or adapted for criminal use), unlawful interception of wire, oral, or electronic communications, and unlawful installation of a tracking device on a motor vehicle without the owner's/operator's consent.</p>
+  <p class="offense-penalty">Possession of a criminal instrument: <b>state jail felony</b>. Unlawful interception: <b>2nd degree felony</b>. Unlawful tracking device installation: <b>state jail felony</b>.</p>
+</div>
+</div>
+
+<!-- ============ TITLE 5 ============ -->
+<div class="tsec" data-t="t5">
+<div class="title-block"><span class="num">TITLE 5</span><h2>Offenses Against the Person</h2></div>
+
+<div class="offense g-cap">
+  <div class="offense-head">
+    <div><div class="offense-name">Capital Murder</div><div class="offense-cite cite">§19.03</div></div>
+    <span class="grade-badge g-cap">Capital</span>
+  </div>
+  <p class="offense-def">Murder plus an aggravating factor — e.g. victim is a peace officer/firefighter on duty, multiple victims, murder for hire, victim under 10, murder during kidnapping/robbery/burglary/sexual assault/arson, or while incarcerated.</p>
+  <p class="offense-penalty">Life without parole, or death if the State seeks it (juveniles/certain offenders excluded from LWOP by law).</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Murder</div><div class="offense-cite cite">§19.02</div></div>
+    <span class="grade-badge g-var">F1 / F2</span>
+  </div>
+  <p class="offense-def">Intentionally or knowingly causing death, or intending serious bodily injury and committing an act clearly dangerous to human life that causes death, or causing death during a felony.</p>
+  <p class="offense-penalty"><b>1st degree felony.</b> Reduced to <b>2nd degree felony</b> if caused under the immediate influence of sudden passion arising from an adequate cause.</p>
+</div>
+
+<div class="offense g-f2">
+  <div class="offense-head">
+    <div><div class="offense-name">Manslaughter</div><div class="offense-cite cite">§19.04</div></div>
+    <span class="grade-badge g-f2">Felony 2</span>
+  </div>
+  <p class="offense-def">Recklessly causing the death of an individual.</p>
+  <p class="offense-penalty">2nd degree felony.</p>
+</div>
+
+<div class="offense g-sj">
+  <div class="offense-head">
+    <div><div class="offense-name">Criminally Negligent Homicide</div><div class="offense-cite cite">§19.05</div></div>
+    <span class="grade-badge g-sj">State Jail</span>
+  </div>
+  <p class="offense-def">Causing a death through criminal negligence (failure to perceive a substantial and unjustifiable risk).</p>
+  <p class="offense-penalty">State jail felony.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Kidnapping / Aggravated Kidnapping</div><div class="offense-cite cite">§20.03 / §20.04</div></div>
+    <span class="grade-badge g-var">F3 / F1 / F2</span>
+  </div>
+  <p class="offense-def">Kidnapping = intentionally or knowingly abducting another. Aggravated = abduction plus intent to hold for ransom, use as a shield/hostage, facilitate a felony, terrorize, or inflict injury/sexual abuse.</p>
+  <p class="offense-penalty"><b>Kidnapping:</b> 3rd degree felony. <b>Aggravated Kidnapping:</b> 1st degree felony; drops to <b>2nd degree</b> if the actor voluntarily releases the victim in a safe place.</p>
+</div>
+
+<div class="offense g-mc">
+  <div class="offense-head">
+    <div><div class="offense-name">Leaving a Child in a Vehicle</div><div class="offense-cite cite">§22.10</div></div>
+    <span class="grade-badge g-mc">Class C</span>
+  </div>
+  <p class="offense-def">Intentionally or knowingly leaving a child younger than 7 alone in a motor vehicle for longer than five minutes, with no one 14 or older attending them in the vehicle.</p>
+  <p class="offense-penalty">Class C misdemeanor.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Unlawful Restraint</div><div class="offense-cite cite">§20.02</div></div>
+    <span class="grade-badge g-var">A / SJ / F3 / F2</span>
+  </div>
+  <p class="offense-def">Intentionally or knowingly restricting another's movement without consent so as to interfere substantially with their liberty, by moving or confining them.</p>
+  <p class="offense-penalty">Base: <b>Class A misdemeanor</b>.</p>
+  <div class="enh"><span class="lbl">Enhancements</span>State jail felony if victim is under 17. 3rd degree felony if committed recklessly exposing the victim to substantial risk of serious bodily injury, against a public servant on duty, or by an actor already in custody/civil commitment. <b>2nd degree felony</b> if the victim is a peace officer or judge on duty (this overrides the public-servant 3rd degree tier).</div>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Assault</div><div class="offense-cite cite">§22.01</div></div>
+    <span class="grade-badge g-var">C / A / F3 / F2</span>
+  </div>
+  <p class="offense-def">Intentionally, knowingly, or recklessly causing bodily injury to another; threatening another with imminent bodily injury; or causing offensive/provocative physical contact.</p>
+  <p class="offense-penalty">Threat or offensive contact only: <b>Class C</b>. Causing bodily injury: <b>Class A</b>.</p>
+  <div class="enh"><span class="lbl">Enhancements</span>
+  Class B if against a sports participant (by a non-participant), or (as a separate Class A tier) if the offensive-contact/threat form targets a pregnant individual to force an abortion. <b>3rd degree felony</b> if against: a public servant on duty; a security officer, process server, or emergency-services worker on duty; hospital personnel on hospital property; a utility employee/agent on duty; a pregnant individual (to force an abortion, or simply known to be pregnant); or a family/household member with a prior family-violence conviction. <b>2nd degree felony</b> if by strangulation/suffocation, or against a peace officer/judge on duty; strangulation against a family member with a prior conviction is also 2nd degree. Family-violence findings attach collateral consequences at any grade; repeated bodily-injury assaults against a family member can also be charged as Continuous Family Violence (§25.11, 3rd degree felony).</div>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Indecent Assault</div><div class="offense-cite cite">§22.012</div></div>
+    <span class="grade-badge g-var">A / SJ / F3 / F2</span>
+  </div>
+  <p class="offense-def">Without consent and with intent to arouse or gratify sexual desire, touching another's anus, breast, or genitals (or causing such contact), exposing another's intimate areas, or causing contact with bodily fluids. Added in 2019 to cover conduct not otherwise reaching the sexual assault threshold.</p>
+  <p class="offense-penalty">Base: <b>Class A misdemeanor</b>. <b>State jail felony</b> with a qualifying prior conviction, or if committed by a health/mental-health provider beyond the scope of treatment. <b>3rd degree felony</b> with a prior provider-abuse conviction. <b>2nd degree felony</b> if the victim is elderly or disabled.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Aggravated Assault</div><div class="offense-cite cite">§22.02</div></div>
+    <span class="grade-badge g-var">F2 / F1</span>
+  </div>
+  <p class="offense-def">Assault that causes serious bodily injury, or in which the actor uses or exhibits a deadly weapon.</p>
+  <p class="offense-penalty">Base: <b>2nd degree felony</b>.</p>
+  <div class="enh"><span class="lbl">Enhancements</span>Becomes a <b>1st degree felony</b> if committed against a public servant/informant/witness in retaliation, a process server or security officer on duty, during a drive-by shooting, as part of a mass shooting (added 2025), or — with a deadly weapon — causing serious bodily injury to a family/household member or a traumatic brain/spine injury resulting in a persistent vegetative state or irreversible paralysis (added 2025).</div>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Sexual Assault / Aggravated Sexual Assault</div><div class="offense-cite cite">§22.011 / §22.021</div></div>
+    <span class="grade-badge g-var">F2 / F1</span>
+  </div>
+  <p class="offense-def">Sexual Assault = intentionally or knowingly causing penetration/contact without consent. Aggravated = adds a deadly weapon, serious bodily injury, threats, a victim under 6 (or under 14 with aggravating factors), or an elderly/disabled victim.</p>
+  <p class="offense-penalty"><b>Sexual Assault:</b> 2nd degree felony (1st degree if the victim is someone the actor was legally barred from marrying). <b>Aggravated Sexual Assault:</b> 1st degree felony, with a 25-year minimum if the victim is under 6, or under 14 with threats/serious bodily injury/deadly weapon.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Injury to a Child, Elderly, or Disabled Individual</div><div class="offense-cite cite">§22.04</div></div>
+    <span class="grade-badge g-var">SJ / F3 / F2 / F1</span>
+  </div>
+  <p class="offense-def">Intentionally, knowingly, recklessly, or negligently causing bodily injury, serious bodily injury, or serious mental deficiency/impairment to a child, elderly, or disabled person.</p>
+  <p class="offense-penalty">Criminal negligence causing bodily injury: <b>state jail felony</b>. Reckless bodily injury: <b>state jail</b>; reckless serious bodily injury: <b>2nd degree</b>. Intentional/knowing bodily injury: <b>3rd degree</b>. Intentional/knowing serious bodily injury: <b>1st degree</b>.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Deadly Conduct</div><div class="offense-cite cite">§22.05</div></div>
+    <span class="grade-badge g-var">A / F3</span>
+  </div>
+  <p class="offense-def">Recklessly engaging in conduct that places another in imminent danger of serious bodily injury.</p>
+  <p class="offense-penalty">Base: <b>Class A misdemeanor</b>. <b>3rd degree felony</b> if committed by discharging a firearm at or in the direction of a person, habitation, building, or vehicle.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Terroristic Threat</div><div class="offense-cite cite">§22.07</div></div>
+    <span class="grade-badge g-var">B / A / SJ / F3</span>
+  </div>
+  <p class="offense-def">Threatening violence with intent to place a person in fear, cause an emergency response, interrupt public services, or influence a government's conduct.</p>
+  <p class="offense-penalty">Placing a person in fear / triggering an emergency response: <b>Class B</b>. Family-violence context or threats against public servants/public places: <b>Class A</b>. Causing $1,500+ pecuniary loss or targeting a peace officer/judge: <b>state jail felony</b>. Impairing public services or influencing government conduct: <b>3rd degree felony</b>.</p>
+</div>
+</div>
+
+<!-- ============ TITLE 6 ============ -->
+<div class="tsec" data-t="t6">
+<div class="title-block"><span class="num">TITLE 6</span><h2>Offenses Against the Family</h2></div>
+
+<div class="offense g-f3">
+  <div class="offense-head">
+    <div><div class="offense-name">Continuous Family Violence</div><div class="offense-cite cite">§25.11</div></div>
+    <span class="grade-badge g-f3">Felony 3</span>
+  </div>
+  <p class="offense-def">Engaging in conduct that constitutes assault causing bodily injury two or more times within a 12-month period against a family/household member or dating partner.</p>
+  <p class="offense-penalty">3rd degree felony.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Violation of a Protective Order</div><div class="offense-cite cite">§25.07</div></div>
+    <span class="grade-badge g-var">A / SJ / F3</span>
+  </div>
+  <p class="offense-def">Knowingly violating the terms of a protective order or magistrate's order in a family violence, child abuse/neglect, sexual assault/abuse, indecent assault, stalking, or trafficking case.</p>
+  <p class="offense-penalty">Base: <b>Class A misdemeanor</b>.</p>
+  <div class="enh"><span class="lbl">Enhancements</span><b>State jail felony</b> if the violated order was issued following the defendant's conviction (or deferred adjudication) for an offense against that same victim, or if certain violations (e.g., going near the victim, threatening/harassing contact) were committed while possessing a deadly weapon. <b>3rd degree felony</b> if the person has two or more prior convictions under this section (or a combination of this section and §25.072), or violated the order by committing assault or stalking.</div>
+</div>
+
+<div class="offense g-sj">
+  <div class="offense-head">
+    <div><div class="offense-name">Interference With Child Custody</div><div class="offense-cite cite">§25.03</div></div>
+    <span class="grade-badge g-sj">State Jail</span>
+  </div>
+  <p class="offense-def">Taking or retaining a child in violation of a custody judgment or in a manner that deprives a lawful custodian of custody.</p>
+  <p class="offense-penalty">State jail felony.</p>
+</div>
+
+<div class="offense g-sj">
+  <div class="offense-head">
+    <div><div class="offense-name">Criminal Nonsupport</div><div class="offense-cite cite">§25.05</div></div>
+    <span class="grade-badge g-sj">State Jail</span>
+  </div>
+  <p class="offense-def">Intentionally or knowingly failing to provide support for one's dependent child.</p>
+  <p class="offense-penalty">State jail felony.</p>
+</div>
+</div>
+
+<!-- ============ TITLE 7 ============ -->
+<div class="tsec" data-t="t7">
+<div class="title-block"><span class="num">TITLE 7</span><h2>Offenses Against Property</h2></div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Arson (Intentional)</div><div class="offense-cite cite">§28.02(a), (d)</div></div>
+    <span class="grade-badge g-var">F2 / F1</span>
+  </div>
+  <p class="offense-def">Starting a fire or causing an explosion with intent to destroy or damage vegetation/property on open-space land, or a habitation, building, or other property, without the owner's consent (or with the intent to defraud an insurer, or being reckless about endangering life/property).</p>
+  <p class="offense-penalty">Base: <b>2nd degree felony</b>. <b>1st degree felony</b> if bodily injury or death resulted, or the property was a habitation or a place of assembly or worship.</p>
+</div>
+
+<div class="offense g-sj">
+  <div class="offense-head">
+    <div><div class="offense-name">Arson During Drug Manufacturing</div><div class="offense-cite cite">§28.02(a-1), (e)</div></div>
+    <span class="grade-badge g-sj">SJ / F3</span>
+  </div>
+  <p class="offense-def">Recklessly (not intentionally) starting a fire or causing an explosion while manufacturing or attempting to manufacture a controlled substance, where the fire or explosion damages a building, habitation, or vehicle.</p>
+  <p class="offense-penalty">Base: <b>state jail felony</b>, rising to a <b>3rd degree felony</b> if bodily injury or death resulted.</p>
+</div>
+
+<div class="offense g-sj">
+  <div class="offense-head">
+    <div><div class="offense-name">Reckless Arson (Collateral Damage/Injury)</div><div class="offense-cite cite">§28.02(a-2), (f)</div></div>
+    <span class="grade-badge g-sj">State Jail</span>
+  </div>
+  <p class="offense-def">Intentionally starting a fire or causing an explosion (e.g., a permitted or otherwise lawful burn) but in doing so recklessly damaging or destroying another's building, or recklessly causing another person to suffer bodily injury or death.</p>
+  <p class="offense-penalty">State jail felony.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Criminal Mischief</div><div class="offense-cite cite">§28.03</div></div>
+    <span class="grade-badge g-var">C→F1</span>
+  </div>
+  <p class="offense-def">Intentionally or knowingly damaging, destroying, or tampering with another's property without consent.</p>
+  <p class="offense-penalty">Graded entirely by pecuniary loss — same value ladder as Theft below: <b>Class C</b> (under $100) up through <b>1st degree felony</b> ($300,000+). Loss of $30,000+ on a place of worship, cemetery, monument, or school can bump the grade.</p>
+</div>
+
+<div class="offense g-f2">
+  <div class="offense-head">
+    <div><div class="offense-name">Robbery</div><div class="offense-cite cite">§29.02</div></div>
+    <span class="grade-badge g-f2">Felony 2</span>
+  </div>
+  <p class="offense-def">While committing theft, intentionally, knowingly, or recklessly causing bodily injury, or threatening/placing another in fear of imminent bodily injury or death.</p>
+  <p class="offense-penalty">2nd degree felony.</p>
+</div>
+
+<div class="offense g-f1">
+  <div class="offense-head">
+    <div><div class="offense-name">Aggravated Robbery</div><div class="offense-cite cite">§29.03</div></div>
+    <span class="grade-badge g-f1">Felony 1</span>
+  </div>
+  <p class="offense-def">Robbery that causes serious bodily injury, uses or exhibits a deadly weapon, or is committed against a person 65 or older or a disabled person.</p>
+  <p class="offense-penalty">1st degree felony.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Burglary</div><div class="offense-cite cite">§30.02</div></div>
+    <span class="grade-badge g-var">SJ / F2 / F1</span>
+  </div>
+  <p class="offense-def">Entering a habitation or building not open to the public, without consent, with intent to commit a felony, theft, or assault (or entering/remaining and committing/attempting one of those).</p>
+  <p class="offense-penalty">Building other than a habitation: <b>state jail felony</b>. Habitation: <b>2nd degree felony</b>. Habitation with intent to commit a felony other than theft: <b>1st degree felony</b>.</p>
+  <div class="enh"><span class="lbl">Niche enhancements</span><b>3rd degree felony</b> if a building other than a habitation, where the building is a pharmacy or other facility that generally stores controlled substances and the intent was to steal a controlled substance; also 3rd degree if committed in connection with a human-smuggling offense.</div>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Burglary of a Vehicle</div><div class="offense-cite cite">§30.04</div></div>
+    <span class="grade-badge g-var">A / SJ</span>
+  </div>
+  <p class="offense-def">Breaking into or entering a vehicle, or any part of one, without consent, with intent to commit a felony or theft.</p>
+  <p class="offense-penalty">Base: <b>Class A misdemeanor</b>.</p>
+  <div class="enh"><span class="lbl">Enhancements</span>One prior conviction under this section raises the minimum confinement to 6 months (still a Class A). Two or more priors, <b>or</b> the vehicle/part entered being a rail car, makes it a <b>state jail felony</b>. A niche 3rd degree felony tier also applies to certain wholesale-pharmaceutical-vehicle break-ins with intent to steal a controlled substance.</div>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Criminal Trespass</div><div class="offense-cite cite">§30.05</div></div>
+    <span class="grade-badge g-var">C / B / A / F3</span>
+  </div>
+  <p class="offense-def">Entering or remaining on property or in a building without consent after notice to depart (posted sign, fencing, or verbal warning).</p>
+  <p class="offense-penalty">Base: <b>Class B misdemeanor</b>.</p>
+  <div class="enh"><span class="lbl">Enhancements</span><b>Class C</b> if on agricultural land within 100 feet of the boundary, or on residential land within 100 feet of a protected freshwater area. <b>Class A</b> if in a habitation, on a critical-infrastructure facility, at a residential treatment center, on higher-ed property with a qualifying prior, or while carrying a deadly weapon. <b>3rd degree felony</b> if committed in the course of a human-smuggling offense. (A separate, narrower Class C/A tier applies to trespass by a licensed handgun holder ignoring a firearm-specific no-entry sign.)</div>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Theft</div><div class="offense-cite cite">§31.03</div></div>
+    <span class="grade-badge g-var">C→F1</span>
+  </div>
+  <p class="offense-def">Unlawfully appropriating property with intent to deprive the owner of it.</p>
+  <p class="offense-penalty">Graded by value of the property stolen:</p>
+  <p class="offense-penalty">
+    &lt;$100 → <b>Class C</b> &nbsp;|&nbsp; $100–$750 → <b>Class B</b> &nbsp;|&nbsp; $750–$2,500 → <b>Class A</b> &nbsp;|&nbsp; $2,500–$30,000 → <b>State Jail Felony</b> &nbsp;|&nbsp; $30,000–$150,000 → <b>Felony 3</b> &nbsp;|&nbsp; $150,000–$300,000 → <b>Felony 2</b> &nbsp;|&nbsp; $300,000+ → <b>Felony 1</b>
+  </p>
+  <div class="enh"><span class="lbl">Enhancements</span>Regardless of value: theft of a firearm, a corpse/grave item, or official election material is at least a <b>state jail felony</b>. Two-or-more prior theft convictions bump a low-value theft up a grade. Victim being elderly, a nonprofit, or the theft involving a fire-alarm/retail-detector defeat device raises the grade by one level.</div>
+</div>
+
+<div class="offense g-sj">
+  <div class="offense-head">
+    <div><div class="offense-name">Unauthorized Use of a Vehicle</div><div class="offense-cite cite">§31.07</div></div>
+    <span class="grade-badge g-sj">State Jail</span>
+  </div>
+  <p class="offense-def">Intentionally or knowingly operating another's vehicle without the owner's effective consent (the Texas "joyriding" statute — no intent to permanently deprive required).</p>
+  <p class="offense-penalty">State jail felony.</p>
+</div>
+
+<div class="offense g-sj">
+  <div class="offense-head">
+    <div><div class="offense-name">Credit/Debit Card Abuse</div><div class="offense-cite cite">§32.31</div></div>
+    <span class="grade-badge g-sj">State Jail</span>
+  </div>
+  <p class="offense-def">Using, possessing, or selling another's credit or debit card without consent, or with intent to fraudulently present an expired/revoked/fictitious card.</p>
+  <p class="offense-penalty">State jail felony (raised one grade if the victim is elderly).</p>
+</div>
+
+<div class="offense g-sj">
+  <div class="offense-head">
+    <div><div class="offense-name">Fraudulent Use/Possession of Identifying Information</div><div class="offense-cite cite">§32.51</div></div>
+    <span class="grade-badge g-sj">State Jail+</span>
+  </div>
+  <p class="offense-def">Obtaining, possessing, transferring, or using another person's identifying information without consent and with intent to harm or defraud.</p>
+  <p class="offense-penalty">State jail felony minimum; grade rises with the number of items of identifying information involved (up to 1st degree for 50+), and one grade higher if the victim is elderly.</p>
+</div>
+</div>
+
+<!-- ============ TITLE 8 ============ -->
+<div class="tsec" data-t="t8">
+<div class="title-block"><span class="num">TITLE 8</span><h2>Offenses Against Public Administration</h2></div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Resisting Arrest, Search, or Transportation</div><div class="offense-cite cite">§38.03</div></div>
+    <span class="grade-badge g-var">A / F3</span>
+  </div>
+  <p class="offense-def">Using force against a peace officer or another to prevent a lawful arrest, search, or transport. (Knowledge that the person is a peace officer is required, but resistance to a merely unlawful arrest is not a defense.)</p>
+  <p class="offense-penalty">Base: <b>Class A misdemeanor</b>.</p>
+  <div class="enh"><span class="lbl">Enhancement</span>3rd degree felony if the actor uses a deadly weapon to resist.</div>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Evading Arrest or Detention</div><div class="offense-cite cite">§38.04</div></div>
+    <span class="grade-badge g-var">A / SJ / F3 / F2</span>
+  </div>
+  <p class="offense-def">Intentionally fleeing from a person the actor knows is a peace officer lawfully attempting to arrest or detain them.</p>
+  <p class="offense-penalty">Base: <b>Class A misdemeanor</b>.</p>
+  <div class="enh"><span class="lbl">Enhancements</span><b>State jail felony</b> if the actor has a prior conviction under this section, <b>or</b> uses a vehicle/watercraft while fleeing (first offense). <b>3rd degree felony</b> if the actor uses a vehicle/watercraft while fleeing <i>and</i> has a prior conviction, if the flight causes serious bodily injury to another, if a tire-deflation device is used against the officer, or if committed in the course of a human-smuggling offense. <b>2nd degree felony</b> if another person dies as a direct result, or suffers serious bodily injury from the actor's own use of a tire-deflation device.</div>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Failure to Identify</div><div class="offense-cite cite">§38.02</div></div>
+    <span class="grade-badge g-var">C / B / A</span>
+  </div>
+  <p class="offense-def">Intentionally refusing to give your name, address, or date of birth to a peace officer after a lawful arrest, or intentionally giving false/fictitious information to an officer who has lawfully arrested or detained you, or who you know is investigating a crime and you're a witness.</p>
+  <p class="offense-penalty">Refusing to give info after a lawful arrest: <b>Class C misdemeanor</b>. Giving false information (whether arrested, detained, or as a witness): <b>Class B misdemeanor</b>.</p>
+  <div class="enh"><span class="lbl">Enhancement</span>If the actor is a fugitive from justice (has an outstanding arrest warrant), each tier is raised one level: refusal becomes a <b>Class B</b>, and false information becomes a <b>Class A misdemeanor</b>.</div>
+</div>
+
+<div class="offense g-f3">
+  <div class="offense-head">
+    <div><div class="offense-name">Tampering With or Fabricating Physical Evidence</div><div class="offense-cite cite">§37.09</div></div>
+    <span class="grade-badge g-f3">F3 / F2 / A</span>
+  </div>
+  <p class="offense-def">Knowing an investigation is pending, altering, destroying, or concealing evidence, or fabricating/presenting false evidence, with intent to impair its availability. A related subsection covers knowing an offense occurred and tampering with evidence of it, or observing a human corpse under suspicious circumstances and failing to report it.</p>
+  <p class="offense-penalty">3rd degree felony (2nd degree if the evidence altered/concealed is a human corpse). Simply failing to report an observed corpse under suspicious circumstances, without more, is a <b>Class A misdemeanor</b>.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Perjury / Aggravated Perjury</div><div class="offense-cite cite">§37.02 / §37.03</div></div>
+    <span class="grade-badge g-var">A / F3</span>
+  </div>
+  <p class="offense-def">Perjury = making a false statement under oath with intent to deceive. Aggravated = perjury made during or in connection with an official proceeding and material to the proceeding.</p>
+  <p class="offense-penalty"><b>Perjury:</b> Class A misdemeanor. <b>Aggravated Perjury:</b> 3rd degree felony.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Bail Jumping and Failure to Appear</div><div class="offense-cite cite">§38.10</div></div>
+    <span class="grade-badge g-var">C / A / F3</span>
+  </div>
+  <p class="offense-def">Intentionally or knowingly failing to appear in accordance with the terms of release after being lawfully released on bail, with intent to avoid prosecution.</p>
+  <p class="offense-penalty">Same grade as the offense for which the person was released, capped: fine-only underlying offense → <b>Class C</b>; misdemeanor → <b>Class A</b>; felony → <b>3rd degree felony</b>.</p>
+</div>
+</div>
+
+<!-- ============ TITLE 9 ============ -->
+<div class="tsec" data-t="t9">
+<div class="title-block"><span class="num">TITLE 9</span><h2>Offenses Against Public Order &amp; Decency</h2></div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Disorderly Conduct</div><div class="offense-cite cite">§42.01</div></div>
+    <span class="grade-badge g-var">C / B</span>
+  </div>
+  <p class="offense-def">A broad statute covering offensive language, fighting words, obscene gestures, unreasonable noise, exposing oneself, or displaying a firearm to alarm.</p>
+  <p class="offense-penalty">Base: <b>Class C misdemeanor</b>.</p>
+  <div class="enh"><span class="lbl">Enhancement</span>Class B if committed by discharging a firearm in certain public places, or by displaying a firearm/deadly weapon in public in a manner calculated to alarm.</div>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Riot</div><div class="offense-cite cite">§42.02</div></div>
+    <span class="grade-badge g-var">B / +1</span>
+  </div>
+  <p class="offense-def">Assembling with 7+ people and engaging in conduct that creates an immediate danger of property damage/injury, substantially obstructs law enforcement, or by force interferes with a government function.</p>
+  <p class="offense-penalty">Base: <b>Class B misdemeanor</b> for mere participation.</p>
+  <div class="enh"><span class="lbl">Enhancement</span>An offense actually committed in furtherance of the riot's purpose (or reasonably foreseeable from it) is punished one grade higher than mere participation.</div>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Harassment</div><div class="offense-cite cite">§42.07</div></div>
+    <span class="grade-badge g-var">B / A / SJ / F3</span>
+  </div>
+  <p class="offense-def">Intending to annoy, alarm, abuse, torment, or embarrass another via repeated calls, electronic communications, threats, or obscene suggestions.</p>
+  <p class="offense-penalty">Base: <b>Class B misdemeanor</b>.</p>
+  <div class="enh"><span class="lbl">Enhancements</span><b>Class A</b> if: the actor has a prior conviction under this section; the offense was electronic harassment of a child under 18 intending to cause suicide or self-harm; the actor previously violated a related restraining order/injunction; or (added 2025) the victim is known to be a utility employee/agent or a court employee acting in that role. <b>State jail felony</b> if against a court employee <i>and</i> the actor has a prior conviction under this section. <b>3rd degree felony</b> if against a judge <i>and</i> the actor has a prior conviction under this section.</div>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Stalking</div><div class="offense-cite cite">§42.072</div></div>
+    <span class="grade-badge g-var">F3 / F2</span>
+  </div>
+  <p class="offense-def">Engaging in repeated conduct directed at a specific person that the actor knows or should know would cause a reasonable person to fear bodily injury, death, or property damage.</p>
+  <p class="offense-penalty">Base: <b>3rd degree felony</b>, rising to <b>2nd degree felony</b> if the actor has a prior conviction for stalking (Texas or a substantially similar out-of-state/tribal/federal offense).</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Prostitution (Selling)</div><div class="offense-cite cite">§43.02</div></div>
+    <span class="grade-badge g-var">B / A / SJ</span>
+  </div>
+  <p class="offense-def">Knowingly offering or agreeing to receive a fee from another to engage in sexual conduct. A 2021 reform split this offense from the buyer's side (now its own statute, below) and repealed the old flat "engaging in prostitution" language.</p>
+  <p class="offense-penalty">Base: <b>Class B misdemeanor</b>. <b>Class A misdemeanor</b> with 1–2 prior convictions under this section. <b>State jail felony</b> with 3+ priors, or if the actor is a peace officer, security officer, or public school employee (added 2023).</p>
+</div>
+
+<div class="offense g-sj">
+  <div class="offense-head">
+    <div><div class="offense-name">Solicitation of Prostitution (Buying)</div><div class="offense-cite cite">§43.021</div></div>
+    <span class="grade-badge g-sj">SJ / F3 / F2</span>
+  </div>
+  <p class="offense-def">Knowingly offering or agreeing to pay a fee to another person for the purpose of engaging in sexual conduct with that person or another. Added in 2021 — Texas was the first state to make buying sex a felony on the first offense.</p>
+  <p class="offense-penalty">Base: <b>state jail felony</b>. <b>3rd degree felony</b> with a prior conviction under this section (or under the old pre-2021 §43.02(b)). <b>2nd degree felony</b> if the person solicited is under 18 — regardless of whether the actor knew or was told the person's real age.</p>
+</div>
+</div>
+
+<!-- ============ TITLE 10 ============ -->
+<div class="tsec" data-t="t10">
+<div class="title-block"><span class="num">TITLE 10</span><h2>Offenses Against Public Health, Safety &amp; Morals</h2></div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Unlawful Carrying Weapons (UCW)</div><div class="offense-cite cite">§46.02</div></div>
+    <span class="grade-badge g-var">A / F3 / F2</span>
+  </div>
+  <p class="offense-def">Since "constitutional carry" took effect Sept. 1, 2021, adults 21+ who may lawfully possess a handgun generally don't need a license to carry openly or concealed. §46.02 now criminalizes carrying by narrower categories: a person under 21, a person carrying while engaged in other criminal activity (besides a Class C traffic/boating offense), a person intoxicated, a member of a criminal street gang, or a person already prohibited from possessing a firearm under §46.04.</p>
+  <p class="offense-penalty">Base: <b>Class A misdemeanor</b>.</p>
+  <div class="enh"><span class="lbl">Enhancements</span><b>3rd degree felony</b> if carried into a place weapons are prohibited under §46.03 (bars/51% establishments, schools, polling places, government meetings, etc.), or if the actor was already prohibited from possessing a firearm under §46.04(b) or (c) (family-violence or protective-order basis). <b>2nd degree felony</b>, with a 5-year minimum, if the actor was prohibited under §46.04(a) (felon status). Any Chapter 46 weapons offense is also bumped one category higher if committed knowingly within 300 feet of a school or a UIL event (Weapon-Free School Zone, §46.11).</div>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Unlawful Possession of Firearm by Felon</div><div class="offense-cite cite">§46.04</div></div>
+    <span class="grade-badge g-var">A / F3</span>
+  </div>
+  <p class="offense-def">A convicted felon possessing a firearm before the 5th anniversary of release from confinement/supervision, or at any other location besides their own premises after that period, or possessing while subject to a family-violence protective order.</p>
+  <p class="offense-penalty">Base: <b>3rd degree felony</b>. <b>Class A misdemeanor</b> if the disqualifying basis is a family-violence conviction or an active protective order (rather than felon status).</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Prohibited Weapons</div><div class="offense-cite cite">§46.05</div></div>
+    <span class="grade-badge g-var">F3 / SJ</span>
+  </div>
+  <p class="offense-def">Possessing, manufacturing, transporting, or selling specific prohibited devices — explosive weapons (including improvised explosive devices, added 2017), machine guns, armor-piercing ammunition, chemical dispensing devices, zip guns, and tire deflation devices.</p>
+  <p class="offense-penalty">Most listed items: <b>3rd degree felony</b>. Tire deflation devices specifically: <b>state jail felony</b>.</p>
+  <div class="enh"><span class="lbl">Note — items removed from this list</span>Knuckles were removed from this offense entirely in 2019 (no longer a crime under this section). Firearm silencers were removed in 2021. Short-barrel firearms were removed as of September 1, 2025. None of these three currently violate §46.05.</div>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Driving While Intoxicated (DWI)</div><div class="offense-cite cite">§49.04</div></div>
+    <span class="grade-badge g-var">B / A / F3</span>
+  </div>
+  <p class="offense-def">Operating a motor vehicle in a public place while intoxicated (no normal use of mental/physical faculties, or BAC ≥ 0.08).</p>
+  <p class="offense-penalty">Base (1st offense): <b>Class B misdemeanor</b>, minimum 72-hour confinement (6 days if open container present).</p>
+  <div class="enh"><span class="lbl">Enhancements</span>Class A if there is one prior DWI-type conviction, or if BAC is 0.15+ on the instant offense (30-day minimum). 3rd degree felony with two or more prior convictions. DWI with a passenger under 15 is charged separately as a <b>state jail felony</b> (§49.045), regardless of prior record.</div>
+</div>
+
+<div class="offense g-f3">
+  <div class="offense-head">
+    <div><div class="offense-name">Intoxication Assault</div><div class="offense-cite cite">§49.07</div></div>
+    <span class="grade-badge g-f3">Felony 3</span>
+  </div>
+  <p class="offense-def">By accident or mistake, causing serious bodily injury to another while operating a vehicle, aircraft, watercraft, or amusement ride while intoxicated.</p>
+  <p class="offense-penalty">3rd degree felony; enhanced to <b>2nd degree felony</b> if the victim is a peace officer, firefighter, or EMS personnel (on or off duty).</p>
+</div>
+
+<div class="offense g-f2">
+  <div class="offense-head">
+    <div><div class="offense-name">Intoxication Manslaughter</div><div class="offense-cite cite">§49.08</div></div>
+    <span class="grade-badge g-f2">Felony 2</span>
+  </div>
+  <p class="offense-def">By accident or mistake, causing the death of another while operating a vehicle, aircraft, watercraft, or amusement ride while intoxicated.</p>
+  <p class="offense-penalty">2nd degree felony; enhanced to <b>1st degree felony</b> if the victim is a peace officer, firefighter, or EMS personnel.</p>
+</div>
+
+<div class="offense g-mc">
+  <div class="offense-head">
+    <div><div class="offense-name">Public Intoxication</div><div class="offense-cite cite">§49.02</div></div>
+    <span class="grade-badge g-mc">Class C</span>
+  </div>
+  <p class="offense-def">Appearing in a public place while so intoxicated as to be a danger to oneself or others.</p>
+  <p class="offense-penalty">Class C misdemeanor. (Three prior convictions for Public Intoxication and/or Disorderly Conduct within 24 months can enhance to a <b>Class B</b> under §12.43(c).)</p>
+</div>
+</div>
+
+<!-- ============ TITLE 11 ============ -->
+<div class="tsec" data-t="t11">
+<div class="title-block"><span class="num">TITLE 11</span><h2>Organized Crime</h2></div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Engaging in Organized Criminal Activity</div><div class="offense-cite cite">§71.02</div></div>
+    <span class="grade-badge g-var">+1 category</span>
+  </div>
+  <p class="offense-def">Committing (or conspiring to commit) a listed offense with intent to establish, maintain, or participate in a <b>combination</b> (3+ people collaborating in ongoing criminal activity) or as a member of a <b>criminal street gang</b>. Covers a long list of predicate offenses — murder, robbery, aggravated assault, theft, burglary, drug offenses, human trafficking, fraud, and more.</p>
+  <p class="offense-penalty">Punished <b>one category higher</b> than the most serious predicate offense listed (e.g., an underlying 3rd degree felony becomes a 2nd degree felony). A deadly weapon finding pushes it a further category higher.</p>
+</div>
+
+<div class="offense g-f2">
+  <div class="offense-head">
+    <div><div class="offense-name">Coercing, Inducing, or Soliciting Gang Membership</div><div class="offense-cite cite">§71.022</div></div>
+    <span class="grade-badge g-f2">Felony 2</span>
+  </div>
+  <p class="offense-def">Knowingly causing, enabling, encouraging, recruiting, or soliciting another to join a criminal street gang or foreign terrorist organization that requires committing a Class A misdemeanor or felony as a condition of membership. A separate, more serious provision covers threatening or injuring a child or the child's family to coerce the child into gang activity.</p>
+  <p class="offense-penalty">2nd degree felony (the child-coercion provision carries its own elevated range).</p>
+</div>
+
+<div class="offense g-f1">
+  <div class="offense-head">
+    <div><div class="offense-name">Directing Activities of Criminal Street Gangs or Foreign Terrorist Organizations</div><div class="offense-cite cite">§71.023</div></div>
+    <span class="grade-badge g-f1">Felony 1</span>
+  </div>
+  <p class="offense-def">Knowingly financing, directing, or supervising the activities of a criminal street gang or (as of a 2023 amendment) a foreign terrorist organization, including a drug cartel operating partly outside the U.S.</p>
+  <p class="offense-penalty">1st degree felony, with a 25-year minimum sentence.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Violation of Court Order Enjoining Organized Criminal Activity</div><div class="offense-cite cite">§71.021</div></div>
+  </div>
+  <p class="offense-def">Knowingly violating a civil injunction obtained against a criminal street gang or combination that restrains specific activity.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Gang-Free Zones</div><div class="offense-cite cite">§71.028</div></div>
+  </div>
+  <p class="offense-def">Certain drug and weapons offenses committed by a criminal street gang member within 1,000 feet of a school, youth center, playground, or similar designated area can be enhanced, similar in concept to the weapon-free school zone enhancement in Title 10.</p>
+</div>
+</div>
+
+<!-- ============ TITLE 12 ============ -->
+<div class="tsec" data-t="t12">
+<div class="title-block"><span class="num">TITLE 12</span><h2>Terrorism</h2></div>
+
+<div class="note" style="margin:0 0 10px;">
+  Added to the Penal Code by the 86th Legislature (2019) as Chapter 72 — before that, Title 11 covered organized crime alone. Title 11 was formally renamed "Organized Crime and Terrorism" and this new title/chapter was carved out to address conduct in support of terrorism specifically.
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Providing Material Support or Resources to Facilitate Terrorism</div><div class="offense-cite cite">Ch. 72</div></div>
+    <span class="grade-badge g-var">+1 category</span>
+  </div>
+  <p class="offense-def">Knowingly providing material support or resources (property, services, or personnel) to another, knowing or intending they'll be used to plan, prepare, or carry out an act that would constitute one of a list of serious predicate offenses — including felonies under the fraud/computer-crime chapters, money laundering, unlawful drug manufacture or distribution, witness tampering, evidence tampering, tampering with a government record, or hindering apprehension.</p>
+  <p class="offense-penalty">Punished <b>one category higher</b> than the most serious predicate offense supported — the same escalation structure used in the Title 11 organized-crime statute, but aimed at material support for terrorism rather than gang activity.</p>
+</div>
+
+<div class="offense g-var">
+  <div class="offense-head">
+    <div><div class="offense-name">Key Definitions</div><div class="offense-cite cite">§72.01</div></div>
+  </div>
+  <p class="offense-def">Defines "foreign terrorist organization" by reference to the federal designation process under 8 U.S.C. §1189, and defines "material support or resources" broadly to include real and personal property and services rendered.</p>
+</div>
+</div>
+
+<div class="note">
+  <b>Study note:</b> This now spans all twelve Penal Code titles, but within each title it's still the offenses and provisions most commonly tested for patrol-level TCOLE prep, not a line-by-line reproduction of the whole code — some of Titles 8–9's narrower administrative and decency offenses are condensed, and all Health &amp; Safety Code drug offenses (a separate code from the Penal Code entirely) are left out. The Legislature amends penalty ranges and enhancements almost every regular session — most recently expanding assault enhancements for utility and hospital workers in 2023 and 2025, and adding Title 12 (Terrorism) itself in 2019 — so cross-check anything you're unsure about against the current statute or your academy's TCOLE study guide before test day.
+</div>
+
+</main>
+
+<footer>Compiled from Texas Penal Code Titles 4–11 · Office of the Attorney General's Penal Code Offenses by Punishment Range · for personal study use</footer>
+
+<script>
+  const chips = document.querySelectorAll('.chip');
+  const secs = document.querySelectorAll('.tsec');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const t = chip.dataset.t;
+      secs.forEach(s => {
+        s.style.display = (t === 'all' || s.dataset.t === t) ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOC Study Reference — Fort Worth PD Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EFE4; --paper-dim:#EAE4D3; --ink:#221F19; --ink-soft:#5B564A;
+    --navy:#132339; --navy-2:#1C3552; --brass:#B08B3C; --brass-light:#D7B667; --rule:#C9BF9F;
+    --green:#4B6A50; --amber:#9B7E32; --gray:#8B8674; --rust:#A6472E;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans', sans-serif; -webkit-font-smoothing:antialiased;}
+  .cite{font-family:'IBM Plex Mono', monospace; letter-spacing:0.01em;}
+
+  header.hero{background:linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%); color:#EDE7D6; padding:26px 20px 20px; position:relative; overflow:hidden;}
+  header.hero::after{content:""; position:absolute; inset:0; background-image:repeating-linear-gradient(135deg, rgba(215,182,103,0.05) 0 2px, transparent 2px 26px); pointer-events:none;}
+  .hero-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;}
+  .hero-eyebrow{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--brass-light); margin:0 0 6px;}
+  .hero h1{font-family:'IBM Plex Serif', serif; font-weight:700; font-size:22px; line-height:1.15; margin:0;}
+  .back{font-size:12px; color:var(--brass-light); text-decoration:none; font-family:'IBM Plex Mono', monospace; white-space:nowrap;}
+
+  .search-wrap{margin-top:16px; position:relative;}
+  .search-wrap input{
+    width:100%; padding:10px 14px 10px 38px; border-radius:8px; border:1px solid rgba(255,255,255,0.18);
+    background:rgba(255,255,255,0.08); color:#F3EFE4; font-family:'IBM Plex Sans',sans-serif; font-size:14px;
+  }
+  .search-wrap input::placeholder{color:#9BA3AE;}
+  .search-wrap input:focus{outline:2px solid var(--brass-light); background:rgba(255,255,255,0.12);}
+  .search-icon{position:absolute; left:12px; top:50%; transform:translateY(-50%); opacity:0.7; font-size:14px;}
+
+  nav.chips{position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:1px solid var(--rule); padding:9px 12px; display:flex; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  nav.chips::-webkit-scrollbar{display:none;}
+  nav.subchips{position:sticky; top:41px; z-index:19; background:var(--paper-dim); border-bottom:1px solid var(--rule); padding:8px 12px; display:flex; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  nav.subchips::-webkit-scrollbar{display:none;}
+
+  .chip{flex:none; font-family:'IBM Plex Sans', sans-serif; font-size:12px; font-weight:600; padding:6px 12px; border-radius:999px; border:1px solid var(--rule); background:#fff; color:var(--ink-soft); cursor:pointer; white-space:nowrap; transition:all 0.15s ease;}
+  .chip.active{background:var(--navy); border-color:var(--navy); color:#F3EFE4;}
+  .chip.locked{opacity:0.5; cursor:default;}
+  .chip.pending{border-color:var(--amber); color:var(--amber);}
+  .chip .dot{display:inline-block; width:6px; height:6px; border-radius:50%; margin-right:5px; vertical-align:middle;}
+  .chip .dot.live{background:var(--green);} .chip .dot.pending{background:var(--amber);} .chip .dot.locked{background:var(--gray);}
+
+  .subchip{flex:none; font-family:'IBM Plex Sans', sans-serif; font-size:11.5px; font-weight:500; padding:5px 11px; border-radius:6px; border:1px solid var(--rule); background:#fff; color:var(--ink-soft); cursor:pointer; white-space:nowrap;}
+  .subchip.active{background:var(--brass); border-color:var(--brass); color:#fff;}
+
+  main{max-width:780px; margin:0 auto; padding:16px 14px 60px;}
+
+  .chapter-head{margin:10px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--navy);}
+  .chapter-head .num{font-family:'IBM Plex Serif', serif; font-weight:700; font-size:12px; color:var(--brass); background:var(--navy); padding:3px 9px; border-radius:4px; margin-right:8px;}
+  .chapter-head h2{font-family:'IBM Plex Serif', serif; font-size:18px; margin:8px 0 0; font-weight:600; display:inline;}
+  .chapter-unit{font-size:12.5px; color:var(--ink-soft); margin-top:6px; line-height:1.5;}
+
+  .card{background:#fff; border:1px solid var(--rule); border-left-width:5px; border-left-color:var(--rule); border-radius:6px; padding:12px 14px 13px; margin-bottom:10px;}
+  .card-head{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:4px;}
+  .card-title{font-family:'IBM Plex Serif', serif; font-weight:600; font-size:14.5px; line-height:1.3;}
+  .card-cite{font-size:10.5px; color:var(--ink-soft); margin-top:2px; line-height:1.5;}
+  .card-body{font-size:13px; line-height:1.55; margin:6px 0 0; color:var(--ink);}
+  .card-body ul{margin:6px 0 0; padding-left:18px;}
+  .card-body li{margin-bottom:3px;}
+  .scenario{font-size:12px; line-height:1.55; background:var(--paper-dim); border-radius:5px; padding:8px 10px; margin-top:8px;}
+  .scenario .lbl{font-family:'IBM Plex Mono', monospace; font-size:9px; text-transform:uppercase; letter-spacing:0.07em; color:var(--brass); display:block; margin-bottom:3px; font-weight:600;}
+
+  .lo-badge{flex:none; font-size:9.5px; font-weight:600; padding:2px 7px; border-radius:4px; background:var(--ink-soft); color:#fff; white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
+
+  .note{font-size:12px; line-height:1.55; color:var(--ink-soft); background:var(--paper-dim); border:1px solid var(--rule); border-radius:6px; padding:12px 14px; margin:14px 0 6px;}
+  .note b{color:var(--ink);}
+
+  .pending-box, .locked-box{background:#fff; border:1px dashed var(--rule); border-radius:8px; padding:26px 18px; text-align:center; margin-top:20px;}
+  .pending-box h3, .locked-box h3{font-family:'IBM Plex Serif', serif; font-size:16px; margin:0 0 8px;}
+  .pending-box p, .locked-box p{font-size:13px; color:var(--ink-soft); line-height:1.6; max-width:42ch; margin:0 auto;}
+
+  .search-results-head{font-size:12.5px; color:var(--ink-soft); margin:14px 0 10px;}
+  .breadcrumb{font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--brass); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;}
+
+  footer{text-align:center; padding:26px 14px 12px; font-size:11px; color:var(--ink-soft);}
+
+  @media (min-width:600px){ .hero h1{font-size:26px;} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div>
+      <p class="hero-eyebrow">Fort Worth PD Academy · BPOC Study Reference</p>
+      <h1>Chapter &amp; Topic Reference</h1>
+    </div>
+    <a class="back" href="index.html">&larr; Hub</a>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search across all chapters (e.g. &quot;Miranda&quot;, &quot;protective order&quot;, &quot;18.02&quot;)">
+  </div>
+</header>
+
+<nav class="chips" id="chapterChips"></nav>
+<nav class="subchips" id="topicChips" style="display:none;"></nav>
+
+<main id="main"></main>
+
+<footer>Built for study purposes by and for the FWPD Academy class · Condensed to material actually covered in the BPOC Instructor Resource Guide, not the full text of the underlying codes · Not an official TCOLE or academy publication · Always verify against current statute and academy materials</footer>
+
+<script>
+/* ===================== DATA ===================== */
+// status: "live" (built out), "pending" (covered in class, not yet built), "locked" (not reached yet)
+const chapters = [
+  {num:1, title:"Professionalism and Ethics", status:"pending"},
+  {num:2, title:"Professional Policing", status:"pending"},
+  {num:3, title:"Fitness, Wellness, and Stress Management", status:"pending"},
+  {num:4, title:"TCOLE Rules", status:"pending"},
+  {num:5, title:"Multiculturalism and Human Relations", status:"pending"},
+  {num:6, title:"Racial Profiling", status:"pending"},
+  {num:7, title:"US/TX Constitution, Rights, and CJ System", status:"pending"},
+  {num:8, title:"Penal Code", status:"pending", note:"See the dedicated Penal Code Offense Reference under Supplemental Materials on the hub — that page already covers this chapter's scope in more depth."},
+  {num:9, title:"Code of Criminal Procedure", status:"live", unit:"Unit Goal: This unit covers sections of the Code of Criminal Procedure (CCP) not covered elsewhere in the course — mainly officer identity, general duties, and duties tied to family violence, threats, riots, protective orders, and sexual assault investigations.",
+    topics:[
+      {id:"authority", label:"9.1 Statutory Authority", cards:[
+        {lo:"9.1", title:"Purpose of the Code of Criminal Procedure", cite:"CCP Art. 1.01 (Short Title) · Art. 1.03 (Objects of This Code)",
+         body:"The CCP is the procedural rulebook for Texas criminal cases — it governs how offenses are investigated, charged, and tried, separate from the Penal Code (which defines the offenses themselves). Art. 1.03 states its objects: to adopt clear rules for criminal actions that conform to constitutional rights, are consistent, plain, and speedy, and ensure the guilty are punished while the innocent are protected."}
+      ]},
+      {id:"peace-officers", label:"9.2 Who Are Peace Officers", cards:[
+        {lo:"9.2", title:"Peace Officers Generally", cite:"CCP Art. 2A.001 – 2A.008", note:"Chapter 2 CCP was repealed and replaced by Chapter 2A, effective Jan. 1, 2025.",
+         body:"Defines who legally qualifies as a Texas peace officer, including:<ul><li>Sheriffs, deputies, and reserve deputies (Art. 2A.001)</li><li>Special investigators (2A.002)</li><li>Officers commissioned by a tribal council (2A.003)</li><li>Peace officers from adjoining states, in limited circumstances (2A.004)</li><li>Railroad peace officers (2A.005)</li><li>Special Rangers of Texas and Southwestern Cattle Raisers Association (2A.006)</li><li>Adjunct police officers (2A.007)</li><li>School marshals (2A.008)</li></ul>Nearly all categories require a permanent peace officer license issued under Occupations Code Ch. 1701."}
+      ]},
+      {id:"duties", label:"9.3 Duties of Peace Officers", cards:[
+        {lo:"9.3", title:"General Powers and Duties", cite:"CCP Art. 2A.051",
+         body:"Establishes the baseline duties every peace officer has: preserving the peace, preventing/suppressing crime, executing warrants and other process, and enforcing state law generally."},
+        {lo:"9.3", title:"Excessive Force Intervention Duty", cite:"CCP Art. 2B.0251",
+         body:"An officer who witnesses another officer using force clearly beyond what's necessary must intervene to stop it, and must report the incident to a supervisor."},
+        {lo:"9.3", title:"Duty to Request and Render Aid", cite:"CCP Art. 2B.0301",
+         body:"Officers have an affirmative duty to request and render aid when needed at a scene (e.g., medical emergencies), not just a discretionary option."},
+        {lo:"9.3", title:"Neck Restraints Prohibited", cite:"CCP Art. 2B.0252",
+         body:"Bars the use of neck restraints (chokeholds/carotid restraints) during a search or arrest."},
+        {lo:"9.3", title:"Other Specific Duties", cite:"CCP Art. 2A.209 · 2A.055 · 2A.063–065 · 2A.057 · 2A.061 · 2A.201–202",
+         body:"Additional duties include: reporting obligations for the agency filing a case (2A.209); a fine for failing to execute process (2A.055); the sheriff's role as conservator of the peace and duties over defendant custody (2A.063–065); investigating certain abuse/neglect/exploitation reports (2A.057); reporting misused identity (2A.061); and reporting requirements connected to sensitive-information offenses and certain assaultive/terroristic offenses (2A.201–202)."}
+      ]},
+      {id:"family-violence", label:"9.4 Family Violence Duties", cards:[
+        {lo:"9.4", title:"Family Violence Prevention Framework", cite:"CCP Art. 5.01 – 5.05", note:"CCP Chapter 5 is repealed and replaced by Chapter 5A effective April 1, 2027 — watch for this changeover.",
+         body:"Sets out the legislative policy behind family violence response (5.01), key definitions (5.02), and confirms that a family or household relationship never excuses an officer from normal duties (5.03). Article 5.04 lists the core duties of a responding officer at a family violence call: protect the victim, assist in obtaining medical treatment, and provide the victim information on legal rights and shelter/resources."},
+        {lo:"9.4", title:"Standby Assistance & Liability", cite:"CCP Art. 5.045",
+         body:"Covers an officer standing by to keep the peace while a party removes belongings, and the liability protections that apply while doing so."},
+        {lo:"9.4", title:"Reports, Records & Venue", cite:"CCP Art. 5.05 · Art. 13.38",
+         body:"Officers must document family violence calls in a standardized report. Art. 13.38 sets venue rules for prosecuting protective order violations."},
+        {lo:"9.4", title:"Additional Victim Rights", cite:"CCP Art. 56A.0521",
+         body:"Grants added rights to victims of family violence offenses, stalking, and protective order/bond condition violations — e.g., notification rights as the case proceeds."}
+      ]},
+      {id:"threats", label:"9.5 Threats of Injury or Damage", cards:[
+        {lo:"9.5", title:"Officer's Duty as to Threats", cite:"CCP Art. 6.05 – 6.07",
+         body:"When an officer becomes aware of a credible threat of injury to a person or damage to property, they have a duty to try to prevent it — this includes taking reasonable steps to warn the threatened party and, where appropriate, arrest the person making the threat."},
+        {lo:"9.5", title:"Requesting a Protective Order", cite:"CCP Art. 7B.101 · Art. 7B.051",
+         body:"Sets out who can request a protective order under this chapter and the process for doing so — relevant when a threat rises to the level warranting formal court protection rather than just an officer warning."}
+      ]},
+      {id:"riots", label:"9.6 Riots & Disturbances", cards:[
+        {lo:"9.6", title:"Officer Authority to Suppress Riots", cite:"CCP Art. 8.01 · 8.04 – 8.07 · 8.09",
+         body:"An officer who witnesses a riot or unlawful assembly may require bystanders to aid in suppressing it (8.01) and may call for additional aid (8.05). Art. 8.04 covers dispersing a riot, 8.06 the means officers may adopt to suppress one, 8.07 defines unlawful assembly, and 8.09 covers the power of a special constable in this context."}
+      ]},
+      {id:"protective-orders", label:"9.7 Sexual Assault Protective Orders", cards:[
+        {lo:"9.7", title:"Applying for and Issuing a Protective Order", cite:"CCP Art. 7B.001 – 7B.003",
+         body:"Covers who may apply for a protective order for a sexual assault victim (7B.001), the temporary ex parte order a court can issue immediately for protection while the case proceeds (7B.002), and the findings a court must make to issue a full protective order (7B.003)."},
+        {lo:"9.7", title:"Conditions, Warnings & Duration", cite:"CCP Art. 7B.004 – 7B.008",
+         body:"7B.004 addresses hearsay statements from a child victim being admissible in this context. 7B.005 covers what conditions a protective order can impose. 7B.006 requires a warning be included on the order itself. 7B.007 sets how long an order lasts and how it can be rescinded. 7B.008 clarifies how this chapter interacts with other law.",
+         note:"Key exam point: a protective order violation only exists if the conduct is actually prohibited by that order's specific terms — an officer must read the order, not assume."}
+      ]},
+      {id:"sexual-assault-investigation", label:"9.8 Sexual Assault Investigation Duties", cards:[
+        {lo:"9.8", title:"Polygraph Prohibition", cite:"CCP Art. 15.051",
+         body:"A law enforcement agency may not require a sexual assault complainant to submit to a polygraph examination as a condition of proceeding with the investigation."},
+        {lo:"9.8", title:"Victim Rights & Officer Duties", cite:"CCP Art. 56A.052 · Art. 56A.403",
+         body:"56A.052 grants additional rights to victims of sexual assault, indecent assault, stalking, or trafficking. 56A.403 sets specific duties peace officers owe to sexual assault victims during the investigation."},
+        {lo:"9.8", title:"Advocate Presence During Interviews", cite:"CCP Art. 56A.3515",
+         body:"A sexual assault program advocate or other victim's representative has the right to be present during a law enforcement interview of the victim, if the victim wants them there."},
+        {lo:"9.8", title:"Pseudonym Protection", cite:"CCP Art. 58.102 · Art. 58.156",
+         body:"A sexual assault victim may use a pseudonym instead of their legal name in connection with the case to protect their identity in public records; Art. 58.156 makes improper disclosure an offense."}
+      ]}
+    ]
+  },
+  {num:10, title:"Arrest, Search, and Seizure", status:"live", unit:"Unit Goal: The role of the peace officer and the rights of citizens regarding arrest, search, and seizure.",
+    topics:[
+      {id:"key-terms", label:"10.1 Key Terms", cards:[
+        {lo:"10.1", title:"Probable Cause — Two Definitions", cite:"Brinegar v. United States (1949) · Carroll v. United States (1925) · Beck v. Ohio (1964)",
+         body:"Probable cause to <b>arrest</b>: facts and reasonably trustworthy information known to the officer that would lead a reasonable, cautious person to believe a crime is being committed. Probable cause to <b>search</b>: facts and information sufficient to warrant a reasonable belief that seizable property will be found in a specific place or on a specific person. Beck v. Ohio underscores that the officer's subjective good faith alone is not enough — the standard is objective."},
+        {lo:"10.1", title:"Reasonable Suspicion vs. Mere Suspicion", cite:"US v. Sokolow (1989)",
+         body:"<b>Mere suspicion</b> — a hunch or gut feeling — is not legally sufficient for any detention. <b>Reasonable suspicion</b> is a lower bar than probable cause but still requires specific, articulable facts; it's evaluated under the totality of the circumstances and is the standard that justifies a brief investigative detention."},
+        {lo:"10.1", title:"Related Penal Code Definitions", cite:"Penal Code §1.07(a)(42) · §2.01 · §2.02",
+         body:"§1.07(a)(42) defines 'reasonable belief' as a belief a reasonable person in the same circumstances would hold. §2.01 establishes the state's burden of proof beyond a reasonable doubt. §2.02 defines the role of a statutory 'exception' in negating an element of an offense."}
+      ]},
+      {id:"classifications", label:"10.2 Three Classifications of Contact", cards:[
+        {lo:"10.2", title:"Consensual Encounter", cite:"Florida v. Royer (1983)",
+         body:"An officer is free to approach and ask questions, but the person is equally free to refuse to identify themselves, refuse to answer, and simply walk away. No seizure has occurred."},
+        {lo:"10.2", title:"Investigatory Stop / Detention", cite:"Terry v. Ohio (1968)",
+         body:"A temporary, limited seizure of a person based on reasonable suspicion of criminal activity. This is a 'Terry stop' — it must be brief and reasonably related in scope to the circumstances that justified it."},
+        {lo:"10.2", title:"Arrest", cite:"U.S. v. Mendenhall (1980)",
+         body:"Taking a person into custody for the purpose of charging them with a crime, based on probable cause — the highest level of the three."}
+      ]},
+      {id:"mere-suspicion", label:"10.3 Acting on Mere Suspicion", cards:[
+        {lo:"10.3", title:"What an Officer Can Do With Only a Hunch",
+         body:"Mere suspicion doesn't justify a detention, but it doesn't mean an officer must do nothing. Permitted actions include: running computer/license plate checks, conducting surveillance to develop additional facts, and initiating a voluntary police-citizen encounter (where the person remains free to leave). The goal is to develop the situation into either reasonable suspicion (allowing a detention) or probable cause (allowing an arrest)."}
+      ]},
+      {id:"conditions-arrest", label:"10.4 Conditions for Arrest", cards:[
+        {lo:"10.4", title:"The Four Elements of a Lawful Arrest", cite:"CCP Art. 15.22 · 11.21 · 11.22 · Penal Code §38.01(1)",
+         body:"<ul><li><b>Intent</b> — the officer's purpose to take the person into custody</li><li><b>Authority</b> — the arrest must be legally authorized and supported by probable cause</li><li><b>Actual seizure</b> — custody is achieved by physical force or submission to asserted authority</li><li><b>Understanding</b> — the person understands the officer intends to arrest them</li></ul>Art. 15.22 defines when a person is considered arrested; 11.21/11.22 cover constructive custody and restraint; Penal Code §38.01(1) defines 'custody' for evading-arrest-type offenses."},
+        {lo:"10.4", title:"Warrantless Arrest Authority", cite:"CCP Art. 14.01 – 14.06 · 14.031 · 14.035 · 14.051",
+         body:"Art. 14.01 covers offenses committed within an officer's view. 14.02–14.03 set conditions for warrantless arrest by a magistrate's presence or a peace officer's general authority. 14.031 addresses public intoxication specifically. 14.035 covers releasing certain persons with intellectual/developmental disabilities in lieu of arrest. 14.04 covers warrantless arrest when a felony has already been committed (even outside the officer's view, if properly established). 14.051 covers fresh-pursuit arrests by an officer from another jurisdiction.",
+         note:"Payton v. New York (1980): absent exigent circumstances, an officer may not make a warrantless entry into a home to make a routine felony arrest."}
+      ]},
+      {id:"pc-warrantless", label:"10.5 Probable Cause & Warrantless Arrest", cards:[
+        {lo:"10.5", title:"Totality of the Circumstances", cite:"Illinois v. Gates (1983)",
+         body:"Courts evaluate probable cause using the totality of the circumstances known to the officer <i>at the time</i> of the arrest or search — evidence discovered afterward cannot be used to retroactively justify it. Gates describes probable cause as a practical, non-technical, everyday-life judgment call, not a legal-technician's standard."}
+      ]},
+      {id:"custodial-statements", label:"10.6 Custodial Statements", cards:[
+        {lo:"10.6", title:"Miranda Warnings", cite:"Miranda v. Arizona (1966) · CCP Art. 38.22",
+         body:"Before custodial interrogation, an officer must inform the person of their right to remain silent, that anything said can be used against them, their right to an attorney, and that one will be appointed if they can't afford one. Art. 38.22 governs when custodial statements may be used in court. An interpreter must be used if the person doesn't understand English or is deaf/hard of hearing."},
+        {lo:"10.6", title:"Invoking the Right to Silence or Counsel", cite:"Maryland v. Shatzer (2010)",
+         body:"Once a person in custody invokes the right to remain silent, questioning must stop. If they request an attorney, questioning must stop until counsel is present — or until at least a 14-day break in Miranda custody has passed."}
+      ]},
+      {id:"arrest-warrants", label:"10.7 Arrest Warrants", cards:[
+        {lo:"10.7", title:"Obtaining, Issuing & Executing a Warrant", cite:"CCP Art. 15.01 – 15.07 · 15.16 – 15.27",
+         body:"Covers the full lifecycle: the warrant itself (15.01), its required contents (15.02), a magistrate's authority to issue a warrant or summons (15.03), statewide effect (15.06), execution procedures (15.16), the arresting officer's and magistrate's duties (15.17), out-of-county arrests (15.18), notice requirements (15.19–15.21), timing (15.23), permissible force (15.24), authority to break a door (15.25), and the requirement to make arrest authority known (15.26). 15.27 requires notification to schools in certain circumstances.",
+         note:"Steagald v. United States (1981): an arrest warrant alone doesn't authorize forced entry into a third party's home — only into the residence where the named person actually lives."}
+      ]},
+      {id:"warrantless-search", label:"10.8 Warrantless Search", cards:[
+        {lo:"10.8", title:"Consent Searches", 
+         body:"Consent must be freely and voluntarily given — not coerced by circumstances. The person giving consent must be able to withdraw it at any time, and must have actual authority over the property (e.g., a spouse generally can consent to a shared space; a landlord generally cannot consent to a tenant's private space). Written consent is stronger than verbal but can still be challenged if the surrounding circumstances undercut its voluntariness."},
+        {lo:"10.8", title:"Exigent Circumstances", cite:"Brigham City v. Stuart (2006) · Kentucky v. King (2011)",
+         body:"Exigent circumstances (like stopping an ongoing violent fight) can justify warrantless entry. Officers cannot manufacture their own exigency by threatening a Fourth Amendment violation — but King held that officers who did not create the emergency (occupants reacting to a knock) are not disqualified from relying on it."},
+        {lo:"10.8", title:"Fresh Pursuit", cite:"CCP Art. 14.051 · United States v. Santana (1976)",
+         body:"An officer in fresh pursuit of a person reasonably suspected of a felony may continue that pursuit across jurisdictional lines (including from another state) and make the arrest. What counts as 'continuous' pursuit, and whether entry through an open door is still unreasonable, are common scenario-based exam points."},
+        {lo:"10.8", title:"Plain View", 
+         body:"Evidence in plain view can be seized without a warrant if the officer is lawfully present in the location and the incriminating nature of the item is immediately apparent — it can't be seized based on further investigation once viewed."}
+      ]},
+      {id:"search-warrants", label:"10.9 Search Warrants", cards:[
+        {lo:"10.9", title:"Grounds, Contents & Execution", cite:"CCP Art. 18.01 – 18.09",
+         body:"Covers the warrant itself (18.01), sealing an affidavit (18.011), grounds for issuance (18.02), required contents (18.04), warrants for fire/health/code inspections (18.05), execution (18.06), the number of days a warrant is valid (18.07), and the officer's authority while executing it, including seizing the accused and property (18.08–18.09)."},
+        {lo:"10.9", title:"Special-Purpose Search Warrants", cite:"CCP Art. 18.021 · 18.0215 · 18.03 · 18.095 · 18.10 – 18.11 · 18.22",
+         body:"18.021 covers a warrant to photograph an injured child (cross-referenced to Family Code §58.002). 18.0215 covers access to a cell phone or other wireless device. 18.03 allows a search warrant to also authorize an arrest. 18.095 covers seizing gambling device components. 18.10–18.11 cover how the warrant's return is made and custody of seized property. 18.22 covers testing certain defendants/confined persons for communicable diseases."}
+      ]},
+      {id:"no-knock", label:"10.10 No-Knock vs. Knock-and-Announce", cards:[
+        {lo:"10.10", title:"Purpose and Tradeoffs of Each",
+         body:"<b>No-knock</b>: officers enter without warning, reducing the risk of officers being shot by armed occupants or evidence being destroyed — but it raises the risk occupants mistake officers for home invaders and react defensively. <b>Knock-and-announce</b>: officers knock, announce their presence, and wait a reasonable time before entry, which is safer for a peaceful resolution but gives occupants a window to arm themselves or destroy evidence. In practice, the difference in execution is often only a matter of seconds — knock-and-announce doesn't specify exactly how loud or how long the wait must be."}
+      ]},
+      {id:"charging-docs", label:"10.11 Charging Documents", cards:[
+        {lo:"10.11", title:"Complaint & Probable Cause Affidavit", cite:"CCP Art. 15.04 – 15.05",
+         body:"A complaint is the sworn charging document that initiates a case (15.04), with specific required contents (15.05). A probable cause affidavit is a sworn officer statement detailing the facts establishing sufficient grounds to arrest or search — it's the document a magistrate reviews to determine whether probable cause actually exists."}
+      ]},
+      {id:"bail", label:"10.12 Bail Procedure", cards:[
+        {lo:"10.12", title:"Bail Bond Basics", cite:"CCP Art. 17.01 · 17.15 · 17.20 – 17.22 · 17.29",
+         body:"Art. 17.01 defines a bail bond. 17.15 sets the rules a court must weigh in setting the bail amount (nature of offense, ability to pay, community/victim safety, etc.). 17.20–17.22 cover bail procedure for misdemeanors vs. felonies. 17.29 covers when the accused is liberated (released) upon posting bail."},
+        {lo:"10.12", title:"Bail Denial & Emergency Protection", cite:"CCP Art. 17.152 – 17.153 · 17.291 – 17.292",
+         body:"17.152 allows denial of bail for violating certain court orders/bond conditions in a family violence case; 17.153 does the same where a child is the alleged victim. 17.291 covers further detention of certain persons, and 17.292 covers a magistrate's order for emergency protection — often issued at the same time as setting bail in a family violence arrest."},
+        {lo:"10.12", title:"Victim Rights at This Stage", cite:"CCP Art. 56A.051 – 56A.052",
+         body:"56A.051 sets general crime victim rights (notice, presence, etc.); 56A.052 adds rights specific to sexual assault, indecent assault, stalking, or trafficking victims."}
+      ]}
+    ]
+  }
+];
+for(let i=11;i<=43;i++){ chapters.push({num:i, title:"Chapter "+i, status:"locked"}); }
+
+/* ===================== ENGINE ===================== */
+const urlParams = new URLSearchParams(window.location.search);
+const chParam = parseInt(urlParams.get('ch'), 10);
+let activeChapter = (chParam && chapters.some(c=>c.num===chParam)) ? chParam : 9;
+let activeTopic = null;
+
+function statusOf(ch){ return ch.status; }
+
+function renderChapterChips(){
+  const wrap = document.getElementById('chapterChips');
+  wrap.innerHTML = '';
+  chapters.forEach(ch=>{
+    const b = document.createElement('button');
+    b.className = 'chip' + (ch.num===activeChapter?' active':'') + (ch.status==='locked'?' locked':'') + (ch.status==='pending'?' pending':'');
+    b.innerHTML = `<span class="dot ${ch.status}"></span>Ch ${ch.num}`;
+    b.title = ch.title;
+    b.onclick = ()=>{ document.getElementById('searchInput').value=''; activeChapter = ch.num; activeTopic = null; render(); };
+    wrap.appendChild(b);
+  });
+}
+
+function renderTopicChips(ch){
+  const wrap = document.getElementById('topicChips');
+  if(!ch.topics){ wrap.style.display='none'; return; }
+  wrap.style.display='flex';
+  wrap.innerHTML='';
+  const allBtn = document.createElement('button');
+  allBtn.className = 'subchip' + (activeTopic===null?' active':'');
+  allBtn.textContent = 'All Topics';
+  allBtn.onclick = ()=>{ activeTopic=null; render(); };
+  wrap.appendChild(allBtn);
+  ch.topics.forEach(t=>{
+    const b = document.createElement('button');
+    b.className = 'subchip' + (activeTopic===t.id?' active':'');
+    b.textContent = t.label;
+    b.onclick = ()=>{ activeTopic=t.id; render(); };
+    wrap.appendChild(b);
+  });
+}
+
+function cardHtml(card, breadcrumb){
+  return `<div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">${card.title}</div>
+        ${card.cite ? `<div class="card-cite cite">${card.cite}</div>` : ''}
+        ${breadcrumb ? `<div class="breadcrumb">${breadcrumb}</div>` : ''}
+      </div>
+      ${card.lo ? `<span class="lo-badge">LO ${card.lo}</span>` : ''}
+    </div>
+    ${card.body ? `<div class="card-body">${card.body}</div>` : ''}
+    ${card.note ? `<div class="scenario"><span class="lbl">Note</span>${card.note}</div>` : ''}
+  </div>`;
+}
+
+function renderChapterBody(ch){
+  const main = document.getElementById('main');
+  if(ch.status==='locked'){
+    main.innerHTML = `<div class="locked-box"><h3>Not yet covered</h3><p>Chapter ${ch.num} hasn't been reached in class yet. It'll open up here once we get to it.</p></div>`;
+    return;
+  }
+  if(ch.status==='pending'){
+    main.innerHTML = `<div class="chapter-head"><span class="num">CH ${ch.num}</span><h2>${ch.title}</h2></div>
+      <div class="pending-box"><h3>Content pending</h3><p>${ch.note ? ch.note : "This chapter has been covered in class but the reference page hasn't been built yet."}</p></div>`;
+    return;
+  }
+  let topicsToShow = activeTopic ? ch.topics.filter(t=>t.id===activeTopic) : ch.topics;
+  let html = `<div class="chapter-head"><span class="num">CH ${ch.num}</span><h2>${ch.title}</h2>${ch.unit?`<div class="chapter-unit">${ch.unit}</div>`:''}</div>`;
+  topicsToShow.forEach(t=>{
+    html += `<h3 style="font-family:'IBM Plex Serif',serif;font-size:14px;color:var(--ink-soft);margin:18px 0 8px;">${t.label}</h3>`;
+    t.cards.forEach(c=>{ html += cardHtml(c); });
+  });
+  main.innerHTML = html;
+}
+
+function renderSearchResults(query){
+  document.getElementById('topicChips').style.display='none';
+  const q = query.toLowerCase();
+  let results = [];
+  chapters.filter(c=>c.status==='live').forEach(ch=>{
+    ch.topics.forEach(t=>{
+      t.cards.forEach(c=>{
+        const hay = (c.title+' '+(c.cite||'')+' '+(c.body||'')+' '+(c.note||'')).toLowerCase();
+        if(hay.includes(q)) results.push({card:c, ch, topic:t});
+      });
+    });
+  });
+  const main = document.getElementById('main');
+  if(results.length===0){
+    main.innerHTML = `<div class="search-results-head">No matches for "${query}" in the chapters built out so far (${chapters.filter(c=>c.status==='live').map(c=>'Ch '+c.num).join(', ')}).</div>`;
+    return;
+  }
+  main.innerHTML = `<div class="search-results-head">${results.length} result${results.length===1?'':'s'} for "${query}"</div>` +
+    results.map(r=>cardHtml(r.card, `Ch ${r.ch.num} · ${r.topic.label}`)).join('');
+}
+
+function render(){
+  const q = document.getElementById('searchInput').value.trim();
+  renderChapterChips();
+  if(q.length>1){
+    renderSearchResults(q);
+    return;
+  }
+  const ch = chapters.find(c=>c.num===activeChapter);
+  renderTopicChips(ch);
+  renderChapterBody(ch);
+}
+
+document.getElementById('searchInput').addEventListener('input', render);
+render();
+</script>
+
+</body>
+</html>
