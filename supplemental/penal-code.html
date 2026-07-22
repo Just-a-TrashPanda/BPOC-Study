@@ -77,6 +77,18 @@
     line-height:1.5;
   }
 
+  .search-wrap{margin-top:16px; position:relative; max-width:480px;}
+  .search-wrap input{
+    width:100%; padding:10px 14px 10px 38px; border-radius:8px; border:1px solid rgba(255,255,255,0.18);
+    background:rgba(255,255,255,0.08); color:#F3EFE4; font-family:'IBM Plex Sans',sans-serif; font-size:14px;
+    box-sizing:border-box;
+  }
+  .search-wrap input::placeholder{color:#9BA3AE;}
+  .search-wrap input:focus{outline:2px solid var(--brass-light); background:rgba(255,255,255,0.12);}
+  .search-icon{position:absolute; left:12px; top:50%; transform:translateY(-50%); opacity:0.7; font-size:14px;}
+  .search-results-head{font-size:12.5px; color:var(--ink-soft); margin:14px 0 10px; font-family:'IBM Plex Sans',sans-serif;}
+
+
   /* ladder legend */
   .ladder{
     display:flex;
@@ -281,6 +293,11 @@
   <h1>Texas Penal Code<br>Offense Reference</h1>
   <p class="sub">Statute, plain-language definition, base punishment range, and common enhancements — organized by Penal Code Title. Not legal advice; the legislature amends these sections almost every session, so verify against the current code before relying on this for anything but study.</p>
   <a href="../index.html" style="display:inline-block;margin-top:16px;font-size:12.5px;color:#D7B667;text-decoration:none;font-family:'IBM Plex Mono',monospace;">&larr; Back to hub</a>
+
+  <div class="search-wrap">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="offenseSearch" placeholder="Search offenses (e.g. &quot;theft&quot;, &quot;assault&quot;, &quot;19.03&quot;)">
+  </div>
 
   <div class="ladder">
     <div class="ladder-cell mc">Class C<span class="rng">Fine ≤$500</span></div>
@@ -1108,16 +1125,61 @@
 <script>
   const chips = document.querySelectorAll('.chip');
   const secs = document.querySelectorAll('.tsec');
+  const searchInput = document.getElementById('offenseSearch');
+  const searchResultsHead = document.createElement('div');
+  searchResultsHead.className = 'search-results-head';
+  searchResultsHead.style.display = 'none';
+  document.querySelector('main').prepend(searchResultsHead);
+
+  const allOffenses = document.querySelectorAll('.offense');
+  function resetOffenseVisibility(){
+    allOffenses.forEach(o => { o.style.display = ''; });
+  }
+  function applyFilter(t){
+    resetOffenseVisibility();
+    chips.forEach(c => c.classList.toggle('active', c.dataset.t === t));
+    secs.forEach(s => { s.style.display = (t === 'all' || s.dataset.t === t) ? '' : 'none'; });
+  }
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
-      chips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      const t = chip.dataset.t;
-      secs.forEach(s => {
-        s.style.display = (t === 'all' || s.dataset.t === t) ? '' : 'none';
-      });
+      searchInput.value = '';
+      searchResultsHead.style.display = 'none';
+      applyFilter(chip.dataset.t);
+      history.replaceState(null, '', chip.dataset.t === 'all' ? location.pathname : '#' + chip.dataset.t);
     });
   });
+
+  function runSearch(query){
+    const q = query.trim().toLowerCase();
+    if(!q){
+      searchResultsHead.style.display = 'none';
+      const activeChip = document.querySelector('.chip.active') || document.querySelector('.chip[data-t="all"]');
+      applyFilter(activeChip.dataset.t);
+      return;
+    }
+    let matchCount = 0;
+    secs.forEach(sec => {
+      const offenses = sec.querySelectorAll('.offense');
+      let secHasMatch = false;
+      offenses.forEach(o => {
+        const hay = o.textContent.toLowerCase();
+        const match = hay.includes(q);
+        o.style.display = match ? '' : 'none';
+        if(match){ secHasMatch = true; matchCount++; }
+      });
+      sec.style.display = secHasMatch ? '' : 'none';
+    });
+    searchResultsHead.style.display = '';
+    searchResultsHead.textContent = matchCount + (matchCount === 1 ? ' offense matches "' : ' offenses match "') + query + '"';
+  }
+  searchInput.addEventListener('input', () => runSearch(searchInput.value));
+
+  // Deep-link support: penal-code.html#t5 opens directly filtered to that title
+  const initialHash = location.hash.replace('#','');
+  if(initialHash && document.querySelector(`.chip[data-t="${initialHash}"]`)){
+    applyFilter(initialHash);
+    setTimeout(()=>document.querySelector('main').scrollIntoView({behavior:'instant', block:'start'}), 0);
+  }
 </script>
 
 </body>
