@@ -57,6 +57,8 @@
   .card{background:#fff; border:1px solid var(--rule); border-left-width:5px; border-left-color:var(--rule); border-radius:6px; padding:12px 14px 13px; margin-bottom:10px;}
   .card-head{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:4px;}
   .card-title{font-family:'IBM Plex Serif', serif; font-weight:600; font-size:14.5px; line-height:1.3;}
+  .card-title a{color:var(--navy); text-decoration:none; border-bottom:1px dotted var(--brass);}
+  .card-title a:hover{color:var(--brass); border-bottom-style:solid;}
   .card-cite{font-size:10.5px; color:var(--ink-soft); margin-top:2px; line-height:1.5;}
   .card-body{font-size:13px; line-height:1.55; margin:6px 0 0; color:var(--ink);}
   .card-body ul{margin:6px 0 0; padding-left:18px;}
@@ -634,7 +636,95 @@ const chapters = [
       ]}
     ]
   },
-  {num:8, title:"Penal Code", status:"pending", note:"See the dedicated Penal Code Offense Reference under Supplemental Materials on the hub — that page already covers this chapter's scope in more depth."},
+  {num:8, title:"Penal Code", status:"live",
+    unit:"Unit Goal: Organization, general provisions, and definitions of the Texas Penal Code, plus the specific offense categories the BPOC covers. Offense-by-offense detail (elements, penalty grades, enhancements) for 8.9–8.35 lives in the full Penal Code Offense Reference under Supplemental Materials on the hub — this chapter indexes straight into it by Title, plus covers the foundational Title 1–3 material in full here.",
+    topics:[
+      {id:"code-organization", label:"8.1 Code Organization", cards:[
+        {lo:"8.1", title:"§1.02 Objectives & §1.03 Effect of the Code",
+         body:"The Penal Code's stated objectives: ensure public safety through deterrence, rehabilitation, and incapacitation where needed; give fair warning of what's prohibited through clear offense definitions and grading; and prescribe penalties proportionate to the offense while allowing for differences in individual rehabilitation potential. §1.03 clarifies that conduct isn't an offense unless defined as one by statute, ordinance, or authorized rule — and that Titles 1–3 (general provisions, responsibility, punishments) apply to offenses defined outside the Penal Code too, unless that statute says otherwise. This code doesn't bar a separate civil remedy for the same underlying conduct."},
+        {lo:"8.1", title:"§1.04 Territorial Jurisdiction",
+         body:"Texas has jurisdiction over an offense if the conduct or a result element occurs inside the state, if out-of-state conduct amounts to an attempt or conspiracy to commit an offense inside Texas (with an overt act occurring inside the state for conspiracy), or if in-state conduct amounts to an attempt/solicitation/conspiracy connected to an offense in another jurisdiction that's also a Texas offense. For homicide specifically, if the victim's body is found in Texas, death is presumed to have occurred here. An offense based on failing to perform a state-imposed duty is committed in Texas regardless of the actor's actual location."}
+      ]},
+      {id:"general-provisions", label:"8.2 General Provisions & Definitions", cards:[
+        {lo:"8.2", title:"§1.06 Computation of Age & §1.07 Definitions",
+         body:"§1.06 sets the rule for calculating a person's age for legal purposes (a person reaches a specified age on the anniversary of their birth date). §1.07 is the Penal Code's master definitions section — 49 numbered definitions covering foundational terms like 'bodily injury,' 'serious bodily injury,' 'deadly weapon,' 'possession,' 'public place,' and the felony/misdemeanor distinction.",
+         note:"Full definitions detail is in the Supplemental Penal Code Reference, Title 1 section."}
+      ]},
+      {id:"exception-defense", label:"8.3 Exception, Defense & Affirmative Defense", cards:[
+        {lo:"8.3", title:"§2.02 Exception",
+         body:"Labeled by the phrase 'it is an exception to the application of...' The prosecutor must actively negate (disprove) the exception in the charging document and prove beyond a reasonable doubt that the defendant's conduct doesn't fall within it — the heaviest burden of the three, placed entirely on the state."},
+        {lo:"8.3", title:"§2.03 Defense",
+         body:"Labeled by the phrase 'it is a defense to prosecution...' The prosecutor doesn't have to disprove it in the charging document, and it isn't submitted to the jury at all unless the defendant introduces supporting evidence — but once it is submitted, a reasonable doubt on the issue requires acquittal."},
+        {lo:"8.3", title:"§2.04 Affirmative Defense",
+         body:"Labeled by the phrase 'it is an affirmative defense to prosecution...' Same evidence-first trigger as a regular defense, but the burden then shifts to the defendant, who must prove the affirmative defense by a preponderance of the evidence (more likely than not) rather than the state needing to disprove it beyond a reasonable doubt.",
+         note:"Memory aid: Exception = State disproves beyond reasonable doubt. Defense = State disproves beyond reasonable doubt, but only once defendant puts on evidence. Affirmative Defense = Defendant proves by preponderance of the evidence."}
+      ]},
+      {id:"offense-components", label:"8.4 Components of an Offense", cards:[
+        {lo:"8.4", title:"§6.01 Voluntary Act or Omission",
+         body:"A person only commits an offense by voluntarily engaging in conduct — an act, omission, or possession. Possession counts as voluntary if the person knowingly obtained/received the thing or was aware of controlling it long enough to have been able to get rid of it. An omission (failing to act) is only criminal if a law specifically imposes a duty to act."},
+        {lo:"8.4", title:"§6.02–6.03 Culpable Mental State & §6.04 Causation",
+         body:"Every offense (unless the definition plainly dispenses with a mental element) requires proof of one of four culpable mental states — intentional, knowing, reckless, or criminal negligence, in that order of severity. §6.04 covers causation: a person is criminally responsible for a result if their conduct is a but-for cause of it, even with a concurrent cause, unless the concurrent cause alone would have produced the result and the actor's conduct was clearly insufficient.",
+         note:"Full detail on the four mental states is in the Supplemental Penal Code Reference, Title 2 section."},
+        {lo:"8.4", title:"§3.01–3.04 Consolidation of Offenses",
+         body:"A 'criminal episode' is two or more offenses committed as part of the same transaction (or connected transactions/common scheme), or as repeated commission of similar offenses. A defendant can be prosecuted for every offense from the same criminal episode in a single action — which is why multiple charges from one incident often get bundled into one trial rather than tried separately."}
+      ]},
+      {id:"parties-defenses", label:"8.5 Parties & Defenses to Responsibility", cards:[
+        {lo:"8.5", title:"Parties to Offenses & General/Justification Defenses",
+         body:"Covers when someone is criminally responsible for another person's conduct (the 'law of parties' — Ch. 7), and the full set of defenses that can excuse or justify otherwise-criminal conduct: insanity, mistake of fact, mistake of law, intoxication, duress, entrapment, age (Ch. 8), plus the justification defenses — necessity, self-defense, defense of a third person, defense of property, and a law enforcement officer's own use-of-force justification (Ch. 9).",
+         note:"Full detail on every one of these defenses is already built out in the Supplemental Penal Code Reference, Title 2 section — this chapter doesn't duplicate it since it's identical material."}
+      ]},
+      {id:"classification-punishment", label:"8.6 Classifying Offenses & Punishment", cards:[
+        {lo:"8.6", title:"Felony vs. Misdemeanor & Punishment Ranges", cite:"PC §12.02 – 12.04 · §12.21–12.23 · §12.31–12.35",
+         body:"§12.02–12.04 draw the line between felonies and misdemeanors. §12.21–12.23 set misdemeanor punishment ranges (Class C/B/A); §12.31–12.35 set felony ranges (Capital through State Jail).",
+         note:"The full punishment ladder — with exact fine and confinement ranges for every grade from Class C up through Capital — is displayed right at the top of the Supplemental Penal Code Reference page."}
+      ]},
+      {id:"enhancements", label:"8.7 Enhancements", cards:[
+        {lo:"8.7", title:"§12.42 Repeat & Habitual Felony Offenders",
+         body:"Prior felony convictions escalate the punishment range for a new felony: a 3rd-degree felony with one prior qualifying felony conviction gets punished as a 2nd-degree felony; a 2nd-degree felony with one prior gets punished as a 1st-degree felony; and a 1st-degree felony with one prior carries a punishment range of 15 years to life (plus up to a $10,000 fine). Certain especially serious combinations (e.g., specific sexual/child offenses with a matching prior) mandate an automatic life sentence rather than a range. Separate provisions cover habitual misdemeanor enhancement (§12.43), bias/hate-crime penalty enhancement (§12.47), and reducing a state jail felony to misdemeanor punishment in limited circumstances (§12.44)."}
+      ]},
+      {id:"inchoate-offenses", label:"8.8 Inchoate Offenses", cards:[
+        {lo:"8.8", title:"§15.01 Criminal Attempt",
+         body:"Doing an act, with specific intent to commit an offense, that goes beyond mere preparation but fails to actually complete the offense. It's no defense that the underlying offense was actually completed after all. Grading: one category lower than the offense attempted (a state-jail-felony attempt becomes a Class A misdemeanor) — except attempting capital murder of a peace officer, which is itself a 1st-degree felony carrying 25–99 years or life."},
+        {lo:"8.8", title:"§15.02 Criminal Conspiracy",
+         body:"Agreeing with one or more people to commit a felony, plus an overt act by any conspirator in furtherance of that agreement. The agreement can be inferred from conduct. It's no defense that a co-conspirator wasn't criminally responsible, was acquitted (as long as fewer than two were acquitted), wasn't prosecuted, or that the object offense was actually committed. Grading: one category lower than the most serious felony that was the object of the conspiracy."},
+        {lo:"8.8", title:"§15.03 Criminal Solicitation",
+         body:"Requesting, commanding, or attempting to induce someone else to engage in conduct that would constitute a capital felony or 1st-degree felony (or make them a party to one). A conviction can't rest on the uncorroborated testimony of the person solicited alone — the circumstances must strongly corroborate both the solicitation and the actor's intent. Grading: 1st-degree felony if the solicited offense is capital; 2nd-degree felony if it's a 1st-degree felony."},
+        {lo:"8.8", title:"§15.05 No Offense",
+         body:"Clarifies that attempt or conspiracy liability doesn't apply to every possible offense — this section limits inchoate liability to the specific chapters where the Penal Code says it applies."}
+      ]},
+      {id:"offense-index", label:"8.9–8.35 Offense Index", cards:[
+        {lo:"8.9–8.35", title:"Full Offense Detail Lives in the Penal Code Reference",
+         body:"Every substantive offense category from here through the end of Chapter 8 — homicide, kidnapping, sexual offenses, assault, family offenses, property crimes, robbery, burglary, theft, fraud, computer/telecom crimes, offenses against government operations, public order, prostitution, public decency, weapons, gambling, tobacco, intoxication, and organized crime — is already built out with full elements and penalty grading in the <b>Penal Code Offense Reference</b>. Rather than duplicate that content here, each card below links directly to the right Title on that page. Bribery, perjury, and governmental abuse (8.23, 8.24, 8.26) are covered under Chapter 1 → Topic 1.6 instead, since the BPOC teaches those there as officer-conduct material."},
+        {lo:"8.9", title:'<a href="supplemental/penal-code.html#t5">Unlawful Killing → Penal Code Title 5</a>', cite:"PC §19.01–19.06"},
+        {lo:"8.10", title:'<a href="supplemental/penal-code.html#t5">Kidnapping & Unlawful Restraint → Penal Code Title 5</a>', cite:"PC §20.01–20.04"},
+        {lo:"8.11", title:'<a href="supplemental/penal-code.html#t5">Smuggling & Trafficking of Persons → Penal Code Title 5</a>', cite:"PC §20.05, 20A.02, 20A.03"},
+        {lo:"8.12", title:'<a href="supplemental/penal-code.html#t5">Sexual Offenses → Penal Code Title 5</a>', cite:"PC §21.01+, §22.011, §22.021"},
+        {lo:"8.13", title:'<a href="supplemental/penal-code.html#t5">Assaultive Offenses → Penal Code Title 5</a>', cite:"PC §22.01–22.07"},
+        {lo:"8.14", title:'<a href="supplemental/penal-code.html#t6">Offenses Against the Family → Penal Code Title 6</a>', cite:"PC §25.01–25.11"},
+        {lo:"8.15", title:'<a href="supplemental/penal-code.html#t7">Arson, Criminal Mischief & Property Damage → Penal Code Title 7</a>', cite:"PC §28.01–28.08"},
+        {lo:"8.16", title:'<a href="supplemental/penal-code.html#t7">Robbery → Penal Code Title 7</a>', cite:"PC §29.01–29.03"},
+        {lo:"8.17", title:'<a href="supplemental/penal-code.html#t7">Burglary & Criminal Trespass → Penal Code Title 7</a>', cite:"PC §30.01–30.07"},
+        {lo:"8.18", title:'<a href="supplemental/penal-code.html#t7">Theft → Penal Code Title 7</a>', cite:"PC §31.01–31.18"},
+        {lo:"8.19", title:'<a href="supplemental/penal-code.html#t7">Fraud → Penal Code Title 7</a>', cite:"PC §32.01–32.52"},
+        {lo:"8.20", title:'<a href="supplemental/penal-code.html#t7">Exploitation of a Child, Elderly, or Disabled Individual → Penal Code Title 7</a>', cite:"PC §32.53"},
+        {lo:"8.21", title:'<a href="supplemental/penal-code.html#t7">Computer Crimes → Penal Code Title 7</a>', cite:"PC §33.01–33.07"},
+        {lo:"8.22", title:'<a href="supplemental/penal-code.html#t7">Telecommunications Crimes → Penal Code Title 7</a>', cite:"PC §33A.01–33A.05"},
+        {lo:"8.23", title:"Bribery & Corrupt Influence → See Chapter 1, Topic 1.6", cite:"PC §36.01–36.10", note:"Already fully built out under Chapter 1 — same content, since the BPOC covers it there as officer-conduct material."},
+        {lo:"8.24", title:"Perjury & Falsification → See Chapter 1, Topic 1.6", cite:"PC §37.01–37.14", note:"Already fully built out under Chapter 1."},
+        {lo:"8.25", title:'<a href="supplemental/penal-code.html#t8">Offenses Against Government Operations → Penal Code Title 8</a>', cite:"PC §38.01–38.23"},
+        {lo:"8.26", title:"Governmental Abuse → See Chapter 1, Topic 1.6", cite:"PC §39.01–39.07", note:"Already fully built out under Chapter 1."},
+        {lo:"8.27", title:'<a href="supplemental/penal-code.html#t9">Offenses Against Public Order → Penal Code Title 9</a>', cite:"PC §42.01–42.14"},
+        {lo:"8.28", title:'<a href="supplemental/penal-code.html#t9">Prostitution → Penal Code Title 9</a>', cite:"PC §43.01–43.06"},
+        {lo:"8.29", title:'<a href="supplemental/penal-code.html#t9">Public Decency → Penal Code Title 9</a>', cite:"PC §43.21–43.28"},
+        {lo:"8.30", title:'<a href="supplemental/penal-code.html#t10">Weapons Offenses → Penal Code Title 10</a>', cite:"PC §46.01–46.11"},
+        {lo:"8.31", title:'<a href="supplemental/penal-code.html#t10">Gambling → Penal Code Title 10</a>', cite:"PC §47.01–47.09"},
+        {lo:"8.32", title:'<a href="supplemental/penal-code.html#t10">Illegal Use of Tobacco → Penal Code Title 10</a>', cite:"PC §48.01–48.02"},
+        {lo:"8.33", title:'<a href="supplemental/penal-code.html#t10">Intoxication Offenses → Penal Code Title 10</a>', cite:"PC §49.01–49.12"},
+        {lo:"8.34", title:'<a href="supplemental/penal-code.html#t10">Fireworks → Penal Code Title 10</a>', cite:"PC §46 area / Health & Safety Code cross-reference"},
+        {lo:"8.35", title:'<a href="supplemental/penal-code.html#t11">Organized Crime → Penal Code Title 11</a>', cite:"PC §71.01–71.028"}
+      ]}
+    ]
+  },
   {num:9, title:"Code of Criminal Procedure", status:"live", unit:"Unit Goal: This unit covers sections of the Code of Criminal Procedure (CCP) not covered elsewhere in the course — mainly officer identity, general duties, and duties tied to family violence, threats, riots, protective orders, and sexual assault investigations.",
     topics:[
       {id:"authority", label:"9.1 Statutory Authority", cards:[
