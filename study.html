@@ -108,7 +108,71 @@
 /* ===================== DATA ===================== */
 // status: "live" (built out), "pending" (covered in class, not yet built), "locked" (not reached yet)
 const chapters = [
-  {num:1, title:"Professionalism and Ethics", status:"pending"},
+  {num:1, title:"Professionalism and Ethics", status:"live",
+    unit:"Unit Goal: Understand and respect professionalism as it applies to law enforcement; understand and accept the crucial role of ethics; understand civil and criminal laws related to unethical officer behavior.",
+    topics:[
+      {id:"defining-prof", label:"1.1 Defining Professionalism", cards:[
+        {lo:"1.1", title:"What Makes an Occupation a 'Profession'",
+         body:"Law enforcement meets every criterion of a profession, even though it's not always included in casual definitions of the word. A vocation qualifies as a profession when its members:<ul><li>Possess a specialized body of knowledge not easily acquired, gained through advanced education or training</li><li>Share a commitment to serving the public/community</li><li>Share a commitment to promoting the common good</li><li>Share a professional creed or code of ethics holding members to a higher standard than the norm for other vocations</li></ul>Professionalism exists on a continuum — occupations (and individuals) vary in the degree to which they meet these characteristics, not a strict yes/no."}
+      ]},
+      {id:"legitimacy", label:"1.2 Legitimacy & Procedural Justice", cards:[
+        {lo:"1.2", title:"Six Characteristics of Professionalism",
+         body:"Service to others; assessment of others' needs; a theoretical body of knowledge from extended pre-service education; standards for entry, practice, and ethical conduct; a professional association that maintains those standards; and continuing education/lifelong learning."},
+        {lo:"1.2", title:"Police Legitimacy",
+         body:"Legitimacy means the public trusts police, accepts their authority, and believes officers are fair. Officers build it by treating people with dignity and respect, deciding based on facts (not race or other illegitimate factors), giving people a chance to tell their side ('voice'), and acting in ways that build belief in future good-faith treatment. Departments that do this see more public cooperation, compliance, and support."},
+        {lo:"1.2", title:"The Four Pillars of Procedural Justice",
+         body:"<ul><li><b>Fairness &amp; Consistency</b> — people judge fairness by both the outcome and the process used to reach it; the interaction itself often matters more than the result</li><li><b>Voice</b> — people want to be heard and have some sense of control over the process, even when the outcome (like a ticket) isn't in their control</li><li><b>Transparency</b> — decisions made openly, not through secrecy, are more likely to be accepted even when unfavorable</li><li><b>Impartiality</b> — decisions based on evidence and data, not personal opinion or speculation</li></ul>"},
+        {lo:"1.2", title:"Advantages & Disadvantages of the Professional Model",
+         body:"<b>Advantages:</b> better public service, improved officer quality, more ethical conduct, more effective problem-solving, stronger community support, stronger role in the CJ system, more innovation, financial rewards.<br><b>Disadvantages:</b> cost of training/development, higher required compensation, and limited entry for people without access to the educational attainment the profession now requires."},
+        {lo:"1.2", title:"Community Policing Model",
+         body:"Three components work together: <b>Partnerships</b> — collaborating with government agencies, community groups, nonprofits, and businesses to build trust and solve problems. <b>Problem-Solving</b> — the SARA process: Scanning (identify/prioritize problems), Analysis (research what's known), Response (develop lasting solutions), Assessment (evaluate what worked) — often paired with the crime triangle (victim/offender/location). <b>Organizational Transformation</b> — aligning agency management, structure, and systems to support the first two, at every level of the organization."}
+      ]},
+      {id:"code-of-ethics", label:"1.3 Code of Ethics", cards:[
+        {lo:"1.3", title:"Law Enforcement Code of Ethics (IACP)",
+         body:"The widely-adopted professional code commits an officer to: serve the community and safeguard lives and property; protect the innocent, the weak, and the peaceful; respect everyone's constitutional rights to liberty, equality, and justice; keep a private life beyond reproach; maintain calm and self-restraint under pressure; keep official confidences secret unless duty requires disclosure; never let personal feelings, prejudice, or politics influence decisions; enforce the law courteously without excessive force or accepting gratuities; treat the badge as a public trust; never engage in or tolerate corruption or bribery; and take personal responsibility for their own professional growth."}
+      ]},
+      {id:"ethical-dilemmas", label:"1.4 Ethical Dilemmas", cards:[
+        {lo:"1.4", title:"The Pillars of Character & Elements of the Ethical Role",
+         body:"<b>Pillars of Character:</b> Trustworthiness, Respect, Responsibility, Fairness, Caring, Citizenship.<br>Being ethical and being professional are inseparable — the ethical role means acting objectively and impartially, striving to be uninfluenced by emotion or prejudice, giving fair assistance to everyone regardless of personal feelings, and applying the procedural-justice pillars (fairness, voice, transparency, impartiality) day to day."},
+        {lo:"1.4", title:"Components of Consistent Ethical Behavior",
+         body:"<ul><li><b>Moral sensitivity</b> — recognizing that a situation is an ethical issue at all</li><li><b>Moral judgment</b> — determining the morally correct course of action using critical thinking</li><li><b>Moral motivation</b> — the actual desire to do the right thing</li><li><b>Moral character</b> — the courage and discipline to follow through under pressure or temptation</li></ul>"},
+        {lo:"1.4", title:"What Motivates (and Blocks) Ethical Behavior",
+         body:"<b>Motivations:</b> inner benefit (virtue is its own reward), personal advantage (it's good business), approval (self-esteem and peer respect), religion, and habit (fits upbringing/training).<br><b>Obstacles:</b> self-interest and the pursuit of personal happiness/gain."},
+        {lo:"1.4", title:"Ethical Decision-Making Model",
+         body:"A practical checklist for a gray-area situation: Is it legal? Is it permitted by your organization's code of conduct? How would it be viewed under your organization's code of ethics and shared values? Does your personal code of ethics approve? Is it a true ethical dilemma (do both choices actually appear right)?"},
+        {lo:"1.4", title:"Career Attitude Stages",
+         body:"Officers commonly move through recognizable stages over a career: <b>Idealistic</b> (confident, high expectations) → <b>Frustrated</b> (reality doesn't match expectations; vulnerable to negative peer pressure) → <b>Defiant</b> (acting out, often destructively) → <b>Resigned</b> (disengaged, going through the motions) → <b>Aware</b> (self-analysis begins) → <b>Decisive</b> (actively choosing a positive path) → <b>Commitment</b> (a realistic, sustained dedication to doing the job well). The Defiant and Resigned stages are when officers are most vulnerable to career-ending poor decisions."},
+        {lo:"1.4", title:"Implicit Bias",
+         body:"Implicit bias is the automatic association people make between groups and stereotypes, formed just by absorbing the surrounding social world — distinct from conscious, deliberate bigotry (unconscious bias is a direct reaction; implicit bias is subtler and shapes interpretation of ambiguous behavior). Common areas bias affects: race/ethnicity, behavior, gender, sexual orientation, and religion. Awareness of personal bias is the first step toward objectivity."},
+        {lo:"1.4", title:"Acceptance of Gifts", cite:"Penal Code §39.04(b)",
+         body:"Whether a gift is problematic often depends on who's offering it, when, why, and where — not just its dollar value (a free cup of coffee reads very differently than a free hotel weekend). Once an officer starts rationalizing small gratuities, it becomes progressively easier to rationalize larger ones.",
+         note:"Improper sexual activity with a person in custody is a criminal offense under Penal Code §39.04(b), enhanced to a 2nd degree felony."}
+      ]},
+      {id:"courage", label:"1.5 Physical & Moral Courage", cards:[
+        {lo:"1.5", title:"Physical Courage vs. Moral Courage", cite:"CCP Art. 2B.0251 (Duty to Intervene)",
+         body:"<b>Physical courage</b> is facing physical danger — e.g., confronting a barricaded, armed suspect, or physically intervening to stop harm. <b>Moral courage</b> is taking action for ethical reasons despite the risk of adverse personal or professional consequences — e.g., refusing gratuities, refusing to participate in a cover-up, or refusing to go along with biased jokes or conduct. Both connect directly to the duty to intervene when witnessing another officer's excessive force (see Chapter 9, CCP Art. 2B.0251)."}
+      ]},
+      {id:"penal-code-title8", label:"1.6 Penal Code Title 8 (Officer Conduct)", cards:[
+        {lo:"1.6", title:"Chapter 36 — Bribery & Corrupt Influence", cite:"Penal Code §36.01 – 36.08",
+         body:"Definitions (36.01), Bribery (36.02), Coercion of a Public Servant or Voter (36.03), Improper Influence (36.04), Tampering with a Witness (36.05), Obstruction or Retaliation (36.06), Acceptance of an Honorarium (36.07), and Gifts to Public Servants (36.08)."},
+        {lo:"1.6", title:"Chapter 37 — Perjury & Other Falsification", cite:"Penal Code §37.01 – 37.10",
+         body:"Definitions (37.01), Perjury (37.02), Aggravated Perjury (37.03), False Report to a Peace Officer or Law Enforcement Employee (37.08), Tampering with or Fabricating Physical Evidence (37.09), and Tampering with a Governmental Record (37.10)."},
+        {lo:"1.6", title:"Chapter 39 — Abuse of Office", cite:"Penal Code §39.01 – 39.06",
+         body:"Definitions (39.01), Abuse of Official Capacity (39.02), Official Oppression (39.03 — includes sexual harassment under color of office), Violation of Civil Rights of a Person in Custody / Improper Sexual Activity with a Person in Custody (39.04), Failure to Report Death of a Prisoner (39.05), and Misuse of Official Information (39.06)."}
+      ]},
+      {id:"federal-law", label:"1.7 Federal Criminal Law", cards:[
+        {lo:"1.7", title:"18 U.S.C. §241 — Conspiracy Against Rights",
+         body:"Makes it a federal crime for two or more people to conspire to injure, oppress, threaten, or intimidate anyone in the free exercise of a constitutional right. Penalty: up to $10,000 and/or 10 years — up to life if death results."},
+        {lo:"1.7", title:"18 U.S.C. §242 — Deprivation of Rights Under Color of Law",
+         body:"Makes it a federal crime to willfully deprive someone of constitutional rights while acting under color of law (i.e., using official authority). Base penalty: up to $1,000 and/or 1 year; up to 10 years if bodily injury results; up to life if death results.",
+         note:"These federal civil-rights investigations of officers are run out of Washington, DC (not the local field office) specifically to avoid conflicts of interest from local FBI–officer working relationships."}
+      ]},
+      {id:"civil-penalties", label:"1.8 Civil Penalties", cards:[
+        {lo:"1.8", title:"Civil Liability for Misconduct", cite:"42 U.S.C. §1983 · Penal Code §39.03",
+         body:"Beyond criminal liability, officer misconduct (including sexual harassment and civil rights violations) can expose both the officer and their department to civil liability under 42 U.S.C. §1983, in addition to complaints through the Texas Commission on Human Rights and the EEOC. Official Oppression under Penal Code §39.03 is the statutory description most directly on point for on-duty sexual harassment."}
+      ]}
+    ]
+  },
   {num:2, title:"Professional Policing", status:"pending"},
   {num:3, title:"Fitness, Wellness, and Stress Management", status:"pending"},
   {num:4, title:"TCOLE Rules", status:"pending"},
