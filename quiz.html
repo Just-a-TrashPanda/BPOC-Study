@@ -157,9 +157,21 @@ function shuffle(arr){
   return a;
 }
 
+function coreTermText(term){
+  // Strip leading citation-style prefixes (§39.02, 8.23, Ch. 9, etc.) so the
+  // leak-check compares the actual term, not just its numbering.
+  return term.replace(/^[^A-Za-z]*/, '').trim() || term;
+}
+
+function leaksAnswer(card){
+  const core = coreTermText(card.term);
+  if(core.length < 4) return false; // too short to meaningfully "leak"
+  return card.prompt.toLowerCase().includes(core.toLowerCase());
+}
+
 function buildQuiz(chNum){
-  const chapterCards = collectCards(chNum);
-  const fallbackPool = chapterCards.length < 4 ? collectAllLiveCards() : chapterCards;
+  const chapterCards = collectCards(chNum).filter(c => !leaksAnswer(c));
+  const fallbackPool = chapterCards.length < 4 ? collectAllLiveCards().filter(c => !leaksAnswer(c)) : chapterCards;
   const qs = shuffle(chapterCards).map(card => {
     const distractorPool = fallbackPool.filter(c => c.term !== card.term);
     const distractors = shuffle(distractorPool).slice(0, 3).map(c => c.term);
