@@ -42,20 +42,20 @@
   }
   .flashcard.flipped{transform:rotateY(180deg);}
   .face{
-    position:absolute; inset:0; backface-visibility:hidden; border-radius:14px;
+    position:absolute; inset:0; width:100%; max-width:100%; backface-visibility:hidden; border-radius:14px;
     padding:24px 20px; box-shadow:0 4px 18px rgba(19,35,57,0.14); border:1px solid var(--rule);
-    overflow-wrap:break-word; word-break:break-word;
+    overflow-wrap:break-word; word-break:break-word; white-space:normal;
   }
-  .face-inner{min-height:100%; display:flex; flex-direction:column; justify-content:center;}
+  .face-inner{min-height:100%; width:100%; max-width:100%; display:flex; flex-direction:column; justify-content:center; min-width:0;}
   .face.front{background:#fff;}
   .face.back{background:var(--navy); color:#EDE7D6; transform:rotateY(180deg);}
-  .face-eyebrow{font-family:'IBM Plex Mono', monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:var(--brass); margin-bottom:10px; text-align:center; flex:none;}
+  .face-eyebrow{font-family:'IBM Plex Mono', monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:var(--brass); margin-bottom:10px; text-align:center; flex:none; min-width:0;}
   .face.back .face-eyebrow{color:var(--brass-light);}
-  .face-term{font-family:'IBM Plex Serif', serif; font-weight:600; font-size:19px; text-align:center; line-height:1.35; flex:none;}
-  .face-cite{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); text-align:center; margin-top:8px; flex:none;}
-  .face-body{font-size:13.5px; line-height:1.6; margin-top:6px;}
+  .face-term{font-family:'IBM Plex Serif', serif; font-weight:600; font-size:19px; text-align:center; line-height:1.35; flex:none; min-width:0; white-space:normal;}
+  .face-cite{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); text-align:center; margin-top:8px; flex:none; min-width:0;}
+  .face-body{font-size:13.5px; line-height:1.6; margin-top:6px; min-width:0; white-space:normal; width:100%;}
   .face-body ul{margin:6px 0 0; padding-left:18px;}
-  .face-hint{text-align:center; font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--ink-soft); opacity:0.6; margin-top:14px; flex:none;}
+  .face-hint{text-align:center; font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--ink-soft); opacity:0.6; margin-top:14px; flex:none; min-width:0;}
   .face.back .face-hint{color:#B9C2CE;}
 
   .controls{display:flex; gap:8px; margin-bottom:10px;}
