@@ -34,29 +34,23 @@
   .progress-track{flex:1; height:6px; border-radius:999px; background:var(--paper-dim); margin:0 12px; overflow:hidden;}
   .progress-fill{height:100%; background:var(--brass); width:0%; transition:width 0.2s ease;}
 
-  .card-scene{perspective:1400px; margin-bottom:18px;}
+  .card-scene{margin-bottom:18px;}
   .flashcard{
     position:relative; width:100%; min-height:200px; border-radius:14px;
-    transform-style:preserve-3d; transition:transform 0.5s cubic-bezier(.4,.2,.2,1), height 0.25s ease;
-    cursor:pointer;
+    padding:26px 22px; box-shadow:0 4px 18px rgba(19,35,57,0.14); border:1px solid var(--rule);
+    background:#fff; cursor:pointer; display:flex; flex-direction:column; justify-content:center;
+    transition:transform 0.16s ease, background 0.16s ease, color 0.16s ease;
   }
-  .flashcard.flipped{transform:rotateY(180deg);}
-  .face{
-    position:absolute; inset:0; width:100%; max-width:100%; backface-visibility:hidden; border-radius:14px;
-    padding:24px 20px; box-shadow:0 4px 18px rgba(19,35,57,0.14); border:1px solid var(--rule);
-    overflow-wrap:break-word; word-break:break-word; white-space:normal;
-  }
-  .face-inner{min-height:100%; width:100%; max-width:100%; display:flex; flex-direction:column; justify-content:center; min-width:0;}
-  .face.front{background:#fff;}
-  .face.back{background:var(--navy); color:#EDE7D6; transform:rotateY(180deg);}
-  .face-eyebrow{font-family:'IBM Plex Mono', monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:var(--brass); margin-bottom:10px; text-align:center; flex:none; min-width:0;}
-  .face.back .face-eyebrow{color:var(--brass-light);}
-  .face-term{font-family:'IBM Plex Serif', serif; font-weight:600; font-size:19px; text-align:center; line-height:1.35; flex:none; min-width:0; white-space:normal;}
-  .face-cite{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); text-align:center; margin-top:8px; flex:none; min-width:0;}
-  .face-body{font-size:13.5px; line-height:1.6; margin-top:6px; min-width:0; white-space:normal; width:100%;}
+  .flashcard.mid-flip{transform:scaleY(0.05);}
+  .flashcard.back-mode{background:var(--navy); color:#EDE7D6;}
+  .face-eyebrow{font-family:'IBM Plex Mono', monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:var(--brass); margin-bottom:10px; text-align:center;}
+  .flashcard.back-mode .face-eyebrow{color:var(--brass-light);}
+  .face-term{font-family:'IBM Plex Serif', serif; font-weight:600; font-size:19px; text-align:center; line-height:1.35;}
+  .face-cite{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); text-align:center; margin-top:8px;}
+  .face-body{font-size:13.5px; line-height:1.6; margin-top:6px;}
   .face-body ul{margin:6px 0 0; padding-left:18px;}
-  .face-hint{text-align:center; font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--ink-soft); opacity:0.6; margin-top:14px; flex:none; min-width:0;}
-  .face.back .face-hint{color:#B9C2CE;}
+  .face-hint{text-align:center; font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--ink-soft); opacity:0.6; margin-top:14px;}
+  .flashcard.back-mode .face-hint{color:#B9C2CE;}
 
   .controls{display:flex; gap:8px; margin-bottom:10px;}
   .btn{flex:1; padding:11px 10px; border-radius:8px; border:1px solid var(--rule); background:#fff; color:var(--ink); font-family:'IBM Plex Sans',sans-serif; font-size:13px; font-weight:600; cursor:pointer; text-align:center;}
@@ -197,6 +191,24 @@ function markCard(known){
   nextCard();
 }
 
+function frontContentHtml(card){
+  return `
+    <div class="face-eyebrow">${card.topicLabel}</div>
+    <div class="face-term">${card.front}</div>
+    ${card.cite ? `<div class="face-cite">${card.cite}</div>` : ''}
+    <div class="face-hint">Tap to flip</div>
+  `;
+}
+
+function backContentHtml(card){
+  return `
+    <div class="face-eyebrow">Answer</div>
+    <div class="face-body">${card.back}</div>
+    ${card.note ? `<div class="face-body" style="margin-top:10px;font-style:italic;opacity:0.9;">${card.note}</div>` : ''}
+    <div class="face-hint">Tap to flip back</div>
+  `;
+}
+
 function renderCard(){
   const main = document.getElementById('main');
   const card = deck[currentIdx];
@@ -210,24 +222,7 @@ function renderCard(){
       <span class="stat-pill learning">${learningCount} learning</span>
     </div>
     <div class="card-scene">
-      <div class="flashcard" id="flashcard">
-        <div class="face front">
-          <div class="face-inner">
-            <div class="face-eyebrow">${card.topicLabel}</div>
-            <div class="face-term">${card.front}</div>
-            ${card.cite ? `<div class="face-cite">${card.cite}</div>` : ''}
-            <div class="face-hint">Tap to flip</div>
-          </div>
-        </div>
-        <div class="face back">
-          <div class="face-inner">
-            <div class="face-eyebrow">Answer</div>
-            <div class="face-body">${card.back}</div>
-            ${card.note ? `<div class="face-body" style="margin-top:10px;font-style:italic;opacity:0.9;">${card.note}</div>` : ''}
-            <div class="face-hint">Tap to flip back</div>
-          </div>
-        </div>
-      </div>
+      <div class="flashcard" id="flashcard">${frontContentHtml(card)}</div>
     </div>
     <div class="controls">
       <button class="btn learning" id="learningBtn">Still Learning</button>
@@ -239,30 +234,26 @@ function renderCard(){
     </div>
   `;
 
-  document.getElementById('flashcard').onclick = () => {
-    isFlipped = !isFlipped;
-    document.getElementById('flashcard').classList.toggle('flipped', isFlipped);
-  };
+  document.getElementById('flashcard').onclick = () => flipCurrentCard(card);
   document.getElementById('knowBtn').onclick = (e) => { e.stopPropagation(); markCard(true); };
   document.getElementById('learningBtn').onclick = (e) => { e.stopPropagation(); markCard(false); };
   document.getElementById('shuffleBtn').onclick = (e) => { e.stopPropagation(); startChapter(activeChapterNum); };
   document.getElementById('restartBtn').onclick = (e) => { e.stopPropagation(); startChapter(activeChapterNum); };
-
-  fitCardHeight();
 }
 
-function fitCardHeight(){
-  const flashcard = document.getElementById('flashcard');
-  if(!flashcard) return;
-  const frontInner = flashcard.querySelector('.face.front .face-inner');
-  const backInner = flashcard.querySelector('.face.back .face-inner');
-  if(!frontInner || !backInner) return;
-  const facePadding = 48; // 24px top + 24px bottom, matches .face padding
-  const neededHeight = Math.max(frontInner.offsetHeight, backInner.offsetHeight) + facePadding;
-  flashcard.style.height = Math.max(neededHeight, 200) + 'px';
+function flipCurrentCard(card){
+  const el = document.getElementById('flashcard');
+  if(!el || el.dataset.animating === '1') return;
+  el.dataset.animating = '1';
+  el.classList.add('mid-flip');
+  setTimeout(() => {
+    isFlipped = !isFlipped;
+    el.classList.toggle('back-mode', isFlipped);
+    el.innerHTML = isFlipped ? backContentHtml(card) : frontContentHtml(card);
+    el.classList.remove('mid-flip');
+    el.dataset.animating = '0';
+  }, 160);
 }
-
-window.addEventListener('resize', () => { fitCardHeight(); });
 
 function renderDone(){
   const main = document.getElementById('main');
