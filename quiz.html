@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz — BPOC Study Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EFE4; --paper-dim:#EAE4D3; --ink:#221F19; --ink-soft:#5B564A;
+    --navy:#132339; --navy-2:#1C3552; --brass:#B08B3C; --brass-light:#D7B667; --rule:#C9BF9F;
+    --green:#4B6A50; --amber:#9B7E32; --gray:#8B8674; --rust:#A6472E;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans', sans-serif; -webkit-font-smoothing:antialiased;}
+
+  header.hero{background:linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%); color:#EDE7D6; padding:26px 20px 20px; position:relative; overflow:hidden;}
+  header.hero::after{content:""; position:absolute; inset:0; background-image:repeating-linear-gradient(135deg, rgba(215,182,103,0.05) 0 2px, transparent 2px 26px); pointer-events:none;}
+  .hero-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;}
+  .hero-eyebrow{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--brass-light); margin:0 0 6px;}
+  .hero h1{font-family:'IBM Plex Serif', serif; font-weight:700; font-size:22px; line-height:1.15; margin:0;}
+  .back{font-size:12px; color:var(--brass-light); text-decoration:none; font-family:'IBM Plex Mono', monospace; white-space:nowrap;}
+
+  nav.chips{position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:1px solid var(--rule); padding:9px 12px; display:flex; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  nav.chips::-webkit-scrollbar{display:none;}
+  .chip{flex:none; font-family:'IBM Plex Sans', sans-serif; font-size:12px; font-weight:600; padding:6px 12px; border-radius:999px; border:1px solid var(--rule); background:#fff; color:var(--ink-soft); cursor:pointer; white-space:nowrap; transition:all 0.15s ease;}
+  .chip.active{background:var(--navy); border-color:var(--navy); color:#F3EFE4;}
+  .chip.disabled{opacity:0.4; cursor:default;}
+
+  main{max-width:560px; margin:0 auto; padding:22px 16px 60px;}
+
+  .setup-box{background:#fff; border:1px solid var(--rule); border-radius:12px; padding:22px 20px; text-align:center;}
+  .setup-box h2{font-family:'IBM Plex Serif',serif; font-size:18px; margin:0 0 6px;}
+  .setup-box p{font-size:13px; color:var(--ink-soft); line-height:1.6; margin:0 0 18px;}
+  .mode-row{display:flex; gap:10px; flex-wrap:wrap; justify-content:center;}
+  .mode-btn{flex:1; min-width:150px; padding:16px 14px; border-radius:10px; border:1px solid var(--rule); background:var(--paper-dim); cursor:pointer; text-align:left;}
+  .mode-btn:hover{border-color:var(--brass);}
+  .mode-btn .mode-name{font-family:'IBM Plex Serif',serif; font-weight:600; font-size:14.5px; color:var(--ink); margin-bottom:4px;}
+  .mode-btn .mode-desc{font-size:11.5px; color:var(--ink-soft); line-height:1.5;}
+
+  .quiz-status{display:flex; justify-content:space-between; align-items:center; font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); margin-bottom:6px;}
+  .timer{font-weight:700; color:var(--rust);}
+  .timer.low{animation:pulse 1s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+  .progress-track{height:6px; border-radius:999px; background:var(--paper-dim); margin-bottom:18px; overflow:hidden;}
+  .progress-fill{height:100%; background:var(--brass); transition:width 0.2s ease;}
+
+  .q-card{background:#fff; border:1px solid var(--rule); border-radius:12px; padding:22px 20px; margin-bottom:14px;}
+  .q-eyebrow{font-family:'IBM Plex Mono', monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:var(--brass); margin-bottom:10px;}
+  .q-prompt{font-size:14.5px; line-height:1.6; color:var(--ink);}
+  .q-prompt ul{margin:6px 0 0; padding-left:18px;}
+
+  .options{display:flex; flex-direction:column; gap:8px;}
+  .option{
+    text-align:left; padding:12px 14px; border-radius:8px; border:1px solid var(--rule);
+    background:#fff; font-family:'IBM Plex Sans',sans-serif; font-size:13.5px; color:var(--ink);
+    cursor:pointer; transition:all 0.12s ease;
+  }
+  .option:hover:not(.locked){border-color:var(--brass); background:var(--paper-dim);}
+  .option.selected{border-color:var(--navy); background:var(--navy); color:#fff;}
+  .option.correct{border-color:var(--green); background:rgba(75,106,80,0.12); color:var(--green); font-weight:600;}
+  .option.incorrect{border-color:var(--rust); background:rgba(166,71,46,0.1); color:var(--rust); font-weight:600;}
+  .option.locked{cursor:default;}
+
+  .feedback-note{font-size:12.5px; line-height:1.55; color:var(--ink-soft); background:var(--paper-dim); border-radius:6px; padding:10px 12px; margin-top:12px;}
+
+  .btn{width:100%; padding:13px; border-radius:8px; border:none; background:var(--brass); color:#221F19; font-family:'IBM Plex Sans',sans-serif; font-size:14px; font-weight:600; cursor:pointer; margin-top:12px;}
+  .btn:disabled{opacity:0.4; cursor:default;}
+  .btn.ghost{background:transparent; border:1px solid var(--rule); color:var(--ink);}
+
+  .results-box{background:#fff; border:1px solid var(--rule); border-radius:12px; padding:26px 20px; text-align:center;}
+  .score-ring{font-family:'IBM Plex Serif',serif; font-size:42px; font-weight:700; color:var(--navy); margin:6px 0;}
+  .score-sub{font-size:13px; color:var(--ink-soft); margin-bottom:18px;}
+  .missed-item{text-align:left; border-top:1px solid var(--rule); padding:12px 0;}
+  .missed-item:first-child{border-top:none;}
+  .missed-q{font-size:13px; color:var(--ink); line-height:1.5; margin-bottom:6px;}
+  .missed-you{font-size:12px; color:var(--rust); margin-bottom:2px;}
+  .missed-correct{font-size:12px; color:var(--green);}
+
+  footer{text-align:center; padding:26px 14px 12px; font-size:11px; color:var(--ink-soft);}
+
+  @media (min-width:600px){ .hero h1{font-size:26px;} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div>
+      <p class="hero-eyebrow">Fort Worth PD Academy · BPOC Quiz</p>
+      <h1>Test Yourself</h1>
+    </div>
+    <a class="back" href="index.html">&larr; Hub</a>
+  </div>
+</header>
+
+<nav class="chips" id="chapterChips"></nav>
+
+<main id="main"></main>
+
+<footer>Questions auto-generated from the Chapter &amp; Topic Reference — same source material, quiz format · Built for study purposes by and for the FWPD Academy class</footer>
+
+<script src="assets/chapters-data.js"></script>
+<script>
+/* ===================== QUIZ ENGINE ===================== */
+
+// Only chapters listed here are offered as quizzes. Add a chapter's
+// number here once you're ready to expand — no other code changes needed.
+const QUIZ_ENABLED_CHAPTERS = [1, 2];
+const SECONDS_PER_QUESTION = 30; // used to compute the timed-mode countdown
+
+let activeChapterNum = null;
+let quizMode = null;        // 'practice' | 'timed'
+let questions = [];
+let qIndex = 0;
+let score = 0;
+let missedList = [];
+let selectedOption = null;
+let locked = false;
+let timerInterval = null;
+let secondsLeft = 0;
+
+function stripHtml(s){
+  return s ? s.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim() : '';
+}
+
+function collectCards(chNum){
+  const ch = chapters.find(c => c.num === chNum);
+  const cards = [];
+  if(ch && ch.topics){
+    ch.topics.forEach(topic => {
+      topic.cards.forEach(c => {
+        cards.push({
+          term: stripHtml(c.title),
+          prompt: stripHtml(c.body),
+          topicLabel: topic.label
+        });
+      });
+    });
+  }
+  return cards.filter(c => c.term && c.prompt);
+}
+
+function collectAllLiveCards(){
+  let all = [];
+  chapters.filter(c => c.status === 'live').forEach(ch => { all = all.concat(collectCards(ch.num)); });
+  return all;
+}
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildQuiz(chNum){
+  const chapterCards = collectCards(chNum);
+  const fallbackPool = chapterCards.length < 4 ? collectAllLiveCards() : chapterCards;
+  const qs = shuffle(chapterCards).map(card => {
+    const distractorPool = fallbackPool.filter(c => c.term !== card.term);
+    const distractors = shuffle(distractorPool).slice(0, 3).map(c => c.term);
+    const options = shuffle([card.term, ...distractors]);
+    return { prompt: card.prompt, topicLabel: card.topicLabel, correct: card.term, options };
+  });
+  return qs;
+}
+
+function renderChapterChips(){
+  const wrap = document.getElementById('chapterChips');
+  wrap.innerHTML = '';
+  const liveChapters = chapters.filter(c => c.status === 'live');
+  liveChapters.forEach(ch => {
+    const enabled = QUIZ_ENABLED_CHAPTERS.includes(ch.num);
+    const b = document.createElement('button');
+    b.className = 'chip' + (ch.num === activeChapterNum ? ' active' : '') + (enabled ? '' : ' disabled');
+    b.textContent = 'Ch ' + ch.num;
+    b.title = enabled ? ch.title : ch.title + ' (quiz coming soon)';
+    if(enabled){ b.onclick = () => { selectChapter(ch.num); }; }
+    wrap.appendChild(b);
+  });
+}
+
+function selectChapter(chNum){
+  activeChapterNum = chNum;
+  renderChapterChips();
+  renderSetup();
+}
+
+function renderSetup(){
+  clearInterval(timerInterval);
+  const main = document.getElementById('main');
+  if(activeChapterNum === null){
+    main.innerHTML = `<div class="setup-box"><h2>Pick a chapter above</h2><p>Quizzes are ready for Chapter 1 and Chapter 2 so far — more get added as chapters are built out.</p></div>`;
+    return;
+  }
+  const ch = chapters.find(c => c.num === activeChapterNum);
+  main.innerHTML = `
+    <div class="setup-box">
+      <h2>Chapter ${ch.num}: ${ch.title}</h2>
+      <p>Pick how you want to run it.</p>
+      <div class="mode-row">
+        <button class="mode-btn" id="practiceBtn">
+          <div class="mode-name">Practice Mode</div>
+          <div class="mode-desc">Untimed. See right/wrong instantly with an explanation before moving on.</div>
+        </button>
+        <button class="mode-btn" id="timedBtn">
+          <div class="mode-name">Timed Test</div>
+          <div class="mode-desc">${SECONDS_PER_QUESTION}s per question on the clock. No feedback until you finish — mimics exam pressure.</div>
+        </button>
+      </div>
+    </div>
+  `;
+  document.getElementById('practiceBtn').onclick = () => startQuiz('practice');
+  document.getElementById('timedBtn').onclick = () => startQuiz('timed');
+}
+
+function startQuiz(mode){
+  quizMode = mode;
+  questions = buildQuiz(activeChapterNum);
+  qIndex = 0;
+  score = 0;
+  missedList = [];
+  if(mode === 'timed'){
+    secondsLeft = questions.length * SECONDS_PER_QUESTION;
+    timerInterval = setInterval(tickTimer, 1000);
+  }
+  renderQuestion();
+}
+
+function tickTimer(){
+  secondsLeft--;
+  const t = document.getElementById('timerDisplay');
+  if(t){
+    const m = Math.floor(secondsLeft / 60), s = secondsLeft % 60;
+    t.textContent = m + ':' + String(s).padStart(2,'0');
+    t.classList.toggle('low', secondsLeft <= 20);
+  }
+  if(secondsLeft <= 0){
+    clearInterval(timerInterval);
+    finishQuiz();
+  }
+}
+
+function renderQuestion(){
+  selectedOption = null;
+  locked = false;
+  const main = document.getElementById('main');
+  const q = questions[qIndex];
+  const pct = Math.round((qIndex / questions.length) * 100);
+
+  main.innerHTML = `
+    <div class="quiz-status">
+      <span>Question ${qIndex + 1} of ${questions.length}</span>
+      ${quizMode === 'timed' ? `<span class="timer" id="timerDisplay">${Math.floor(secondsLeft/60)}:${String(secondsLeft%60).padStart(2,'0')}</span>` : `<span>${score} correct so far</span>`}
+    </div>
+    <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+    <div class="q-card">
+      <div class="q-eyebrow">${q.topicLabel} · Which term or statute is this?</div>
+      <div class="q-prompt">${q.prompt}</div>
+    </div>
+    <div class="options" id="optionsWrap">
+      ${q.options.map((opt, i) => `<button class="option" data-opt="${i}">${opt}</button>`).join('')}
+    </div>
+    <div id="feedbackArea"></div>
+    <button class="btn" id="nextBtn" style="display:none;">Next Question</button>
+  `;
+
+  document.querySelectorAll('#optionsWrap .option').forEach(btn => {
+    btn.onclick = () => selectOption(btn, q);
+  });
+  document.getElementById('nextBtn').onclick = advanceQuestion;
+}
+
+function selectOption(btn, q){
+  if(locked) return;
+  const chosen = btn.textContent;
+  selectedOption = chosen;
+
+  if(quizMode === 'practice'){
+    locked = true;
+    document.querySelectorAll('#optionsWrap .option').forEach(b => {
+      b.classList.add('locked');
+      if(b.textContent === q.correct) b.classList.add('correct');
+      else if(b === btn) b.classList.add('incorrect');
+    });
+    const correct = chosen === q.correct;
+    if(correct){ score++; } else { missedList.push({prompt: q.prompt, you: chosen, correct: q.correct}); }
+    document.getElementById('feedbackArea').innerHTML =
+      `<div class="feedback-note">${correct ? "Correct." : "Not quite — correct answer highlighted above."} ${q.topicLabel}.</div>`;
+    document.getElementById('nextBtn').style.display = 'block';
+  } else {
+    locked = true;
+    document.querySelectorAll('#optionsWrap .option').forEach(b => b.classList.add('locked'));
+    btn.classList.add('selected');
+    const correct = chosen === q.correct;
+    if(correct){ score++; } else { missedList.push({prompt: q.prompt, you: chosen, correct: q.correct}); }
+    document.getElementById('nextBtn').style.display = 'block';
+  }
+}
+
+function advanceQuestion(){
+  qIndex++;
+  if(qIndex >= questions.length){
+    clearInterval(timerInterval);
+    finishQuiz();
+  } else {
+    renderQuestion();
+  }
+}
+
+function finishQuiz(){
+  const main = document.getElementById('main');
+  const total = questions.length;
+  const pct = total ? Math.round((score / total) * 100) : 0;
+  main.innerHTML = `
+    <div class="results-box">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.08em;">Results</div>
+      <div class="score-ring">${pct}%</div>
+      <div class="score-sub">${score} of ${total} correct${quizMode === 'timed' ? ' · timed test' : ' · practice mode'}</div>
+      <button class="btn" id="retryBtn">Try Again</button>
+      <button class="btn ghost" id="changeModeBtn">Change Mode / Chapter</button>
+    </div>
+    ${missedList.length > 0 ? `
+      <div class="q-card" style="margin-top:16px;">
+        <div class="q-eyebrow">Review what you missed (${missedList.length})</div>
+        ${missedList.map(m => `
+          <div class="missed-item">
+            <div class="missed-q">${m.prompt}</div>
+            <div class="missed-you">Your answer: ${m.you}</div>
+            <div class="missed-correct">Correct answer: ${m.correct}</div>
+          </div>
+        `).join('')}
+      </div>
+    ` : ''}
+  `;
+  document.getElementById('retryBtn').onclick = () => startQuiz(quizMode);
+  document.getElementById('changeModeBtn').onclick = renderSetup;
+}
+
+renderChapterChips();
+renderSetup();
+</script>
+
+</body>
+</html>
