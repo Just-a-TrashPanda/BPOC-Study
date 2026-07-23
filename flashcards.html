@@ -36,17 +36,17 @@
 
   .card-scene{perspective:1400px; margin-bottom:18px;}
   .flashcard{
-    position:relative; width:100%; height:min(62vh, 420px); min-height:260px; border-radius:14px;
-    transform-style:preserve-3d; transition:transform 0.5s cubic-bezier(.4,.2,.2,1);
+    position:relative; width:100%; min-height:200px; border-radius:14px;
+    transform-style:preserve-3d; transition:transform 0.5s cubic-bezier(.4,.2,.2,1), height 0.25s ease;
     cursor:pointer;
   }
   .flashcard.flipped{transform:rotateY(180deg);}
   .face{
     position:absolute; inset:0; backface-visibility:hidden; border-radius:14px;
     padding:24px 20px; box-shadow:0 4px 18px rgba(19,35,57,0.14); border:1px solid var(--rule);
-    overflow-y:auto; overflow-wrap:break-word; word-break:break-word;
+    overflow-wrap:break-word; word-break:break-word;
   }
-  .face-inner{min-height:100%; display:flex; flex-direction:column; justify-content:center; padding-bottom:18px;}
+  .face-inner{min-height:100%; display:flex; flex-direction:column; justify-content:center;}
   .face.front{background:#fff;}
   .face.back{background:var(--navy); color:#EDE7D6; transform:rotateY(180deg);}
   .face-eyebrow{font-family:'IBM Plex Mono', monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:var(--brass); margin-bottom:10px; text-align:center; flex:none;}
@@ -247,7 +247,22 @@ function renderCard(){
   document.getElementById('learningBtn').onclick = (e) => { e.stopPropagation(); markCard(false); };
   document.getElementById('shuffleBtn').onclick = (e) => { e.stopPropagation(); startChapter(activeChapterNum); };
   document.getElementById('restartBtn').onclick = (e) => { e.stopPropagation(); startChapter(activeChapterNum); };
+
+  fitCardHeight();
 }
+
+function fitCardHeight(){
+  const flashcard = document.getElementById('flashcard');
+  if(!flashcard) return;
+  const frontInner = flashcard.querySelector('.face.front .face-inner');
+  const backInner = flashcard.querySelector('.face.back .face-inner');
+  if(!frontInner || !backInner) return;
+  const facePadding = 48; // 24px top + 24px bottom, matches .face padding
+  const neededHeight = Math.max(frontInner.offsetHeight, backInner.offsetHeight) + facePadding;
+  flashcard.style.height = Math.max(neededHeight, 200) + 'px';
+}
+
+window.addEventListener('resize', () => { fitCardHeight(); });
 
 function renderDone(){
   const main = document.getElementById('main');
