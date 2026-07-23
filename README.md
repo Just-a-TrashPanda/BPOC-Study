@@ -1,3 +1,4 @@
+[README.md](https://github.com/user-attachments/files/30288508/README.md)
 # BPOC Study Hub — Hosting Guide
 
 ## Free hosting with GitHub Pages
@@ -26,23 +27,46 @@ Settings → Collaborators and teams → Add people.
 ```
 bpoc-study/
 ├── index.html              (home hub — chapter grid + progress tracker)
-├── study.html              (the study reference app — chapter tabs,
-│                             topic sub-tabs within each chapter, and
-│                             a search bar across all built-out chapters)
+├── study.html               (the study reference app — chapter tabs,
+│                             topic sub-tabs, and search)
+├── flashcards.html          (Quizlet-style flip cards, built from the
+│                             same chapter data)
+├── quiz.html                 (multiple-choice quiz — practice mode with
+│                             instant feedback, or a timed test mode —
+│                             also built from the same chapter data)
+├── assets/
+│   └── chapters-data.js     (single source of truth for all chapter
+│                             content — study.html, flashcards.html,
+│                             and quiz.html all load this file)
 └── supplemental/
-    └── penal-code.html      (live — full Penal Code offense reference)
+    └── penal-code.html      (live — full Penal Code offense reference,
+                              with its own search bar)
 ```
 
-Chapters live inside `study.html` as data (see the `chapters` array in
-the `<script>` at the bottom) rather than as separate files — this
-keeps the tabs, sub-tabs, and search working across all chapters from
-one page. You can deep-link to a specific chapter with
-`study.html?ch=9`.
+Chapter content lives in **one place** — `assets/chapters-data.js` — so
+updating a chapter updates it everywhere it's used (the reference page,
+flashcards, and quiz) automatically. You can deep-link to a specific
+chapter in the reference with `study.html?ch=9`.
 
 ## Adding a new chapter
 
 Send Claude the chapter PDF and it'll add a new entry to the `chapters`
-array in `study.html` (chapter title, unit goal, topic sub-tabs, and
-cards), matching the format already used for Chapters 9 and 10, then
-flip its status from "pending" to "live" on both `study.html` and the
-hub's chapter grid in `index.html`.
+array in `assets/chapters-data.js` (chapter title, unit goal, topic
+sub-tabs, and cards), matching the format already used for the built
+chapters, then flip its status from "pending" to "live" on
+`study.html` and the hub's chapter grid in `index.html`.
+
+## Expanding flashcards or the quiz to more chapters
+
+In `flashcards.html`, find:
+```javascript
+const FLASHCARD_ENABLED_CHAPTERS = [1, 2];
+```
+In `quiz.html`, find:
+```javascript
+const QUIZ_ENABLED_CHAPTERS = [1, 2];
+```
+Add any chapter number that's already "live" in `assets/chapters-data.js`
+to either list and that chapter becomes available immediately — no
+other changes needed, since both are generated automatically from the
+same chapter data.
