@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch. 29 – Robbery | TX Penal Code Layman's Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/laymans-theme.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div>
+      <p class="hero-eyebrow">Penal Code &middot; Layman's Guide</p>
+      <h1>Chapter 29: Robbery</h1>
+    </div>
+    <a class="back" href="index.html">&larr; Guide Index</a>
+  </div>
+</header>
+
+<nav class="chips" id="tocChips">
+  <a class="chip" href="#sec-29-02">§29.02</a>
+  <a class="chip" href="#sec-29-03">§29.03</a>
+  <a class="chip" href="#sec-29-04">§29.04</a>
+  <span class="chip-spacer">
+    <button class="chip" type="button" onclick="expandAll()">Expand All</button>
+    <button class="chip ghost" type="button" onclick="collapseAll()">Collapse All</button>
+  </span>
+</nav>
+
+<main>
+<div class="sec-card" id="sec-29-02">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">§29.02</span>
+    <span class="sec-name">ROBBERY</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>§29.02 – ROBBERY</h3>
+<p><em>Theft plus violence or threats — stealing from someone while hurting them or threatening to.</em></p>
+<p>A person commits robbery if, <strong>in the course of committing theft</strong> and with intent to obtain or maintain control of the property, they:</p>
+<ul>
+  <li>Intentionally, knowingly, or <em>recklessly</em> cause <strong>bodily injury</strong> to another person, OR</li>
+  <li>Intentionally or knowingly <strong>threaten or place another in fear</strong> of imminent bodily injury or death.</li>
+</ul>
+<p>"In the course of committing theft" includes attempts to commit theft, the theft itself, and the immediate flight after the attempt or commission.</p>
+<h4>Punishment</h4>
+<ul>
+  <li><strong>Felony of the 2nd Degree</strong></li>
+</ul>
+  </div>
+</div>
+
+<div class="sec-card" id="sec-29-03">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">§29.03</span>
+    <span class="sec-name">AGGRAVATED ROBBERY</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>§29.03 – AGGRAVATED ROBBERY</h3>
+<p><em>Robbery with serious bodily injury, a deadly weapon, or against an elderly or disabled victim.</em></p>
+<p>A person commits aggravated robbery if they commit robbery (§29.02) AND:</p>
+<ul>
+  <li>Cause <strong>serious bodily injury</strong> to another person, OR</li>
+  <li><strong>Use or exhibit a deadly weapon</strong>, OR</li>
+  <li>Cause bodily injury, or threaten/place in fear of bodily injury or death, a person who is:
+    <ul>
+      <li><strong>65 years of age or older</strong>, OR</li>
+      <li>A <strong>disabled person</strong> (a person with a mental, physical, or developmental disability who is substantially unable to protect themselves from harm)</li>
+    </ul>
+  </li>
+</ul>
+<h4>Punishment</h4>
+<ul>
+  <li><strong>Felony of the 1st Degree</strong></li>
+</ul>
+  </div>
+</div>
+
+<div class="sec-card" id="sec-29-04">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">§29.04</span>
+    <span class="sec-name">JUGGING</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>§29.04 – JUGGING</h3>
+<p><em>"Jugging" is following someone from a bank or business with the intent to steal their cash, while carrying burglary/theft tools.</em></p>
+<p>A person commits jugging if, with <strong>intent to steal another person's money</strong>, they:</p>
+<ul>
+  <li>Knowingly follow the same path or route as another person after they leave a commercial business or bank (without substantially deviating), AND</li>
+  <li>Are in possession of <strong>two or more criminal instruments</strong> (as defined by §16.01 — items made, adapted, or possessed for crime).</li>
+</ul>
+<h4>Punishment</h4>
+<ul>
+  <li><strong>State Jail Felony</strong> — base offense.</li>
+  <li><strong>Felony of the 3rd Degree</strong> — if, during the jugging, the suspect also commits burglary of a vehicle (§30.04).</li>
+  <li><strong>Felony of the 1st Degree</strong> — if, during the jugging, the suspect also commits robbery (§29.02).</li>
+</ul>
+  </div>
+</div>
+</main>
+
+<footer>Penal Code Layman's Guide &middot; Study aid only &mdash; always verify against current statute &middot; Built for study purposes by and for the FWPD Academy class</footer>
+
+<script>
+function toggleSec(el){
+  var hdr = el.closest('.sec-header');
+  var body = hdr.nextElementSibling;
+  hdr.classList.toggle('open');
+  body.classList.toggle('open');
+}
+function expandAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.add('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.add('open');});
+}
+function collapseAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.remove('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.remove('open');});
+}
+// open first section by default
+window.addEventListener('DOMContentLoaded',function(){
+  var first = document.querySelector('.sec-header');
+  if(first){first.classList.add('open'); first.nextElementSibling.classList.add('open');}
+});
+</script>
+
+</body>
+</html>

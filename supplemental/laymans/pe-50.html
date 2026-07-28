@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch. 50 – Fireworks | TX Penal Code Layman's Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/laymans-theme.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div>
+      <p class="hero-eyebrow">Penal Code &middot; Layman's Guide</p>
+      <h1>Chapter 50: Fireworks</h1>
+    </div>
+    <a class="back" href="index.html">&larr; Guide Index</a>
+  </div>
+</header>
+
+<nav class="chips" id="tocChips">
+  <a class="chip" href="#sec-50-02">§50.02</a>
+  <span class="chip-spacer">
+    <button class="chip" type="button" onclick="expandAll()">Expand All</button>
+    <button class="chip ghost" type="button" onclick="collapseAll()">Collapse All</button>
+  </span>
+</nav>
+
+<main>
+<div class="sec-card" id="sec-50-02">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">§50.02</span>
+    <span class="sec-name">UNLAWFUL USE OF FIREWORKS</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>§50.02 – UNLAWFUL USE OF FIREWORKS</h3><p><em>Setting off fireworks to obstruct a law enforcement officer or to help escape arrest.</em></p><p>A person commits this offense if they <strong>explode or ignite fireworks</strong> with the intent to:</p><ul><li><strong>Interfere with the lawful performance of an official duty</strong> by a law enforcement officer, OR</li><li><strong>Flee</strong> from a person the suspect knows is a law enforcement officer who is attempting to lawfully arrest or detain them</li></ul><p>"Law enforcement officer" includes Texas peace officers and federal law enforcement officers.</p><h4>Enhancement Ladder</h4><ul><li><strong>State Jail Felony</strong> (base) — using any consumer fireworks to interfere with or flee from an officer</li><li><strong>Felony of the 2nd Degree</strong> — if the fireworks used were <strong>not consumer fireworks</strong> (i.e., commercial-grade or prohibited fireworks)</li><li><strong>Felony of the 1st Degree</strong> — if the offense <strong>causes serious bodily injury to a law enforcement officer</strong> the suspect knows is lawfully discharging an official duty, or if done in retaliation for the officer's exercise of official power or performance of duty</li></ul><p><em>Note:</em> If the same conduct violates another law, the suspect can be prosecuted under this section, the other law, or both.</p>
+  </div>
+</div>
+</main>
+
+<footer>Penal Code Layman's Guide &middot; Study aid only &mdash; always verify against current statute &middot; Built for study purposes by and for the FWPD Academy class</footer>
+
+<script>
+function toggleSec(el){
+  var hdr = el.closest('.sec-header');
+  var body = hdr.nextElementSibling;
+  hdr.classList.toggle('open');
+  body.classList.toggle('open');
+}
+function expandAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.add('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.add('open');});
+}
+function collapseAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.remove('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.remove('open');});
+}
+// open first section by default
+window.addEventListener('DOMContentLoaded',function(){
+  var first = document.querySelector('.sec-header');
+  if(first){first.classList.add('open'); first.nextElementSibling.classList.add('open');}
+});
+</script>
+
+</body>
+</html>
