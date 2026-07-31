@@ -1,6 +1,9 @@
 [README.md](https://github.com/user-attachments/files/30288508/README.md)
 # BPOC Study Hub — Hosting Guide
 
+## Main URL
+https://just-a-trashpanda.github.io/BPOC-Study/index.html
+
 ## Free hosting with GitHub Pages
 
 1. Create a free GitHub account at github.com if you don't have one.
