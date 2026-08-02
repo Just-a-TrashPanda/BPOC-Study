@@ -1505,7 +1505,7 @@ A business owner intentionally sets fire to a storage shed he owns behind his sh
 - [ ] State Jail Felony
 - [ ] Third Degree Felony
 
-**Explanation:** Same statute as Q70, but the property here is a non-habitation building — Arson under PC 28.02(a)(2) is a second-degree felony under PC 28.02(d) unless the property was a habitation, a place of assembly/worship, or someone was injured or killed, any of which would bump it to a first-degree felony.
+**Explanation:** Intentionally starting a fire on property known to be insured is Arson under PC 28.02(a)(2)(B) — but because the property here is a non-habitation building, PC 28.02(d) keeps this at the second-degree baseline. That baseline only bumps up to a first-degree felony when the property is a habitation, a place of assembly/worship, or someone is injured or killed.
 
 ---
 
@@ -1547,7 +1547,7 @@ A disgruntled ex-employee keys and smashes the windows of several company vehicl
 - [ ] Third Degree Felony
 - [ ] Second Degree Felony
 
-**Explanation:** Same offense as Q72, scaled up — at $18,000 in pecuniary loss (between $2,500 and $30,000), PC 28.03(b)(4)(A) elevates Criminal Mischief to a state jail felony.
+**Explanation:** Intentionally damaging tangible property without the owner's consent is Criminal Mischief under PC 28.03(a)(1), with classification driven entirely by the dollar amount of pecuniary loss — at $18,000 (between $2,500 and $30,000), PC 28.03(b)(4)(A) elevates this to a state jail felony.
 
 ---
 
@@ -1719,7 +1719,7 @@ Overnight, someone pries open a side door of a closed retail store — not a hab
 - [ ] Third Degree Felony
 - [ ] Class A Misdemeanor
 
-**Explanation:** Same core offense as Q80, but the building here is a commercial store, not a habitation — PC 30.02(c)(1) makes burglary of a non-habitation building a state jail felony, a full step below burglary of a habitation.
+**Explanation:** Entering a building without consent with intent to commit theft is Burglary under PC 30.02(a)(1) — but because the building here is a commercial store rather than a habitation, PC 30.02(c)(1) classifies it as a state jail felony, a full step below the second-degree felony that applies when the entry is into a habitation.
 
 ---
 
@@ -1761,7 +1761,7 @@ The same suspect is caught breaking into cars again months later. Records show h
 - [ ] Third Degree Felony
 - [ ] Second Degree Felony
 
-**Explanation:** Same conduct as Q82, but PC 30.04(d)(2)(A) escalates Burglary of Vehicles to a state jail felony once the state proves two or more prior convictions under this section — mirroring the same "priors climb the ladder" pattern seen elsewhere in the Penal Code.
+**Explanation:** Breaking into a vehicle with intent to commit theft is Burglary of Vehicles under PC 30.04(a), normally a Class A misdemeanor on a first offense — but PC 30.04(d)(2)(A) escalates it to a state jail felony once the state proves two or more prior convictions under this section, mirroring the same "priors climb the ladder" pattern seen elsewhere in the Penal Code.
 
 ---
 
@@ -1803,7 +1803,7 @@ A man with a documented history of harassing a former partner is told to leave h
 - [ ] State Jail Felony
 - [ ] Third Degree Felony
 
-**Explanation:** Same core trespass offense as Q84, but PC 30.05(d)(3)(A)(i) elevates Criminal Trespass to a Class A misdemeanor specifically when it's committed in a habitation or shelter center — reflecting the heightened concern with someone unlawfully entering a person's home, particularly in situations that can escalate toward domestic violence.
+**Explanation:** Entering property after notice that entry is forbidden is Criminal Trespass under PC 30.05(a), normally a Class B misdemeanor — but PC 30.05(d)(3)(A)(i) elevates it to a Class A misdemeanor specifically when it's committed in a habitation or shelter center, reflecting the heightened concern with someone unlawfully entering a person's home, particularly in situations that can escalate toward domestic violence.
 
 ---
 
@@ -2038,7 +2038,7 @@ A home health aide steals her 78-year-old client's debit card from her purse and
 - [ ] Second Degree Felony
 - [ ] Class A Misdemeanor
 
-**Explanation:** Same core offense as Q95 — but PC 32.31(d) specifically elevates Credit Card or Debit Card Abuse from a state jail felony to a third-degree felony when the offense is committed against an elderly individual (this fact pattern could also support an Exploitation of the Elderly charge under PC 32.53, but the card-abuse classification itself is what's being tested here).
+**Explanation:** Using a card known not to have been issued to the user and not used with the cardholder's consent is Credit Card or Debit Card Abuse under PC 32.31(b)(1), normally a state jail felony — but PC 32.31(d) specifically elevates it to a third-degree felony when the offense is committed against an elderly individual (this fact pattern could also support an Exploitation of the Elderly charge under PC 32.53, but the card-abuse classification itself is what's being tested here).
 
 ---
 
@@ -2175,7 +2175,7 @@ A business owner terminates an employee and allows him to briefly retrieve his b
 ### Q103 — Scenario
 **LO:** 8.21 · **Source:** PC 33.02(b-1), 33.02(b-2)
 
-The same scenario, but investigation shows the ex-employee didn't just delete records — he accessed the company's financial system specifically intending to alter records to hide $12,000 he'd embezzled before his firing, in violation of a clear written company policy restricting system access to current employees.
+A business owner terminates an employee and allows him to briefly retrieve his belongings unsupervised. Left alone for a few minutes, the ex-employee accesses his old workstation computer — but investigation later shows he didn't just browse; he specifically intended to alter the company's financial system to hide $12,000 he'd embezzled before his firing, in violation of a clear written company policy restricting system access to current employees.
 
 **Offense:**
 - [x] Breach of Computer Security
@@ -2368,7 +2368,7 @@ Before a felony theft trial, a witness is approached by the defendant's family m
 ### Q112 — Scenario
 **LO:** 8.23 · **Source:** PC 36.05(a)(1), 36.05(e)
 
-The same facts as Q111, except the underlying prosecution is a capital murder case, and the family member offers the witness money to change testimony about what they saw.
+Before a capital murder trial, a witness is approached by the defendant's family member and offered money to change their testimony about what they saw. The witness reports the offer to police instead of accepting it. The most serious charge in the underlying case is capital murder.
 
 **Offense:**
 - [x] Tampering with Witness
@@ -2382,7 +2382,7 @@ The same facts as Q111, except the underlying prosecution is a capital murder ca
 - [x] First Degree Felony
 - [ ] Capital Felony
 
-**Explanation:** Same offense as Q111 — but PC 36.05(d) ties the classification to the underlying case's severity, and PC 36.05(e) specifically caps that escalation: if the most serious charge in the underlying case is a capital felony, tampering with a witness in that case is a first-degree felony (not a capital felony itself, since the witness-tamperer didn't commit the murder).
+**Explanation:** Offering a benefit to influence a witness to testify falsely is Tampering with Witness under PC 36.05(a)(1), complete regardless of whether the witness accepts. PC 36.05(d) ties the classification to the underlying case's severity, but PC 36.05(e) specifically caps that escalation: if the most serious charge in the underlying case is a capital felony, tampering with a witness in that case is a first-degree felony (not a capital felony itself, since the witness-tamperer didn't commit the murder).
 
 ---
 
@@ -2510,7 +2510,7 @@ Investigating a homicide, detectives learn a suspect dumped the murder weapon �
 - [ ] State Jail Felony
 - [ ] First Degree Felony
 
-**Explanation:** Same underlying offense as Q117 — concealing evidence with intent to impair its availability — but PC 37.09(c) carries a special, harsher tier: when the thing concealed is a human corpse, Tampering with or Fabricating Physical Evidence is a second-degree felony rather than the usual third-degree.
+**Explanation:** Concealing or destroying something with intent to impair its availability as evidence in an investigation is Tampering with or Fabricating Physical Evidence under PC 37.09(a)(1), normally a third-degree felony — but PC 37.09(c) carries a special, harsher tier: when the thing concealed is a human corpse, the offense is a second-degree felony instead.
 
 ---
 
@@ -2582,7 +2582,7 @@ During a traffic stop, a driver who was lawfully detained tells the officer his 
 ### Q122 — Scenario
 **LO:** 8.25 · **Source:** PC 38.02(b), 38.02(d)(1)
 
-Same facts as Q121 — but records confirm the man was in fact a fugitive from justice with a valid outstanding felony warrant at the time he gave the false name.
+During a traffic stop, a driver who was lawfully detained tells the officer his name is "Joe Smith" with a false date of birth. The officer later verifies the driver's real name is James Smith — and records confirm that at the time he gave the false name, he was in fact a fugitive from justice with a valid outstanding felony warrant.
 
 **Offense:**
 - [x] Failure to Identify
@@ -2596,7 +2596,7 @@ Same facts as Q121 — but records confirm the man was in fact a fugitive from j
 - [ ] State Jail Felony
 - [ ] Third Degree Felony
 
-**Explanation:** Same conduct as Q121, but PC 38.02(d)(1) escalates the classification when the state proves the defendant was a fugitive from justice (someone with a valid outstanding arrest warrant) at the time of the offense — bumping the false-name variant from a Class B to a Class A misdemeanor.
+**Explanation:** Giving a false name and date of birth to an officer who has lawfully detained the person is Failure to Identify under PC 38.02(b), normally a Class B misdemeanor — but PC 38.02(d)(1) escalates the classification when the state proves the defendant was a fugitive from justice (someone with a valid outstanding arrest warrant) at the time of the offense, bumping the false-name variant from a Class B to a Class A misdemeanor.
 
 ---
 
@@ -2987,7 +2987,7 @@ Working undercover downtown, an officer is approached by a person who offers ora
 ### Q141 — Scenario
 **LO:** 8.28 · **Source:** PC 43.02(c)(2)
 
-The same undercover scenario, except records show the person approached has three prior convictions for offering to engage in sexual conduct for a fee under this section.
+Working undercover downtown, an officer is approached by a person who offers oral sex in exchange for $50 — except this time, records show the person has three prior convictions for offering to engage in sexual conduct for a fee under this same section.
 
 **Offense:**
 - [x] Prostitution
@@ -3001,7 +3001,7 @@ The same undercover scenario, except records show the person approached has thre
 - [x] State Jail Felony
 - [ ] Third Degree Felony
 
-**Explanation:** Same offense as Q140, but PC 43.02(c)(2) escalates Prostitution to a state jail felony once the state proves three or more prior convictions under Subsection (a) — a much steeper repeat-offender curve than most misdemeanors in the code.
+**Explanation:** Knowingly offering to engage in sexual conduct for a fee is Prostitution under PC 43.02(a), normally a Class B misdemeanor on a first offense — but PC 43.02(c)(2) escalates it to a state jail felony once the state proves three or more prior convictions under Subsection (a), a much steeper repeat-offender curve than most misdemeanors in the code.
 
 ---
 
