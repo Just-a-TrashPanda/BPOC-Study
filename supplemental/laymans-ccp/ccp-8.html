@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch. 8 – Suppression of Riots and Other Disturbances | TX CCP Layman's Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/laymans-theme.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div>
+      <p class="hero-eyebrow">Code of Criminal Procedure &middot; Layman's Guide</p>
+      <h1>Chapter 8: Suppression of Riots and Other Disturbances</h1>
+    </div>
+    <a class="back" href="index.html">&larr; Guide Index</a>
+  </div>
+  <p class="sub">BPOC 9.6 &mdash; an officer's authority to summon aid, disperse a riot, and the force limits on doing so.</p>
+</header>
+
+<nav class="chips" id="tocChips">
+  <a class="chip" href="#sec-8-01">Art. 8.01</a>
+  <a class="chip" href="#sec-8-04">Art. 8.04–.06</a>
+  <a class="chip" href="#sec-8-07">Art. 8.07</a>
+  <a class="chip" href="#sec-8-09">Art. 8.09</a>
+  <span class="chip-spacer">
+    <button class="chip" type="button" onclick="expandAll()">Expand All</button>
+    <button class="chip ghost" type="button" onclick="collapseAll()">Collapse All</button>
+  </span>
+</nav>
+
+<main>
+
+<div class="sec-card" id="sec-8-01">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 8.01</span>
+    <span class="sec-name">OFFICER MAY REQUIRE AID</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 8.01 – OFFICER MAY REQUIRE AID</h3>
+    <p><em>An officer facing resistance while executing process can deputize bystanders on the spot.</em></p>
+    <p>When an officer authorized to execute process is resisted, or reasonably expects resistance, they may command as many county residents as they think proper to help. If needed, the sheriff may call on any military company in the county to help overcome the resistance and seize/arrest the resisters.</p>
+  </div>
+</div>
+
+<div class="sec-card" id="sec-8-04">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 8.04–.06</span>
+    <span class="sec-name">DISPERSING A RIOT &amp; PERMISSIBLE FORCE</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 8.04 – DISPERSING RIOT</h3>
+    <p><em>Every magistrate or peace officer must act to break up a riot — by order or by arrest.</em></p>
+    <p>Whenever people are assembled in a way that constitutes a riot under the Penal Code, it's the duty of every magistrate or peace officer to make them disperse — either by ordering them to disperse or, if necessary, by arresting the participants, with or without a warrant.</p>
+
+    <h3>Art. 8.05 – OFFICER MAY CALL AID</h3>
+    <p>To disperse a riot, the officer may call on the power of the county the same way they would to execute process (see Art. 8.01).</p>
+
+    <h3>Art. 8.06 – MEANS ADOPTED TO SUPPRESS</h3>
+    <p><em>Force is authorized, but capped at what's actually necessary.</em></p>
+    <p>An officer suppressing a riot — and anyone assisting — is authorized to adopt measures necessary to suppress it, but may not use any greater degree of force than is required to accomplish that.</p>
+  </div>
+</div>
+
+<div class="sec-card" id="sec-8-07">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 8.07</span>
+    <span class="sec-name">UNLAWFUL ASSEMBLY</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 8.07 – UNLAWFUL ASSEMBLY</h3>
+    <p><em>Everything above applies equally to unlawful assemblies, not just full riots.</em></p>
+    <p>The riot-suppression articles in this chapter apply equally to an unlawful assembly and other unlawful disturbances as defined by the Penal Code — the officer isn't limited to acting only once a gathering has technically escalated to a "riot."</p>
+  </div>
+</div>
+
+<div class="sec-card" id="sec-8-09">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 8.09</span>
+    <span class="sec-name">POWER OF SPECIAL CONSTABLE</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 8.09 – POWER OF SPECIAL CONSTABLE</h3>
+    <p><em>A special constable appointed to help with a disturbance has full peace officer authority for that assignment.</em></p>
+    <p>Special constables appointed under this chapter (see Art. 8.08, e.g. to suppress disturbances at elections) exercise the same powers and duties as any peace officer for the duration of their appointment.</p>
+  </div>
+</div>
+
+</main>
+
+<footer>CCP Layman's Guide &middot; Study aid only &mdash; always verify against current statute &middot; Built for study purposes by and for the FWPD Academy class</footer>
+
+<script>
+function toggleSec(el){
+  var hdr = el.closest('.sec-header');
+  var body = hdr.nextElementSibling;
+  hdr.classList.toggle('open');
+  body.classList.toggle('open');
+}
+function expandAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.add('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.add('open');});
+}
+function collapseAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.remove('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.remove('open');});
+}
+window.addEventListener('DOMContentLoaded',function(){
+  var first = document.querySelector('.sec-header');
+  if(first){first.classList.add('open'); first.nextElementSibling.classList.add('open');}
+});
+</script>
+
+</body>
+</html>

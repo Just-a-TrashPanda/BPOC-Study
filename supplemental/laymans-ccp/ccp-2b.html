@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch. 2B – Law Enforcement Interactions with Public | TX CCP Layman's Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/laymans-theme.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div>
+      <p class="hero-eyebrow">Code of Criminal Procedure &middot; Layman's Guide</p>
+      <h1>Chapter 2B: Law Enforcement Interactions with Public</h1>
+    </div>
+    <a class="back" href="index.html">&larr; Guide Index</a>
+  </div>
+  <p class="sub">BPOC 9.3 &mdash; use-of-force intervention duty, prohibited restraint technique, and the duty to render aid.</p>
+</header>
+
+<nav class="chips" id="tocChips">
+  <a class="chip" href="#sec-2b-0251">Art. 2B.0251</a>
+  <a class="chip" href="#sec-2b-0252">Art. 2B.0252</a>
+  <a class="chip" href="#sec-2b-0301">Art. 2B.0301</a>
+  <span class="chip-spacer">
+    <button class="chip" type="button" onclick="expandAll()">Expand All</button>
+    <button class="chip ghost" type="button" onclick="collapseAll()">Collapse All</button>
+  </span>
+</nav>
+
+<main>
+
+<div class="sec-card" id="sec-2b-0251">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 2B.0251</span>
+    <span class="sec-name">INTERVENTION REQUIRED FOR EXCESSIVE FORCE; REPORT REQUIRED</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 2B.0251 – INTERVENTION REQUIRED FOR EXCESSIVE FORCE; REPORT REQUIRED</h3>
+    <p><em>A peace officer has an affirmative duty to step in and stop another officer's excessive force.</em></p>
+    <p>A peace officer must intervene to stop or prevent another officer from using force against a suspect if <strong>all three</strong> of these are true:</p>
+    <ul>
+      <li>The force exceeds what's reasonable under the circumstances, AND</li>
+      <li>The officer knows or should know the force violates state or federal law, AND puts the person at risk of bodily injury without being immediately necessary to prevent imminent bodily injury to an officer or someone else, AND</li>
+      <li>The force isn't required to apprehend the suspect.</li>
+    </ul>
+    <p>An officer who witnesses excessive force by another officer must also promptly file a detailed written report with the offending officer's supervisor.</p>
+    <div class="warn-box"><strong>Why it matters:</strong> this converts bystander inaction into a statutory violation — an officer who sees excessive force and does nothing isn't just breaching policy, they're breaching a Code-imposed legal duty.</div>
+  </div>
+</div>
+
+<div class="sec-card" id="sec-2b-0252">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 2B.0252</span>
+    <span class="sec-name">USE OF NECK RESTRAINTS DURING SEARCH OR ARREST PROHIBITED</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 2B.0252 – USE OF NECK RESTRAINTS DURING SEARCH OR ARREST PROHIBITED</h3>
+    <p><em>Choke holds and carotid restraints are banned except as a last resort against death or serious injury.</em></p>
+    <p>A peace officer may not intentionally use a choke hold, carotid artery hold, or similar neck restraint while searching or arresting someone — <strong>unless</strong> the restraint is necessary to prevent serious bodily injury to, or the death of, the officer or another person. It's a narrow exception, not a general option on the use-of-force continuum.</p>
+  </div>
+</div>
+
+<div class="sec-card" id="sec-2b-0301">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 2B.0301</span>
+    <span class="sec-name">DUTY TO REQUEST AND RENDER AID</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 2B.0301 – DUTY TO REQUEST AND RENDER AID</h3>
+    <p><em>Officers who encounter an injured person on duty must call EMS and provide first aid within their training.</em></p>
+    <p>A peace officer who encounters an injured person while on duty must immediately, as necessary: request EMS, and — while waiting for EMS to arrive — provide first aid or treatment to the extent of the officer's own skill and training.</p>
+    <p>Two exceptions release the officer from this duty:</p>
+    <ul>
+      <li>Requesting help or providing treatment would expose the officer or someone else to a risk of bodily injury, OR</li>
+      <li>The officer is themselves injured and physically unable to request help or provide treatment.</li>
+    </ul>
+  </div>
+</div>
+
+</main>
+
+<footer>CCP Layman's Guide &middot; Study aid only &mdash; always verify against current statute &middot; Built for study purposes by and for the FWPD Academy class</footer>
+
+<script>
+function toggleSec(el){
+  var hdr = el.closest('.sec-header');
+  var body = hdr.nextElementSibling;
+  hdr.classList.toggle('open');
+  body.classList.toggle('open');
+}
+function expandAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.add('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.add('open');});
+}
+function collapseAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.remove('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.remove('open');});
+}
+window.addEventListener('DOMContentLoaded',function(){
+  var first = document.querySelector('.sec-header');
+  if(first){first.classList.add('open'); first.nextElementSibling.classList.add('open');}
+});
+</script>
+
+</body>
+</html>

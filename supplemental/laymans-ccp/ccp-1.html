@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch. 1 – General Provisions | TX CCP Layman's Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/laymans-theme.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div>
+      <p class="hero-eyebrow">Code of Criminal Procedure &middot; Layman's Guide</p>
+      <h1>Chapter 1: General Provisions</h1>
+    </div>
+    <a class="back" href="index.html">&larr; Guide Index</a>
+  </div>
+  <p class="sub">BPOC 9.1 &mdash; the statutory basis for criminal procedure in Texas.</p>
+</header>
+
+<nav class="chips" id="tocChips">
+  <a class="chip" href="#sec-1-01">Art. 1.01</a>
+  <a class="chip" href="#sec-1-03">Art. 1.03</a>
+  <span class="chip-spacer">
+    <button class="chip" type="button" onclick="expandAll()">Expand All</button>
+    <button class="chip ghost" type="button" onclick="collapseAll()">Collapse All</button>
+  </span>
+</nav>
+
+<main>
+<div class="sec-card" id="sec-1-01">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 1.01</span>
+    <span class="sec-name">SHORT TITLE</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 1.01 – SHORT TITLE</h3>
+    <p><em>This is the article that names the code — "the Code of Criminal Procedure."</em></p>
+    <p>A one-line article: the Act that governs criminal procedure in Texas is officially cited as the "Code of Criminal Procedure" (CCP). Every citation you see throughout this guide — "CCP Art. X.XX" — traces back to this naming article.</p>
+  </div>
+</div>
+
+<div class="sec-card" id="sec-1-03">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 1.03</span>
+    <span class="sec-name">OBJECTS OF THIS CODE</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 1.03 – OBJECTS OF THIS CODE</h3>
+    <p><em>The CCP's mission statement — why the code exists and what it's trying to accomplish.</em></p>
+    <p>The Code of Criminal Procedure exists to make the rules for preventing and prosecuting crime clear — both to the officers who work under them and to the people whose rights those rules affect. Article 1.03 lists six goals the Code seeks:</p>
+    <ul>
+      <li><strong>Prevent crime</strong> — adopt measures to stop offenses before they happen.</li>
+      <li><strong>Deny escape</strong> — exclude offenders from any hope of avoiding accountability.</li>
+      <li><strong>Speedy trial</strong> — ensure a trial happens with as little delay as is consistent with justice.</li>
+      <li><strong>Full investigation</strong> — bring all evidence bearing on conviction or acquittal to the trial.</li>
+      <li><strong>Fair trial</strong> — insure the trial itself is fair and impartial.</li>
+      <li><strong>Certain execution</strong> — carry out the sentence the law prescribes once it's declared.</li>
+    </ul>
+    <div class="def-box"><strong>Why it matters:</strong> this article is the lens for interpreting everything else in the Code — when a specific procedural rule is ambiguous, these six objects are what courts fall back on to explain the rule's purpose.</div>
+  </div>
+</div>
+</main>
+
+<footer>CCP Layman's Guide &middot; Study aid only &mdash; always verify against current statute &middot; Built for study purposes by and for the FWPD Academy class</footer>
+
+<script>
+function toggleSec(el){
+  var hdr = el.closest('.sec-header');
+  var body = hdr.nextElementSibling;
+  hdr.classList.toggle('open');
+  body.classList.toggle('open');
+}
+function expandAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.add('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.add('open');});
+}
+function collapseAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.remove('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.remove('open');});
+}
+window.addEventListener('DOMContentLoaded',function(){
+  var first = document.querySelector('.sec-header');
+  if(first){first.classList.add('open'); first.nextElementSibling.classList.add('open');}
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch. 13A – Venue | TX CCP Layman's Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/laymans-theme.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div>
+      <p class="hero-eyebrow">Code of Criminal Procedure &middot; Layman's Guide</p>
+      <h1>Chapter 13A: Venue</h1>
+    </div>
+    <a class="back" href="index.html">&larr; Guide Index</a>
+  </div>
+  <p class="sub">BPOC 9.4 &mdash; where a protective-order violation can be prosecuted.</p>
+</header>
+
+<nav class="chips" id="tocChips">
+  <a class="chip" href="#sec-13a-203">Art. 13A.203</a>
+  <span class="chip-spacer">
+    <button class="chip" type="button" onclick="expandAll()">Expand All</button>
+    <button class="chip ghost" type="button" onclick="collapseAll()">Collapse All</button>
+  </span>
+</nav>
+
+<main>
+
+<div class="warn-box" style="margin:0 0 18px;"><strong>Numbering note — BPOC cites the old article number:</strong> BPOC's Chapter 9 materials cite this rule as "Art. 13.38 – Venue for Protective Order Offenses." That was the correct citation under the old Chapter 13 (Venue), but Chapter 13 has since been fully recodified as <strong>Chapter 13A</strong>. The rule survives — it just moved. The current, correct citation for this exact rule is <strong>Art. 13A.203 &ndash; Protective Order Offenses</strong>. If you see "13.38" on a study sheet, that's the pre-recodification number; "13A.203" is what's actually in force. This is the same kind of citation drift seen elsewhere in BPOC's own materials (e.g. the Chapter 10 case law citations for Payton, Shatzer, Steagald, and Brigham City v. Stuart).</div>
+
+<div class="sec-card" id="sec-13a-203">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 13A.203</span>
+    <span class="sec-name">PROTECTIVE ORDER OFFENSES</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 13A.203 – PROTECTIVE ORDER OFFENSES <span style="font-weight:400; font-size:0.85em; color:var(--ink-soft);">(formerly Art. 13.38)</span></h3>
+    <p><em>You can prosecute a protective-order violation either where the order was issued or where the violation happened — the two don't have to be the same county.</em></p>
+    <p>An offense under Penal Code §25.07 (violation of certain court orders or bond conditions) or §25.072 (repeated violation of certain court orders or bond conditions) may be prosecuted in any county in which:</p>
+    <ul>
+      <li>The protective order was issued, OR</li>
+      <li>The offense was committed — regardless of the identity or location of the court that issued the order.</li>
+    </ul>
+    <div class="def-box"><strong>Why it matters on patrol:</strong> a violation doesn't have to be charged back in the county that originally issued the order. If a protective order was issued in one county and the offender violates it while the victim is temporarily in a different county, that second county can prosecute too — venue follows the violation, not just the paperwork.</div>
+  </div>
+</div>
+
+</main>
+
+<footer>CCP Layman's Guide &middot; Study aid only &mdash; always verify against current statute &middot; Built for study purposes by and for the FWPD Academy class</footer>
+
+<script>
+function toggleSec(el){
+  var hdr = el.closest('.sec-header');
+  var body = hdr.nextElementSibling;
+  hdr.classList.toggle('open');
+  body.classList.toggle('open');
+}
+function expandAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.add('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.add('open');});
+}
+function collapseAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.remove('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.remove('open');});
+}
+window.addEventListener('DOMContentLoaded',function(){
+  var first = document.querySelector('.sec-header');
+  if(first){first.classList.add('open'); first.nextElementSibling.classList.add('open');}
+});
+</script>
+
+</body>
+</html>

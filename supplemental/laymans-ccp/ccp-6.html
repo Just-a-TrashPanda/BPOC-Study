@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch. 6 – Preventing Offenses by Act of Magistrates &amp; Officers | TX CCP Layman's Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/laymans-theme.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div>
+      <p class="hero-eyebrow">Code of Criminal Procedure &middot; Layman's Guide</p>
+      <h1>Chapter 6: Preventing Offenses by Magistrates &amp; Officers</h1>
+    </div>
+    <a class="back" href="index.html">&larr; Guide Index</a>
+  </div>
+  <p class="sub">BPOC 9.5 &mdash; an officer's duty to act when a threat of injury reaches them, and the force limits on doing so.</p>
+</header>
+
+<nav class="chips" id="tocChips">
+  <a class="chip" href="#sec-6-05">Art. 6.05</a>
+  <a class="chip" href="#sec-6-06">Art. 6.06</a>
+  <a class="chip" href="#sec-6-07">Art. 6.07</a>
+  <span class="chip-spacer">
+    <button class="chip" type="button" onclick="expandAll()">Expand All</button>
+    <button class="chip ghost" type="button" onclick="collapseAll()">Collapse All</button>
+  </span>
+</nav>
+
+<main>
+
+<div class="sec-card" id="sec-6-05">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 6.05</span>
+    <span class="sec-name">DUTY OF PEACE OFFICER AS TO THREATS</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 6.05 – DUTY OF PEACE OFFICER AS TO THREATS</h3>
+    <p><em>An officer who learns of a threat — by any means — must act to prevent it.</em></p>
+    <p>When an officer is informed, in any manner, that one person has threatened to injure themselves, another person, or another person's property (including a spouse), the officer must act to prevent the threatened injury if it's within their power. To do this, they may call in any number of citizens in the county to help, and may take the same preventive measures the threatened person themselves could lawfully take.</p>
+  </div>
+</div>
+
+<div class="sec-card" id="sec-6-06">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 6.06</span>
+    <span class="sec-name">PEACE OFFICER TO PREVENT INJURY</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 6.06 – PEACE OFFICER TO PREVENT INJURY</h3>
+    <p><em>If it's happening right in front of the officer, the duty to intervene is even more direct.</em></p>
+    <p>When, in an officer's presence or view, someone is about to commit an offense against another person or their property (or is about to injure themselves), the officer must prevent it — summoning citizens to help if needed. The officer may use only the amount of force necessary to prevent the offense, and no more.</p>
+  </div>
+</div>
+
+<div class="sec-card" id="sec-6-07">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 6.07</span>
+    <span class="sec-name">CONDUCT OF PEACE OFFICER</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 6.07 – CONDUCT OF PEACE OFFICER</h3>
+    <p><em>The officer's use-of-force limits mirror what the potential victim could lawfully do themselves.</em></p>
+    <p>When preventing an offense that's about to be committed in their presence or view, an officer's conduct is regulated by the same rules that govern the person about to be injured — meaning the officer may use all the force necessary to repel the aggression, but is bound by the same self-defense/defense-of-others framework a private citizen would be.</p>
+    <div class="def-box"><strong>Reading Art. 6.05–6.07 together:</strong> the duty to prevent a threatened injury applies whether the officer learns of it secondhand (6.05) or witnesses it directly (6.06) — and in both cases, the force the officer may use is capped at what's necessary, measured against the same rules that would apply to the person being protected (6.07).</div>
+  </div>
+</div>
+
+</main>
+
+<footer>CCP Layman's Guide &middot; Study aid only &mdash; always verify against current statute &middot; Built for study purposes by and for the FWPD Academy class</footer>
+
+<script>
+function toggleSec(el){
+  var hdr = el.closest('.sec-header');
+  var body = hdr.nextElementSibling;
+  hdr.classList.toggle('open');
+  body.classList.toggle('open');
+}
+function expandAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.add('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.add('open');});
+}
+function collapseAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.remove('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.remove('open');});
+}
+window.addEventListener('DOMContentLoaded',function(){
+  var first = document.querySelector('.sec-header');
+  if(first){first.classList.add('open'); first.nextElementSibling.classList.add('open');}
+});
+</script>
+
+</body>
+</html>

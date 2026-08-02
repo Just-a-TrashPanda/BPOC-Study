@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch. 58 – Confidentiality of Identifying Information | TX CCP Layman's Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/laymans-theme.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div>
+      <p class="hero-eyebrow">Code of Criminal Procedure &middot; Layman's Guide</p>
+      <h1>Chapter 58: Confidentiality of Identifying Information</h1>
+    </div>
+    <a class="back" href="index.html">&larr; Guide Index</a>
+  </div>
+  <p class="sub">BPOC 9.8 &mdash; the sexual-offense victim pseudonym system and the criminal penalty for leaking a protected victim's identity.</p>
+</header>
+
+<nav class="chips" id="tocChips">
+  <a class="chip" href="#sec-58-102">Art. 58.102</a>
+  <a class="chip" href="#sec-58-156">Art. 58.156</a>
+  <span class="chip-spacer">
+    <button class="chip" type="button" onclick="expandAll()">Expand All</button>
+    <button class="chip ghost" type="button" onclick="collapseAll()">Collapse All</button>
+  </span>
+</nav>
+
+<main>
+
+<div class="sec-card" id="sec-58-102">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 58.102</span>
+    <span class="sec-name">DESIGNATION OF PSEUDONYM; PSEUDONYM FORM</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 58.102 – DESIGNATION OF PSEUDONYM; PSEUDONYM FORM</h3>
+    <p><em>A sexual assault victim can choose a fake name to be used in every public record about their own case.</em></p>
+    <p>A victim may choose a pseudonym to stand in for their real name in all public files and records concerning the offense — including police summary reports, press releases, and court records. To use this protection, the victim completes a pseudonym form and returns it to either the investigating agency or the prosecutor's office. The Attorney General's Sexual Assault Prevention and Crisis Services Program develops and distributes the standard form (which records the victim's real name, address, phone number, and chosen pseudonym) to every law enforcement agency and prosecutor's office in the state.</p>
+    <div class="def-box"><strong>Where this connects:</strong> Art. 56A.403 requires the responding officer to tell a sexual assault victim about this pseudonym right as part of the mandatory first-contact written notice.</div>
+  </div>
+</div>
+
+<div class="sec-card" id="sec-58-156">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 58.156</span>
+    <span class="sec-name">OFFENSE</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 58.156 – OFFENSE</h3>
+    <p><em>Leaking a pseudonym-protected victim's real identity is itself a crime.</em></p>
+    <p>A public servant commits an offense if they have access to the real name, address, or phone number of a victim (17 or older) who has chosen a pseudonym, and knowingly discloses that information to anyone not assisting in the investigation or prosecution — other than the defendant, the defendant's attorney, or a person specified in a court order.</p>
+    <p>For a victim <strong>younger than 17</strong>, the same prohibition applies more broadly: it covers any public servant <em>or other person</em> who has access to or obtains the protected information, not just those originally granted access. Unless another law requires or permits the disclosure, knowingly disclosing it the same way is an offense.</p>
+    <p>It's an affirmative defense if the person making the disclosure is the victim themselves, or the victim's parent/conservator/guardian — unless that parent/conservator/guardian is the one accused of committing the underlying offense.</p>
+    <div class="warn-box"><strong>Grade:</strong> a violation of this article is a Class C misdemeanor — a fine-only offense, but still a criminal violation for an officer or public servant who mishandles a protected victim's identity.</div>
+  </div>
+</div>
+
+</main>
+
+<footer>CCP Layman's Guide &middot; Study aid only &mdash; always verify against current statute &middot; Built for study purposes by and for the FWPD Academy class</footer>
+
+<script>
+function toggleSec(el){
+  var hdr = el.closest('.sec-header');
+  var body = hdr.nextElementSibling;
+  hdr.classList.toggle('open');
+  body.classList.toggle('open');
+}
+function expandAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.add('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.add('open');});
+}
+function collapseAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.remove('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.remove('open');});
+}
+window.addEventListener('DOMContentLoaded',function(){
+  var first = document.querySelector('.sec-header');
+  if(first){first.classList.add('open'); first.nextElementSibling.classList.add('open');}
+});
+</script>
+
+</body>
+</html>
