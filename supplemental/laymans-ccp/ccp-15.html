@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch. 15 – Arrest Under Warrant | TX CCP Layman's Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/laymans-theme.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div>
+      <p class="hero-eyebrow">Code of Criminal Procedure &middot; Layman's Guide</p>
+      <h1>Chapter 15: Arrest Under Warrant</h1>
+    </div>
+    <a class="back" href="index.html">&larr; Guide Index</a>
+  </div>
+  <p class="sub">BPOC 9.8 &mdash; the polygraph prohibition for sexual-offense complainants. (This guide covers only the article BPOC cites; Chapter 15 as a whole is covered more broadly in the Chapter 10 material.)</p>
+</header>
+
+<nav class="chips" id="tocChips">
+  <a class="chip" href="#sec-15-051">Art. 15.051</a>
+  <span class="chip-spacer">
+    <button class="chip" type="button" onclick="expandAll()">Expand All</button>
+    <button class="chip ghost" type="button" onclick="collapseAll()">Collapse All</button>
+  </span>
+</nav>
+
+<main>
+
+<div class="sec-card" id="sec-15-051">
+  <div class="sec-header" onclick="toggleSec(this)">
+    <span class="sec-num">Art. 15.051</span>
+    <span class="sec-name">POLYGRAPH EXAMINATION OF COMPLAINANT PROHIBITED</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="sec-body">
+    <h3>Art. 15.051 – POLYGRAPH EXAMINATION OF COMPLAINANT PROHIBITED</h3>
+    <p><em>Officers and prosecutors cannot pressure a sexual-offense complainant into a polygraph — and can't use a refusal against them.</em></p>
+    <p>A peace officer or prosecutor may not require, request, or administer a polygraph examination to a person who charges or seeks to charge, in a complaint, the commission of an offense under:</p>
+    <ul>
+      <li>PC §21.02 — Continuous Sexual Abuse of a Young Child or Children</li>
+      <li>PC §21.11 — Indecency with a Child</li>
+      <li>PC §22.011 — Sexual Assault</li>
+      <li>PC §22.021 — Aggravated Sexual Assault</li>
+      <li>PC §25.02 — Prohibited Sexual Conduct (incest)</li>
+    </ul>
+    <p>A complaint under these sections may not be dismissed solely because the complainant declined a polygraph, and may not be dismissed based on the results of a polygraph the complainant did take.</p>
+    <div class="warn-box"><strong>Why it matters on patrol:</strong> this is a bright-line rule — there's no "voluntary" workaround. Suggesting a polygraph to a sexual-assault complainant, even informally, risks violating this article and undermining the case regardless of intent.</div>
+  </div>
+</div>
+
+</main>
+
+<footer>CCP Layman's Guide &middot; Study aid only &mdash; always verify against current statute &middot; Built for study purposes by and for the FWPD Academy class</footer>
+
+<script>
+function toggleSec(el){
+  var hdr = el.closest('.sec-header');
+  var body = hdr.nextElementSibling;
+  hdr.classList.toggle('open');
+  body.classList.toggle('open');
+}
+function expandAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.add('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.add('open');});
+}
+function collapseAll(){
+  document.querySelectorAll('.sec-header').forEach(function(h){h.classList.remove('open');});
+  document.querySelectorAll('.sec-body').forEach(function(b){b.classList.remove('open');});
+}
+window.addEventListener('DOMContentLoaded',function(){
+  var first = document.querySelector('.sec-header');
+  if(first){first.classList.add('open'); first.nextElementSibling.classList.add('open');}
+});
+</script>
+
+</body>
+</html>
