@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Law Reference — BPOC Study Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EFE4; --paper-dim:#EAE4D3; --ink:#221F19; --ink-soft:#5B564A;
+    --navy:#132339; --navy-2:#1C3552; --brass:#B08B3C; --brass-light:#D7B667; --rule:#C9BF9F;
+    --green:#4B6A50; --amber:#9B7E32; --gray:#8B8674; --rust:#A6472E;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans', sans-serif; -webkit-font-smoothing:antialiased;}
+  .cite{font-family:'IBM Plex Mono', monospace; letter-spacing:0.01em;}
+
+  header.hero{background:linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%); color:#EDE7D6; padding:26px 20px 20px; position:relative; overflow:hidden;}
+  header.hero::after{content:""; position:absolute; inset:0; background-image:repeating-linear-gradient(135deg, rgba(215,182,103,0.05) 0 2px, transparent 2px 26px); pointer-events:none;}
+  .hero-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;}
+  .hero-eyebrow{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--brass-light); margin:0 0 6px;}
+  .hero h1{font-family:'IBM Plex Serif', serif; font-weight:700; font-size:22px; line-height:1.15; margin:0;}
+  .back{font-size:12px; color:var(--brass-light); text-decoration:none; font-family:'IBM Plex Mono', monospace; white-space:nowrap;}
+  .hero p.sub{margin:12px 0 0; font-size:13.5px; color:#C8C0AA; max-width:56ch; line-height:1.5;}
+
+  .search-wrap{margin-top:16px; position:relative; max-width:480px;}
+  .search-wrap input{
+    width:100%; padding:10px 14px 10px 38px; border-radius:8px; border:1px solid rgba(255,255,255,0.18);
+    background:rgba(255,255,255,0.08); color:#F3EFE4; font-family:'IBM Plex Sans',sans-serif; font-size:14px; box-sizing:border-box;
+  }
+  .search-wrap input::placeholder{color:#9BA3AE;}
+  .search-wrap input:focus{outline:2px solid var(--brass-light); background:rgba(255,255,255,0.12);}
+  .search-icon{position:absolute; left:12px; top:50%; transform:translateY(-50%); opacity:0.7; font-size:14px;}
+
+  nav.chips{position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:1px solid var(--rule); padding:9px 12px; display:flex; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  nav.chips::-webkit-scrollbar{display:none;}
+  .chip{flex:none; font-family:'IBM Plex Sans', sans-serif; font-size:12px; font-weight:600; padding:6px 12px; border-radius:999px; border:1px solid var(--rule); background:#fff; color:var(--ink-soft); cursor:pointer; white-space:nowrap; transition:all 0.15s ease;}
+  .chip.active{background:var(--navy); border-color:var(--navy); color:#F3EFE4;}
+
+  main{max-width:780px; margin:0 auto; padding:16px 14px 60px;}
+  .search-results-head{font-size:12.5px; color:var(--ink-soft); margin:6px 0 14px;}
+
+  .cat-block{margin:26px 0 12px; padding-bottom:6px; border-bottom:2px solid var(--navy);}
+  .cat-block h2{font-family:'IBM Plex Serif', serif; font-size:16px; margin:0; font-weight:600;}
+
+  .case-card{background:#fff; border:1px solid var(--rule); border-left-width:5px; border-left-color:var(--brass); border-radius:6px; padding:13px 15px; margin-bottom:10px;}
+  .case-name{font-family:'IBM Plex Serif', serif; font-weight:600; font-size:15px; line-height:1.3;}
+  .case-year{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft); margin-left:6px;}
+  .case-holding{font-size:13px; line-height:1.55; margin-top:6px; color:var(--ink);}
+  .case-usedin{font-size:10.5px; font-family:'IBM Plex Mono',monospace; color:var(--brass); margin-top:7px;}
+  .case-correction{font-size:11px; color:var(--rust); margin-top:6px; font-style:italic;}
+
+  footer{text-align:center; padding:26px 14px 12px; font-size:11px; color:var(--ink-soft);}
+
+  @media (min-width:600px){ .hero h1{font-size:26px;} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div>
+      <p class="hero-eyebrow">Fort Worth PD Academy · BPOC Case Law</p>
+      <h1>Case Law Reference</h1>
+    </div>
+    <a class="back" href="index.html">&larr; Hub</a>
+  </div>
+  <p class="sub">Plain-language holdings for the cases covered in class, grouped by the Fourth/Fifth Amendment topic each one addresses.</p>
+  <div class="search-wrap">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="caseSearch" placeholder="Search by case name or topic (e.g. &quot;plain view&quot;, &quot;Terry&quot;)">
+  </div>
+</header>
+
+<nav class="chips" id="catChips"></nav>
+
+<main id="main"></main>
+
+<footer>Case summaries are plain-language study aids, not legal advice — always defer to your instructor's presentation of a case's current holding · Built for study purposes by and for the FWPD Academy class</footer>
+
+<script>
+/* ===================== DATA ===================== */
+// A few names in the source list appeared to be transcription typos; the
+// corrected case name is used below with the original noted for reference.
+const categories = [
+  {id:"pc-rs", label:"Probable Cause & Reasonable Suspicion", cases:[
+    {name:"Brinegar v. United States", year:"1949", holding:"Defined the probable cause standard for arrest: facts and circumstances within an officer's knowledge sufficient to warrant a reasonable, cautious person's belief that an offense has been or is being committed."},
+    {name:"Beck v. Ohio", year:"1964", holding:"Probable cause is judged by objective facts known to the officer at the time — an officer's subjective good-faith belief alone isn't enough. An arrest without objective probable cause violates the Fourth Amendment even if the officer believed in good faith they had grounds."},
+    {name:"Carroll v. United States", year:"1925", holding:"Established the 'automobile exception' — because a vehicle is inherently mobile, police may search it without a warrant if they have probable cause to believe it contains contraband or evidence of a crime."},
+    {name:"Illinois v. Gates", year:"1983", holding:"Adopted the 'totality of the circumstances' test for evaluating probable cause based on an informant's tip, replacing a more rigid two-part test — a practical, common-sense judgment call rather than a technical legal exercise.", usedIn:"Ch. 10, Topic 10.5"}
+  ]},
+  {id:"terry-stops", label:"Investigative Detention (Terry Stops)", cases:[
+    {name:"Terry v. Ohio", year:"1968", holding:"Established that an officer may briefly detain a person based on reasonable suspicion — specific, articulable facts, not just a hunch — and may frisk for weapons if they reasonably believe the person is armed and dangerous. This 'reasonable suspicion' standard sits below probable cause.", usedIn:"Ch. 6, 10"},
+    {name:"United States v. Sokolow", year:"1989", holding:"Reasonable suspicion for a stop can rest on the totality of the circumstances, even where each individual factor, standing alone, would be consistent with innocent behavior.", usedIn:"Ch. 10, Topic 10.1"},
+    {name:"Florida v. Royer", year:"1983", holding:"Marked the line between a consensual encounter and a detention, and held that moving a suspect to a separate room and holding their luggage/ticket exceeded the proper scope of an investigative stop, converting it into a de facto arrest requiring probable cause.", usedIn:"Ch. 10, Topic 10.2"},
+    {name:"United States v. Mendenhall", year:"1980", holding:"Established the 'free to leave' test — a person is seized under the Fourth Amendment only when, given the circumstances, a reasonable person would not feel free to leave or end the encounter.", usedIn:"Ch. 10, Topic 10.2"},
+    {name:"Michigan v. Long", year:"1983", holding:"Extended Terry's frisk doctrine to vehicles — during a lawful stop, an officer with reasonable suspicion a suspect is dangerous and may access a weapon may conduct a protective search of the passenger compartment, limited to areas a weapon could be hidden."}
+  ]},
+  {id:"traffic-stops", label:"Traffic Stops & Vehicle Occupants", cases:[
+    {name:"Pennsylvania v. Mimms", year:"1977", holding:"An officer may order a driver out of a lawfully stopped vehicle without needing any additional justification beyond the stop itself, for officer safety.", usedIn:"Ch. 6, 10"},
+    {name:"Maryland v. Wilson", year:"1997", holding:"Extends the Mimms rule to passengers — an officer may also order passengers out of a lawfully stopped vehicle.", usedIn:"Ch. 6"}
+  ]},
+  {id:"use-of-force", label:"Use of Force", cases:[
+    {name:"Graham v. Connor", year:"1989", holding:"Established the 'objective reasonableness' standard for evaluating an officer's use of force under the Fourth Amendment — judged from the perspective of a reasonable officer on the scene, accounting for the fact that officers often make split-second decisions, not with 20/20 hindsight."}
+  ]},
+  {id:"odor-pc", label:"Odor as Probable Cause (Texas Cases)", cases:[
+    {name:"Dyar v. State", year:"2004", holding:"Texas Court of Criminal Appeals case holding that the smell of marijuana, combined with other circumstances, can support probable cause to search a vehicle."},
+    {name:"Creager v. State", year:"1922", note:"Source list read \"Craegar v. State\" — corrected here; verify against your instructor's materials.", holding:"An early Texas case establishing that the smell of alcohol on a person, combined with other circumstances, can support probable cause for an arrest or search."}
+  ]},
+  {id:"home-arrest", label:"Arrest in or Near a Home", cases:[
+    {name:"Payton v. New York", year:"1980", holding:"Absent exigent circumstances or consent, police may not make a warrantless, nonconsensual entry into a suspect's own home to make a routine felony arrest.", usedIn:"Ch. 10, Topic 10.4"},
+    {name:"Steagald v. United States", year:"1981", holding:"An arrest warrant for a suspect does not by itself authorize entry into a third party's home to look for that suspect — a separate search warrant for the third party's residence is required, absent exigent circumstances or consent.", usedIn:"Ch. 10, Topic 10.7"},
+    {name:"United States v. Santana", year:"1976", holding:"A suspect standing in the doorway of their home is considered to be in a public place for Fourth Amendment purposes and can be arrested there without a warrant; if they retreat inside, officers may pursue in 'hot pursuit' to complete the arrest.", usedIn:"Ch. 10, Topic 10.8"}
+  ]},
+  {id:"sia", label:"Search Incident to Arrest", cases:[
+    {name:"Chimel v. California", year:"1969", holding:"Limits a search incident to arrest to the arrestee's person and the area within their immediate control — the 'wingspan' or grab area where they could reach a weapon or destroy evidence."},
+    {name:"Arizona v. Gant", year:"2009", holding:"Narrowed vehicle searches incident to arrest — police may search a vehicle incident to a recent occupant's arrest only if the arrestee is unsecured and within reaching distance of the passenger compartment, or if it's reasonable to believe the vehicle contains evidence of the offense of arrest."},
+    {name:"Maryland v. Buie", year:"1990", holding:"Allows officers making an in-home arrest to conduct a protective sweep for other dangerous persons — a look into adjoining spaces immediately next to the arrest location requires no justification beyond the arrest itself, while a broader sweep requires reasonable suspicion someone dangerous is present."}
+  ]},
+  {id:"plain-view", label:"Plain View Doctrine", cases:[
+    {name:"Texas v. Brown", year:"1983", holding:"Clarified that an officer doesn't need absolute certainty an item is contraband under plain view — just probable cause to believe it is — and began eroding the idea that discovery must be 'inadvertent.'"},
+    {name:"Horton v. California", year:"1990", holding:"Confirmed that inadvertence is not a required element of a valid plain view seizure — if an officer is lawfully present and an item's incriminating character is immediately apparent, it may be seized even if the officer expected or hoped to find it."}
+  ]},
+  {id:"curtilage", label:"Curtilage, Open Fields & Abandoned Property", cases:[
+    {name:"Florida v. Jardines", year:"2013", holding:"Using a drug-detection dog to sniff at the front porch of a home — part of its curtilage — without a warrant is a Fourth Amendment search."},
+    {name:"California v. Greenwood", year:"1988", holding:"There is no reasonable expectation of privacy in trash left for collection at the curb, so a warrantless search of garbage doesn't violate the Fourth Amendment."}
+  ]},
+  {id:"exigent", label:"Exigent Circumstances", cases:[
+    {name:"Warden v. Hayden", year:"1967", holding:"Established the 'hot pursuit' exigent-circumstances exception, allowing warrantless entry into a home when officers are in hot pursuit of a fleeing felon."},
+    {name:"Brigham City, Utah v. Stuart", year:"2006", note:"Source list read \"Brigham City, Utah v. Smart\" — corrected here; verify against your instructor's materials.", holding:"Officers may make a warrantless entry into a home when they have an objectively reasonable basis to believe an occupant is seriously injured or imminently threatened with injury — the 'emergency aid' exception.", usedIn:"Ch. 10, Topic 10.8"},
+    {name:"Kentucky v. King", year:"2011", holding:"Police-created exigency doesn't bar reliance on the exigent-circumstances exception, so long as officers didn't violate or threaten to violate the Fourth Amendment in creating it — e.g., knocking and announcing themselves is not itself improper even if it prompts occupants to react.", usedIn:"Ch. 10, Topic 10.8"},
+    {name:"Illinois v. McArthur", year:"2001", holding:"Police may briefly prevent a person from re-entering their home — a temporary seizure of the premises — while obtaining a search warrant, where there's probable cause and a reasonable concern evidence will be destroyed."},
+    {name:"Mincey v. Arizona", year:"1978", holding:"Rejected a general 'murder scene exception' to the warrant requirement — police must generally still get a warrant to search a homicide scene absent another recognized exception like true exigency or consent."},
+    {name:"Flippo v. West Virginia", year:"1999", note:"Source list read \"Felino v. West Virginia\" — corrected here; verify against your instructor's materials.", holding:"Reaffirmed Mincey, again rejecting the idea of a general crime-scene exception to the warrant requirement."}
+  ]},
+  {id:"interrogation", label:"Custodial Interrogation", cases:[
+    {name:"Miranda v. Arizona", year:"1966", holding:"Requires officers to advise a suspect of their right to remain silent, that anything said can be used against them, and their right to an attorney (appointed if they can't afford one) before custodial interrogation begins.", usedIn:"Ch. 10, Topic 10.6"},
+    {name:"Maryland v. Shatzer", year:"2010", holding:"A break in Miranda custody of 14 or more days allows police to re-approach a suspect who had previously invoked the right to counsel, without violating that earlier invocation.", usedIn:"Ch. 10, Topic 10.6"}
+  ]}
+];
+
+/* ===================== ENGINE ===================== */
+function renderChips(){
+  const wrap = document.getElementById('catChips');
+  const allChip = document.createElement('button');
+  allChip.className = 'chip active';
+  allChip.textContent = 'All Cases';
+  allChip.dataset.cat = 'all';
+  wrap.appendChild(allChip);
+  categories.forEach(cat => {
+    const b = document.createElement('button');
+    b.className = 'chip';
+    b.textContent = cat.label;
+    b.dataset.cat = cat.id;
+    wrap.appendChild(b);
+  });
+  wrap.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.getElementById('caseSearch').value = '';
+      wrap.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      renderCategories(chip.dataset.cat);
+    });
+  });
+}
+
+function caseCardHtml(c){
+  return `<div class="case-card">
+    <span class="case-name">${c.name}</span><span class="case-year">${c.year}</span>
+    <div class="case-holding">${c.holding}</div>
+    ${c.usedIn ? `<div class="case-usedin">Referenced in: ${c.usedIn}</div>` : ''}
+    ${c.note ? `<div class="case-correction">${c.note}</div>` : ''}
+  </div>`;
+}
+
+function renderCategories(filterId){
+  const main = document.getElementById('main');
+  const cats = filterId === 'all' ? categories : categories.filter(c => c.id === filterId);
+  main.innerHTML = cats.map(cat => `
+    <div class="cat-block"><h2>${cat.label}</h2></div>
+    ${cat.cases.map(caseCardHtml).join('')}
+  `).join('');
+}
+
+function runSearch(query){
+  const q = query.trim().toLowerCase();
+  if(!q){
+    const active = document.querySelector('.chip.active');
+    renderCategories(active ? active.dataset.cat : 'all');
+    return;
+  }
+  let results = [];
+  categories.forEach(cat => {
+    cat.cases.forEach(c => {
+      const hay = (c.name + ' ' + c.holding + ' ' + cat.label).toLowerCase();
+      if(hay.includes(q)) results.push(c);
+    });
+  });
+  const main = document.getElementById('main');
+  main.innerHTML = `<div class="search-results-head">${results.length} result${results.length===1?'':'s'} for "${query}"</div>` +
+    results.map(caseCardHtml).join('');
+}
+
+document.getElementById('caseSearch').addEventListener('input', (e) => runSearch(e.target.value));
+
+renderChips();
+renderCategories('all');
+</script>
+
+</body>
+</html>
