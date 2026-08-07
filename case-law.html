@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Law Reference — BPOC Study Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EFE4; --paper-dim:#EAE4D3; --ink:#221F19; --ink-soft:#5B564A;
+    --navy:#132339; --navy-2:#1C3552; --brass:#B08B3C; --brass-light:#D7B667; --rule:#C9BF9F;
+    --green:#4B6A50; --amber:#9B7E32; --gray:#8B8674; --rust:#A6472E;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans', sans-serif; -webkit-font-smoothing:antialiased;}
+  .cite{font-family:'IBM Plex Mono', monospace; letter-spacing:0.01em;}
+
+  header.hero{background:linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%); color:#EDE7D6; padding:26px 20px 20px; position:relative; overflow:hidden;}
+  header.hero::after{content:""; position:absolute; inset:0; background-image:repeating-linear-gradient(135deg, rgba(215,182,103,0.05) 0 2px, transparent 2px 26px); pointer-events:none;}
+  .hero-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;}
+  .hero-eyebrow{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--brass-light); margin:0 0 6px;}
+  .hero h1{font-family:'IBM Plex Serif', serif; font-weight:700; font-size:22px; line-height:1.15; margin:0;}
+  .back{font-size:12px; color:var(--brass-light); text-decoration:none; font-family:'IBM Plex Mono', monospace; white-space:nowrap;}
+  .hero p.sub{margin:12px 0 0; font-size:13.5px; color:#C8C0AA; max-width:56ch; line-height:1.5;}
+
+  .search-wrap{margin-top:16px; position:relative; max-width:480px;}
+  .search-wrap input{
+    width:100%; padding:10px 14px 10px 38px; border-radius:8px; border:1px solid rgba(255,255,255,0.18);
+    background:rgba(255,255,255,0.08); color:#F3EFE4; font-family:'IBM Plex Sans',sans-serif; font-size:14px; box-sizing:border-box;
+  }
+  .search-wrap input::placeholder{color:#9BA3AE;}
+  .search-wrap input:focus{outline:2px solid var(--brass-light); background:rgba(255,255,255,0.12);}
+  .search-icon{position:absolute; left:12px; top:50%; transform:translateY(-50%); opacity:0.7; font-size:14px;}
+
+  nav.chips{position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:1px solid var(--rule); padding:9px 12px; display:flex; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  nav.chips::-webkit-scrollbar{display:none;}
+  .chip{flex:none; font-family:'IBM Plex Sans', sans-serif; font-size:12px; font-weight:600; padding:6px 12px; border-radius:999px; border:1px solid var(--rule); background:#fff; color:var(--ink-soft); cursor:pointer; white-space:nowrap; transition:all 0.15s ease;}
+  .chip.active{background:var(--navy); border-color:var(--navy); color:#F3EFE4;}
+
+  main{max-width:780px; margin:0 auto; padding:16px 14px 60px;}
+  .search-results-head{font-size:12.5px; color:var(--ink-soft); margin:6px 0 14px;}
+
+  .cat-block{margin:26px 0 12px; padding-bottom:6px; border-bottom:2px solid var(--navy);}
+  .cat-block h2{font-family:'IBM Plex Serif', serif; font-size:16px; margin:0; font-weight:600;}
+
+  .case-card{background:#fff; border:1px solid var(--rule); border-left-width:5px; border-left-color:var(--brass); border-radius:6px; padding:14px 16px 15px; margin-bottom:12px;}
+  .case-name{font-family:'IBM Plex Serif', serif; font-weight:600; font-size:15px; line-height:1.3;}
+  .case-year{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft); margin-left:6px;}
+  .case-section-label{font-family:'IBM Plex Mono', monospace; font-size:9.5px; text-transform:uppercase; letter-spacing:0.07em; color:var(--brass); margin-top:11px; margin-bottom:4px; font-weight:600;}
+  .case-plain{font-size:13px; line-height:1.6; color:var(--ink);}
+  .case-formal{font-size:12.5px; line-height:1.6; color:var(--ink-soft); background:var(--paper-dim); border-radius:5px; padding:9px 11px; border-left:2px solid var(--navy);}
+  .case-usedin{font-size:10.5px; font-family:'IBM Plex Mono',monospace; color:var(--brass); margin-top:9px;}
+  .case-correction{font-size:11px; color:var(--rust); margin-top:6px; font-style:italic;}
+
+  footer{text-align:center; padding:26px 14px 12px; font-size:11px; color:var(--ink-soft);}
+
+  @media (min-width:600px){ .hero h1{font-size:26px;} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div>
+      <p class="hero-eyebrow">Fort Worth PD Academy · BPOC Case Law</p>
+      <h1>Case Law Reference</h1>
+    </div>
+    <a class="back" href="index.html">&larr; Hub</a>
+  </div>
+  <p class="sub">Plain-language holdings for the cases covered in class, grouped by the Fourth/Fifth Amendment topic each one addresses.</p>
+  <div class="search-wrap">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="caseSearch" placeholder="Search by case name or topic (e.g. &quot;plain view&quot;, &quot;Terry&quot;)">
+  </div>
+</header>
+
+<nav class="chips" id="catChips"></nav>
+
+<main id="main"></main>
+
+<footer>Case summaries are plain-language study aids, not legal advice — always defer to your instructor's presentation of a case's current holding · Built for study purposes by and for the FWPD Academy class</footer>
+
+<script>
+/* ===================== DATA ===================== */
+const categories = [
+  {id:"pc-rs", label:"Probable Cause & Reasonable Suspicion", cases:[
+    {name:"Brinegar v. United States", year:"1949", plain:"Federal agents stopped a car they believed was hauling illegal liquor, based on the driver's known bootlegging history and behavior matching his past smuggling runs. The Court used the case to pin down exactly how much certainty an officer needs before making an arrest — more than a hunch, but far less than what's needed to actually convict someone at trial.", formal:"Probable cause exists where the facts and circumstances within an officer's knowledge, and of which the officer has reasonably trustworthy information, are sufficient to warrant a person of reasonable caution in the belief that an offense has been or is being committed."},
+    {name:"Beck v. Ohio", year:"1964", plain:"Police stopped and searched a man on nothing more than a rumor that he \"had a record\" for gambling — no specific facts tied him to any crime that day. The Court threw out the evidence, making clear that an officer's reputation-based hunch isn't enough; the facts behind a stop have to be able to survive being checked by someone else later.", formal:"Whether probable cause exists is determined by the objective facts known to the officer at the time of the arrest; an officer's subjective good faith belief is not sufficient to justify an arrest or search absent objectively reasonable grounds."},
+    {name:"Carroll v. United States", year:"1925", plain:"During Prohibition, federal agents searched a car they suspected was running bootleg liquor between Detroit and Grand Rapids — without stopping to get a warrant first. The Court upheld the search because a car can simply be driven away before a warrant is ever signed, a principle that still underlies every roadside vehicle search today.", formal:"A warrantless search of a vehicle is permissible where there is probable cause to believe the vehicle contains contraband or evidence of a crime, because the vehicle's inherent mobility creates an exigency that would otherwise allow the evidence to be moved beyond the jurisdiction before a warrant could be obtained."},
+    {name:"Illinois v. Gates", year:"1983", plain:"Police received an anonymous letter describing, in specific detail, a couple's drug-trafficking routine. Lower courts had used a rigid, two-part checklist to decide whether a tip like that was trustworthy — the Supreme Court scrapped that checklist for a more flexible, real-world approach to weighing evidence.", formal:"Probable cause is determined by the totality of the circumstances, with an informant's veracity, reliability, and basis of knowledge treated as relevant considerations rather than independent, rigid requirements.", usedIn:"Ch. 10, Topic 10.5"}
+  ]},
+  {id:"terry-stops", label:"Investigative Detention (Terry Stops)", cases:[
+    {name:"Terry v. Ohio", year:"1968", plain:"A Cleveland detective watched two men repeatedly walk past and peer into a store window in a pattern that looked like they were casing it for a robbery. He stopped them and patted them down for weapons, finding a concealed gun. The Court had to decide whether that stop and pat-down required the full probable cause an arrest demands — and ruled that a lesser standard applies to a brief, protective encounter like this one.", formal:"An officer may conduct a brief investigatory stop where the officer has reasonable suspicion, based on specific and articulable facts, that criminal activity is afoot, and may conduct a limited pat-down search for weapons where the officer reasonably believes the person may be armed and dangerous.", usedIn:"Ch. 6, 10"},
+    {name:"United States v. Sokolow", year:"1989", plain:"A man paid cash for a short round-trip plane ticket under a name that didn't match his phone listing, checked no luggage, and seemed unusually nervous — each detail alone was perfectly innocent, but together they matched a drug-courier profile that led DEA agents to stop him.", formal:"Reasonable suspicion may rest on a combination of factors that, viewed under the totality of the circumstances, would lead a trained officer to suspect criminal activity, even where each individual factor is, standing alone, susceptible to an innocent explanation.", usedIn:"Ch. 10, Topic 10.1"},
+    {name:"Florida v. Royer", year:"1983", plain:"Airport detectives approached a man who matched a drug-courier profile, took his ticket and ID without returning them, and moved him to a small room without telling him he was free to go — holding onto his luggage the entire time. By the time they searched his bag, the Court found, this had escalated well past a brief stop into a full arrest that needed real probable cause.", formal:"An investigative detention must be temporary and last no longer than necessary to effectuate the purpose of the stop, using the least intrusive means reasonably available; measures that exceed this scope convert the stop into a de facto arrest requiring probable cause.", usedIn:"Ch. 10, Topic 10.2"},
+    {name:"United States v. Mendenhall", year:"1980", plain:"DEA agents approached a woman in an airport concourse, asked to see her ticket and ID, and asked her to come to their office — which she did without being ordered to. The Court used this case to draw the line for exactly when a police encounter stops being voluntary and legally becomes a \"seizure.\"", formal:"A person has been \"seized\" within the meaning of the Fourth Amendment only if, in view of all the circumstances surrounding the incident, a reasonable person would have believed that they were not free to leave.", usedIn:"Ch. 10, Topic 10.2"},
+    {name:"Michigan v. Long", year:"1983", plain:"Officers stopped a driver who had swerved into a ditch, spotted a hunting knife on the floorboard, and — worried other weapons might be within reach — searched the passenger compartment, turning up marijuana. The Court extended Terry's frisk logic from a person's body to the space immediately around them during a stop.", formal:"During a lawful traffic stop, an officer who possesses reasonable suspicion that a suspect is dangerous and may gain immediate control of a weapon may conduct a protective search of the vehicle's passenger compartment, limited to areas in which a weapon may be placed or hidden."}
+  ]},
+  {id:"traffic-stops", label:"Traffic Stops & Vehicle Occupants", cases:[
+    {name:"Pennsylvania v. Mimms", year:"1977", plain:"An officer pulled a driver over for an expired license plate and, as a routine safety precaution, asked him to step out of the car before writing the ticket. The Court decided this everyday safety step doesn't need any extra justification beyond the stop itself already having been lawful.", formal:"Once a motor vehicle has been lawfully detained, an officer may as a matter of course order the driver to exit the vehicle without violating the Fourth Amendment's prohibition on unreasonable seizures.", usedIn:"Ch. 6, 10"},
+    {name:"Maryland v. Wilson", year:"1997", plain:"The Court took the same officer-safety reasoning from Mimms and extended it to the passenger seat, agreeing that everyone inside a stopped car adds risk to the officer standing beside it — not just the driver.", formal:"The rule of Pennsylvania v. Mimms extends to passengers; an officer may order passengers to exit a lawfully stopped vehicle without independent justification.", usedIn:"Ch. 6"},
+    {name:"Arizona v. Johnson", year:"2009", plain:"Officers on a gang-suppression patrol stopped a car for an expired registration — nothing more than a routine equipment violation, with no reason yet to suspect anyone inside of criminal activity. One officer noticed a backseat passenger, Lemon Johnson, wearing clothing associated with a gang, carrying a police scanner, and learned during conversation that he had a prior weapons conviction and was from a town linked to a specific gang. Suspecting he might be armed, the officer had him step out and patted him down, finding a gun. Johnson argued the frisk was unlawful since it had nothing to do with the reason for the stop.", formal:"During a lawful traffic stop, an officer may conduct a Terry frisk of a passenger — not just the driver — if the officer reasonably suspects that person is armed and dangerous, and may question the passenger on matters unrelated to the stop's original purpose, so long as doing so does not measurably extend the length of the stop."}
+  ]},
+  {id:"stop-duration", label:"Traffic Stop Duration & Scope", cases:[
+    {name:"Graham v. State", year:"1998", plain:"Maryland Court of Special Appeals, 119 Md. App. 444, 705 A.2d 82. Kelly Graham was a passenger in a car lawfully stopped for speeding. Once the stop's original purpose had been fully accomplished, officers nonetheless held Graham at the scene for roughly 25 minutes while they waited for a K-9 unit to arrive and sniff the vehicle. The resulting search turned up cocaine, and Graham was convicted of possession with intent to distribute. On appeal, he argued the extended wait for the dog — with nothing new developing during that time to justify it — turned a lawful traffic stop into an unlawful, prolonged seizure.", formal:"Once the purpose of a lawful traffic stop has been fully and reasonably served, continued detention of the vehicle's occupants is not permitted unless independent grounds for a Terry stop — reasonable, articulable suspicion of criminal activity — emerge during the stop itself."},
+    {name:"Pryor v. State", year:"1998", plain:"Maryland Court of Special Appeals, 122 Md. App. 671, 716 A.2d 338. Detective Griffin had independently verified detailed information from a confidential informant about Plevon Pryor, giving officers not one but two separate lawful bases to stop his vehicle — an observed traffic violation, and independent reasonable suspicion of drug activity. Despite having two valid justifications for the stop, officers then held Pryor at the scene for 20 to 25 minutes waiting for a drug-sniffing canine to arrive, ultimately leading to his conviction for possession with intent to distribute over fifty grams of crack cocaine.", formal:"Even where a vehicle stop is independently justified on two separate lawful grounds, neither justification permits detaining the vehicle's occupants beyond the time reasonably necessary to complete the purposes of those specific stops; a prolonged wait for a canine unit requires its own independent justification."},
+    {name:"Ferris v. State", year:"1999", plain:"Maryland Court of Appeals (the state's highest court), 355 Md. 356, 735 A.2d 491. A trooper clocked Peter Ferris driving 92 mph in a 55 mph zone, stopped him, wrote a speeding citation, and returned his license and registration. Immediately afterward — with the traffic stop's purpose already fulfilled — the trooper asked Ferris if he'd mind stepping to the back of the vehicle to answer more questions. Ferris complied, eventually admitting his passenger had marijuana, and a subsequent search turned up more, leading to his conviction for possession with intent to distribute. The State argued the extended encounter after the citation was issued was merely voluntary and consensual, not a new detention.", formal:"Once the underlying purpose of a traffic stop has concluded — marked by the issuance of a citation and the return of the driver's documents — any further detention or questioning constitutes a new, second seizure requiring independent reasonable suspicion of criminal activity, judged under the totality of the circumstances. Nervousness, bloodshot eyes, and the absence of an alcohol odor, alone or combined, were held insufficient to meet that standard."}
+  ]},
+  {id:"use-of-force", label:"Use of Force", cases:[
+    {name:"Graham v. Connor", year:"1989", plain:"A diabetic man having an insulin reaction acted erratically at a convenience store; officers, believing he was drunk or resisting, restrained him forcefully and he was injured. The Court set the standard for judging whether force like this crosses the line — from the perspective of the officer in that exact moment, not with the benefit of hindsight.", formal:"Claims of excessive force by law enforcement are analyzed under the Fourth Amendment's objective reasonableness standard, judged from the perspective of a reasonable officer on the scene rather than with 20/20 hindsight, and must allow for the fact that officers are often forced to make split-second judgments in tense, uncertain, and rapidly evolving circumstances."}
+  ]},
+  {id:"odor-pc", label:"Odor as Probable Cause (Texas Cases)", cases:[
+    {name:"Dyar v. State", year:"2004", plain:"A Texas trooper smelled burnt marijuana coming from a car during a traffic stop and searched it without a warrant. The Texas Court of Criminal Appeals confirmed that a trained officer's recognition of that smell, by itself, can establish probable cause.", formal:"The odor of marijuana, detected by a person qualified to recognize it, may by itself be sufficient to establish probable cause to search a vehicle."},
+    {name:"Creager v. State", year:"1922", plain:"One of the earliest Texas cases to address whether the smell of alcohol on a person could justify police action, decided not long after Prohibition began — it's still cited today as the root of Texas's odor-based probable cause doctrine.", formal:"The odor of intoxicating liquor on a person's breath, combined with other circumstances indicating unlawful possession or transportation, may support probable cause for an arrest or search."}
+  ]},
+  {id:"home-arrest", label:"Arrest in or Near a Home", cases:[
+    {name:"Payton v. New York", year:"1980", plain:"New York police broke down a murder suspect's apartment door without a warrant to arrest him, relying on a state law that allowed this for any felony. The Supreme Court struck that down — a person's home gets special constitutional protection even from an otherwise perfectly valid arrest.", formal:"The Fourth Amendment prohibits police from making a warrantless, nonconsensual entry into a suspect's home to make a routine felony arrest, absent exigent circumstances.", usedIn:"Ch. 10, Topic 10.4"},
+    {name:"Steagald v. United States", year:"1981", plain:"DEA agents held an arrest warrant for one man but used it to search a completely different person's house, where they found drugs belonging to the homeowner instead. The Court ruled that an arrest warrant only opens the door to the named suspect's own home — not anyone else's.", formal:"An arrest warrant, standing alone, does not authorize law enforcement to search for the subject of the warrant in the home of a third party; absent exigent circumstances or consent, a separate search warrant is required to enter and search that third party's residence.", usedIn:"Ch. 10, Topic 10.7"},
+    {name:"United States v. Santana", year:"1976", plain:"Officers approached a woman standing in her open doorway holding marked drug-buy money; when she retreated inside upon seeing them, they followed her in without a warrant and completed the arrest.", formal:"A person located in the threshold of their home is considered to be in a public place for Fourth Amendment purposes and may be arrested there without a warrant; if the person retreats into the home, officers in hot pursuit may follow to complete a lawful arrest that began in public.", usedIn:"Ch. 10, Topic 10.8"}
+  ]},
+  {id:"sia", label:"Search Incident to Arrest", cases:[
+    {name:"Chimel v. California", year:"1969", plain:"After arresting a man in his own home for burglary, officers searched the entire house — attic, garage, workshop and all — over his repeated objections. The Court reined that in sharply, limiting what officers can search without a warrant after an arrest to just the space within the suspect's own reach.", formal:"A search incident to a lawful arrest is limited to the arrestee's person and the area within their immediate control, from which they might obtain a weapon or destructible evidence; it does not extend to other rooms or areas beyond that reach."},
+    {name:"New York v. Belton", year:"1981", plain:"A state trooper stopped a car for speeding and, after smelling marijuana and spotting an envelope on the floor marked with a name associated with drug use, arrested all four occupants for marijuana possession. After separating and patting down each of them — but before placing anyone in the patrol car — the trooper searched the passenger compartment and found cocaine inside the pocket of a jacket lying on the back seat, belonging to Belton. Belton argued the jacket was too far removed, in both time and location, from his own arrest to justify a warrantless search of it.", formal:"Incident to a lawful custodial arrest of a recent occupant of a vehicle, an officer may search the vehicle's entire passenger compartment, including closed containers found within it — a bright-line rule for consistency in the field.", note:"Significantly narrowed by Arizona v. Gant (2009), which limits this kind of search to situations where the arrestee is unsecured and within reach of the vehicle, or where it's reasonable to believe evidence of the offense of arrest is inside. Belton's original scope no longer fully controls."},
+    {name:"Arizona v. Gant", year:"2009", plain:"After arresting a man for driving on a suspended license and locking him in the back of a patrol car, officers searched his vehicle anyway and found cocaine in a jacket pocket. Since he was already handcuffed with zero chance of reaching the car, the Court found the search went well beyond what Chimel ever allowed.", formal:"A vehicle search incident to a recent occupant's arrest is permitted only when the arrestee is unsecured and within reaching distance of the passenger compartment at the time of the search, or when it is reasonable to believe the vehicle contains evidence relevant to the offense of arrest."},
+    {name:"Maryland v. Buie", year:"1990", plain:"Officers arresting a robbery suspect inside his home did a quick walk-through of the basement \"just in case\" someone else was hiding down there, and spotted incriminating clothing in plain sight along the way. The Court allowed this kind of brief, protective look-around while drawing a clear line short of a full search.", formal:"Incident to an in-home arrest, officers may, as a precautionary matter and without probable cause or reasonable suspicion, look into spaces immediately adjoining the place of arrest from which an attack could be launched; a broader protective sweep of the remainder of the premises requires reasonable suspicion that the area harbors an individual posing a danger."}
+  ]},
+  {id:"standing", label:"Standing & State Authority", cases:[
+    {name:"Brendlin v. California", year:"2007", plain:"Officers ran a car's plates, found the registration tags didn't match the vehicle, and decided to pull it over — before confirming any actual traffic violation. One officer recognized the passenger, Bruce Brendlin, as a parole violator with an outstanding warrant, arrested him, and a search incident to that arrest turned up materials for manufacturing methamphetamine. Brendlin tried to suppress the evidence, arguing the initial stop itself was unlawful and that he, as a passenger, had been seized by it just as much as the driver. California's courts disagreed, holding that only the driver is \"seized\" by a traffic stop — meaning only the driver could challenge it.", formal:"A passenger in a vehicle stopped by police is \"seized\" within the meaning of the Fourth Amendment for the duration of the stop, just as the driver is, and therefore has standing to challenge the constitutionality of the stop itself."},
+    {name:"Virginia v. Moore", year:"2008", plain:"Virginia police learned David Moore was driving on a suspended license — an offense for which Virginia law actually directed officers to issue a citation and release him, not make a custodial arrest. Officers arrested him anyway, and a search incident to that arrest turned up crack cocaine. Moore argued that because his arrest violated the specific procedure state law required, it was also unreasonable — and therefore unconstitutional — under the Fourth Amendment.", formal:"An arrest supported by probable cause satisfies the Fourth Amendment's reasonableness requirement even if it violates a state law directing officers to issue a citation rather than make a custodial arrest for that particular offense; state law does not define the scope of federal constitutional protection."}
+  ]},
+  {id:"plain-view", label:"Plain View Doctrine", cases:[
+    {name:"Texas v. Brown", year:"1983", plain:"An officer at a driver's license checkpoint noticed a balloon knotted off in a way commonly used to carry drugs, sitting in a driver's open glove compartment, and seized it on the spot. The Court used the case to loosen up the plain view doctrine's older, stricter rules.", formal:"An item may be seized under the plain view doctrine where the officer has probable cause to believe it is contraband or evidence, even without absolute certainty of its incriminating nature."},
+    {name:"Horton v. California", year:"1990", plain:"Officers searching a home under a warrant for stolen jewelry also spotted, in plain sight, the weapons used in a related armed robbery — weapons they had actually expected (and hoped) to find, even though the warrant itself never listed them.", formal:"The discovery of evidence in plain view need not be inadvertent to be lawfully seized; a valid plain view seizure requires only that the officer be lawfully present, have lawful access to the object, and that the object's incriminating character be immediately apparent."}
+  ]},
+  {id:"curtilage", label:"Curtilage, Open Fields & Abandoned Property", cases:[
+    {name:"Florida v. Jardines", year:"2013", plain:"Acting on an anonymous tip, police brought a trained drug-sniffing dog right up to the front porch of a home, where the dog alerted at the front door. The Court held that walking a police dog onto a home's porch specifically to gather evidence is itself a search, not just a knock-and-talk.", formal:"The government's use of a trained narcotics-detection dog to investigate a home's front porch constitutes a \"search\" within the meaning of the Fourth Amendment, because officers gathered information within the curtilage of the home without a license to be there for that purpose.", usedIn:"Ch. 7"},
+    {name:"California v. Greenwood", year:"1988", plain:"Police went through a suspected drug dealer's trash bags left out at the curb for collection, without a warrant, and used what they found inside to secure a search warrant for his house.", formal:"A person has no reasonable expectation of privacy in garbage left for collection outside the curtilage of the home, because it is readily accessible to the public and has been voluntarily conveyed to a third party for the express purpose of disposal."}
+  ]},
+  {id:"exigent", label:"Exigent Circumstances", cases:[
+    {name:"Warden v. Hayden", year:"1967", plain:"Officers chased an armed robbery suspect into his home just minutes after the crime and searched the house for both the suspect and his weapon, without stopping for a warrant.", formal:"The Fourth Amendment does not require officers to delay an arrest to obtain a warrant when they are in hot pursuit of a fleeing felon, and they may search the premises for the suspect and for weapons that could be used against them during the arrest."},
+    {name:"Brigham City, Utah v. Stuart", year:"2006", plain:"Officers responding to a loud house party looked through a window and saw a physical fight in progress inside, including a juvenile punching an adult hard enough to draw blood — and entered without a warrant to break it up.", formal:"Police may enter a home without a warrant when they have an objectively reasonable basis for believing an occupant is seriously injured or imminently threatened with such injury, regardless of the officers' subjective motive for entering.", usedIn:"Ch. 10, Topic 10.8"},
+    {name:"Kentucky v. King", year:"2011", plain:"Officers chasing a drug suspect lost sight of him near an apartment breezeway, smelled marijuana coming from one door, and knocked loudly. Hearing movement inside that sounded like evidence being destroyed, they forced their way in without ever getting a warrant.", formal:"Where police do not create an exigency through an actual or threatened violation of the Fourth Amendment, the exigent-circumstances exception applies even if the exigency was foreseeable, or was brought about by the occupants' own reaction to a lawful police knock and announcement.", usedIn:"Ch. 10, Topic 10.8"},
+    {name:"Illinois v. McArthur", year:"2001", plain:"Police had probable cause to believe a man had hidden marijuana inside his trailer, but hadn't yet obtained a warrant. To keep him from destroying it, they told him he couldn't go back inside unaccompanied until the warrant arrived roughly two hours later.", formal:"Police may temporarily restrict a person's access to their home, without a warrant, where there is probable cause to believe the home contains evidence of a crime and a reasonable concern that the evidence will be destroyed unless the home is secured, provided the restriction is limited in both scope and duration."},
+    {name:"Mincey v. Arizona", year:"1978", plain:"After an undercover drug raid turned into a shootout inside an apartment, homicide investigators searched the entire apartment for four days straight without a warrant, arguing that any scene involving a death was automatically fair game.", formal:"There is no general \"murder scene exception\" to the Fourth Amendment's warrant requirement; a warrantless search of the scene of a homicide is not justified merely because a death occurred there, absent another recognized exception such as genuine exigency or consent."},
+    {name:"Flippo v. West Virginia", year:"1999", plain:"Investigators searched a cabin for roughly 16 hours following a fatal attack, without a warrant, leaning on the same \"crime scene\" reasoning the Supreme Court had already rejected two decades earlier in Mincey.", formal:"Reaffirming Mincey v. Arizona, there is no general crime-scene exception to the warrant requirement, regardless of the severity of the underlying offense."}
+  ]},
+  {id:"interrogation", label:"Custodial Interrogation", cases:[
+    {name:"Miranda v. Arizona", year:"1966", plain:"A suspect confessed to kidnapping and rape after two hours of police questioning, having never once been told he had a right to a lawyer or a right to stay silent. The Court's ruling created the now-familiar warnings read to every arrestee before an interrogation begins.", formal:"Prior to any custodial interrogation, a suspect must be warned that they have the right to remain silent, that anything they say may be used against them in court, that they have the right to the presence of an attorney, and that if they cannot afford one, an attorney will be appointed for them; statements obtained in violation of these warnings are generally inadmissible.", usedIn:"Ch. 10, Topic 10.6"},
+    {name:"Maryland v. Shatzer", year:"2010", plain:"A suspect invoked his right to counsel during a prison interview, was released back into the general prison population afterward, and was approached again about the same crime nearly three years later — this time he waived his rights and confessed.", formal:"Where a suspect who has invoked the right to counsel experiences a break in Miranda custody of 14 days or more, law enforcement may resume questioning without violating the earlier invocation, because the coercive pressure of continuous custody that originally justified the rule has dissipated.", usedIn:"Ch. 10, Topic 10.6"}
+  ]}
+];
+
+/* ===================== ENGINE ===================== */
+function renderChips(){
+  const wrap = document.getElementById('catChips');
+  const allChip = document.createElement('button');
+  allChip.className = 'chip active';
+  allChip.textContent = 'All Cases';
+  allChip.dataset.cat = 'all';
+  wrap.appendChild(allChip);
+  categories.forEach(cat => {
+    const b = document.createElement('button');
+    b.className = 'chip';
+    b.textContent = cat.label;
+    b.dataset.cat = cat.id;
+    wrap.appendChild(b);
+  });
+  wrap.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.getElementById('caseSearch').value = '';
+      wrap.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      renderCategories(chip.dataset.cat);
+    });
+  });
+}
+
+function caseCardHtml(c){
+  return `<div class="case-card">
+    <span class="case-name">${c.name}</span><span class="case-year">${c.year}</span>
+    <div class="case-section-label">In Plain Language</div>
+    <div class="case-plain">${c.plain}</div>
+    <div class="case-section-label">The Formal Holding</div>
+    <div class="case-formal">${c.formal}</div>
+    ${c.usedIn ? `<div class="case-usedin">Referenced in: ${c.usedIn}</div>` : ''}
+    ${c.note ? `<div class="case-correction">${c.note}</div>` : ''}
+  </div>`;
+}
+
+function renderCategories(filterId){
+  const main = document.getElementById('main');
+  const cats = filterId === 'all' ? categories : categories.filter(c => c.id === filterId);
+  main.innerHTML = cats.map(cat => `
+    <div class="cat-block"><h2>${cat.label}</h2></div>
+    ${cat.cases.map(caseCardHtml).join('')}
+  `).join('');
+}
+
+function runSearch(query){
+  const q = query.trim().toLowerCase();
+  if(!q){
+    const active = document.querySelector('.chip.active');
+    renderCategories(active ? active.dataset.cat : 'all');
+    return;
+  }
+  let results = [];
+  categories.forEach(cat => {
+    cat.cases.forEach(c => {
+      const hay = (c.name + ' ' + c.plain + ' ' + c.formal + ' ' + cat.label).toLowerCase();
+      if(hay.includes(q)) results.push(c);
+    });
+  });
+  const main = document.getElementById('main');
+  main.innerHTML = `<div class="search-results-head">${results.length} result${results.length===1?'':'s'} for "${query}"</div>` +
+    results.map(caseCardHtml).join('');
+}
+
+document.getElementById('caseSearch').addEventListener('input', (e) => runSearch(e.target.value));
+
+renderChips();
+renderCategories('all');
+</script>
+
+</body>
+</html>

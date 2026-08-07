@@ -804,6 +804,43 @@ const chapters = [
          body:"56A.051 sets general crime victim rights (notice of proceedings, right to be present, right to information about the case). 56A.052 adds rights specific to sexual assault, indecent assault, stalking, or trafficking victims — including the enhanced notice and advocate-presence rights covered in Chapter 9, Topic 9.8."}
       ]}
     ]
+  },
+  {num:13, title:"Consular Notification", status:"live",
+    unit:"Unit Goal: Duties and responsibilities of the officer regarding consular notification.",
+    topics:[
+      {id:"vccr-basics", label:"13.1 Vienna Convention Basics", cards:[
+        {lo:"13.1", title:"The Basic Rule", cite:"VCCR Article 36",
+         body:"A foreign national who is detained must be informed of their right to have their consulate notified. The arrestee's decision (whether they want notification or not) must be documented in writing. This right applies to <b>every</b> foreign detainee — regardless of their immigration status, including someone in the country illegally."},
+        {lo:"13.1", title:"Article 36 — Communication and Contact with Nationals of the Sending State",
+         body:"The treaty text itself guarantees: consular officers are free to communicate with and have access to their nationals, and nationals have equal freedom to communicate with their consulate; if the detained person requests it, the receiving state's authorities must inform that person's consulate <b>without delay</b>, and must forward any communication the detainee addresses to their consulate; and consular officers have the right to visit, converse with, correspond with, and arrange legal representation for their detained nationals — unless that national expressly objects to consular involvement. These rights are exercised under the receiving state's own laws, but those laws can't be applied in a way that defeats the purpose of the treaty right."},
+        {lo:"13.1", title:"Mandatory Notification vs. Right to Privacy",
+         body:"For most countries, notification only happens if the detainee <b>asks</b> for it. But certain countries have <b>bilateral treaties</b> with the U.S. that make notification mandatory regardless of the detainee's wishes — refer to the State Department's Consular Notification and Access (CNA) handbook and reference card to check whether a given country is on the mandatory list. The general right to privacy in whether a detainee wants their consulate involved does not apply to those mandatory-notification countries — for VCCR-only countries (not covered by a mandatory bilateral treaty), the detainee's privacy and choice should be respected."}
+      ]},
+      {id:"arrest-steps", label:"13.2 Steps When Arresting a Foreign National", cards:[
+        {lo:"13.2", title:"The Notification Checklist",
+         body:"<ul><li>Ask the detainee whether they are a U.S. citizen</li><li>Check the list of mandatory-notification countries — if the detainee's country requires it, notify their consulate without delay (most bilateral treaties allow a maximum of <b>72 hours</b> to make notification)</li><li>If their country isn't on the mandatory list, ask whether they want their consulate notified</li><li>Keep a written record of the detainee's response</li><li>Document the notification itself: date, time, method used, and who was notified</li></ul>"}
+      ]},
+      {id:"vccr-purpose", label:"13.3 Purpose of the VCCR", cards:[
+        {lo:"13.3", title:"Why This Treaty Exists",
+         body:"The Vienna Convention on Consular Relations and related bilateral treaties make notification a legal obligation so that a foreign national is never placed in a situation where they can't receive assistance from their own government while detained in a foreign country — a protection U.S. citizens also rely on when traveling or detained abroad."}
+      ]},
+      {id:"consular-access", label:"13.4 Consular Access & Officer Rationale", cards:[
+        {lo:"13.4", title:"Forms of Consular Access",
+         body:"Once notified, a consular official may visit, call, or write to their detained national — subject to the detention facility's own regulations on security, timing, and manner of visits. A consular officer's services typically include arranging legal representation, monitoring the case's progress, helping ensure a fair trial, monitoring conditions of confinement, and providing reading material, food, medicine, or other necessities."},
+        {lo:"13.4", title:"Why Officers Should Take This Seriously",
+         body:"<b>Legal reasons</b> — it's simply the law of the land, binding under a ratified treaty. <b>Policy reasons</b> — reciprocity: the same protection is what protects American citizens detained overseas. <b>Pragmatic reasons</b> — skipping notification invites investigation and litigation against the officer and agency."}
+      ]},
+      {id:"practical-scenarios", label:"13.5 Applying the Notification Card", cards:[
+        {lo:"13.5", title:"Using the Pocket Card in the Field",
+         body:"The Consular Notification and Access reference card provides the exact scripted statements to read a detainee based on their situation — Statement #1 for a detainee whose country isn't on the mandatory list (asking if they want notification), Statement #2 for a detainee whose country requires mandatory notification (informing them it will happen regardless of their preference). Getting the right statement matched to the right country is the actual skill being tested here — not just knowing that notification exists."},
+        {lo:"13.5", title:"Working Example",
+         body:"An arrestee turns out to be a citizen of a mandatory-notification country. The officer reads Statement #2 (mandatory notification is happening either way), records the detainee's response for the file regardless of what they said, and proceeds to notify that country's consulate without delay — logging the date, time, method of contact, and the specific person or office contacted on the other end."}
+      ]},
+      {id:"diplomatic-immunity", label:"Bonus: Diplomatic Immunity", cards:[
+        {lo:"13.x", title:"The C.A.N. Principle",
+         body:"When encountering someone claiming diplomatic immunity, officers can still take action — immunity doesn't mean \"do nothing\":<ul><li><b>C</b>ALL the State Department's Office of Foreign Missions to verify the person's actual immunity status before assuming the claim is valid</li><li><b>A</b>SSIST by documenting the incident thoroughly through normal procedures and issuing any citations that would normally apply — anyone can still receive a traffic citation regardless of immunity status</li><li><b>N</b>OTIFY the State Department by sending copies of all citations and reports to their Office of Foreign Missions</li></ul>Officer and public safety always come first — immunity is respected, but thorough documentation is what allows the State Department to pursue the matter through diplomatic channels afterward (like a tour termination or immunity waiver request)."}
+      ]}
+    ]
   }
 ];
-for(let i=11;i<=43;i++){ chapters.push({num:i, title:"Chapter "+i, status:"locked"}); }
+for(let i=11;i<=43;i++){ if(i===13) continue; chapters.push({num:i, title:"Chapter "+i, status:"locked"}); }
